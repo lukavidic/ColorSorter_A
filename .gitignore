@@ -17,3 +17,6 @@ Makefile
 compile_commands.json
 *.exe
 .ccls-cache/
+*.pdf
+*.PDF
+*.png
