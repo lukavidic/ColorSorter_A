@@ -1984,7 +1984,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "~"
+		(property "Value" "0.1u"
 			(at 96.52 95.2499 90)
 			(effects
 				(font
@@ -2105,7 +2105,7 @@
 				)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "200"
 			(at 109.22 69.85 90)
 			(effects
 				(font
@@ -2486,7 +2486,6 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "7a1bd96c-a229-4ae1-9b35-fb993fdb7731")
 		(property "Reference" "#PWR07"
 			(at 105.41 104.14 0)
@@ -2498,7 +2497,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 96.52 104.14 0)
+			(at 96.52 104.14 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2563,8 +2562,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "~"
-			(at 165.0999 97.79 90)
+		(property "Value" "10u"
+			(at 165.0999 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2685,7 +2684,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R"
+		(property "Value" "10k"
 			(at 102.87 67.3099 0)
 			(effects
 				(font
