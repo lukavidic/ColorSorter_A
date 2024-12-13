@@ -4175,6 +4175,16 @@
 		)
 		(uuid "12be3f66-3728-4a6d-9e30-eb3b3435e83c")
 	)
+	(text "Naci na internetu otpornike"
+		(exclude_from_sim no)
+		(at 104.394 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "14462399-2a7d-48bd-9d27-f160d8ec455f")
+	)
 	(text "PWM"
 		(exclude_from_sim no)
 		(at 222.25 116.84 0)
@@ -4196,6 +4206,16 @@
 			)
 		)
 		(uuid "43180974-e4ce-49b4-b36d-46657f847f47")
+	)
+	(text "Dodati decoupling capacitors"
+		(exclude_from_sim no)
+		(at 248.412 81.026 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "51c63524-67fc-479a-8e85-746ba0111e4c")
 	)
 	(text "VSS"
 		(exclude_from_sim no)
@@ -4240,6 +4260,26 @@
 			)
 		)
 		(uuid "9732b4e7-1a8a-4f2a-a27b-33cfe64ddfd9")
+	)
+	(text "Dodati jos jedan decoupling capacitor 10n\n"
+		(exclude_from_sim no)
+		(at 43.434 18.288 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "d0456997-1cd9-477f-8f2c-0149df64f2a2")
+	)
+	(text "Konfigurasti external oscillator"
+		(exclude_from_sim no)
+		(at 84.074 91.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "dbd873dc-68c0-4630-8329-596d51fcd798")
 	)
 	(label "RB13"
 		(at 224.79 102.87 0)
@@ -5250,7 +5290,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100u"
+		(property "Value" "100n"
 			(at 149.86 69.8499 90)
 			(effects
 				(font
@@ -5439,7 +5479,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100u"
+		(property "Value" "100n"
 			(at 82.55 115.5699 90)
 			(effects
 				(font
@@ -6505,7 +6545,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10n"
+		(property "Value" "10u"
 			(at 97.79 115.5699 90)
 			(effects
 				(font
@@ -7664,7 +7704,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10n"
+		(property "Value" "10u"
 			(at 165.1 69.8499 90)
 			(effects
 				(font
