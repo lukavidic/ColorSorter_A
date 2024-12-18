@@ -5,6 +5,209 @@
 	(uuid "be652b9a-b406-4c1b-9f3b-1d87964716dc")
 	(paper "A4")
 	(lib_symbols
+		(symbol "830108288709:830108288709"
+			(pin_names
+				(offset 0.762)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "Y"
+				(at 36.83 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "830108288709"
+				(at 36.83 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "830108288709"
+				(at 36.83 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.we-online.com/catalog/datasheet/830108340709.pdf"
+				(at 36.83 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Description" "Standard 3.2 x 2.5mm SMD crystal in a ceramic package with a seam sealed metal lid, hermetically sealed"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description_1" "Standard 3.2 x 2.5mm SMD crystal in a ceramic package with a seam sealed metal lid, hermetically sealed"
+				(at 36.83 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Height" "0.5"
+				(at 36.83 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Mouser Part Number" "710-830108288709"
+				(at 36.83 -7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/830108288709?qs=hd1VzrDQEGh1P0bXtFDXZQ%3D%3D"
+				(at 36.83 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Name" "Wurth Elektronik"
+				(at 36.83 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Manufacturer_Part_Number" "830108288709"
+				(at 36.83 -15.24 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(symbol "830108288709_0_0"
+				(pin passive line
+					(at 0 -2.54 0)
+					(length 5.08)
+					(name "CRYSTAL_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 -2.54 180)
+					(length 5.08)
+					(name "GND_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 40.64 0 180)
+					(length 5.08)
+					(name "CRYSTAL_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 0 0)
+					(length 5.08)
+					(name "GND_2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "830108288709_0_1"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 35.56 2.54) (xy 35.56 -5.08) (xy 5.08 -5.08) (xy 5.08 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+		)
 		(symbol "C0805C106M4PACTU:C0805C106M4PACTU"
 			(pin_names hide)
 			(exclude_from_sim no)
@@ -3265,6 +3468,12 @@
 		(uuid "88fc5eb3-8319-4993-96b9-0afaf1df723a")
 	)
 	(junction
+		(at 59.69 93.98)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "8da3f2b9-628a-4bbc-93cb-ad8e1ec9e009")
+	)
+	(junction
 		(at 92.71 111.76)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3307,6 +3516,12 @@
 		(uuid "d4440ca5-0c3b-4381-af92-75fa64fd52d2")
 	)
 	(junction
+		(at 25.4 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e2d70319-f320-407a-8c9a-0b149937b220")
+	)
+	(junction
 		(at 44.45 33.02)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3321,6 +3536,26 @@
 			(type default)
 		)
 		(uuid "02bb484a-7703-441c-b170-7c17e1aa821e")
+	)
+	(wire
+		(pts
+			(xy 25.4 101.6) (xy 25.4 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "033c0ef5-b058-45a1-8589-52b727521a8f")
+	)
+	(wire
+		(pts
+			(xy 74.93 96.52) (xy 110.49 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0350d61c-daee-4a89-931b-b8247676d8d6")
 	)
 	(wire
 		(pts
@@ -3474,7 +3709,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 83.82) (xy 73.66 83.82)
+			(xy 68.58 50.8) (xy 72.39 50.8)
 		)
 		(stroke
 			(width 0)
@@ -3514,6 +3749,16 @@
 	)
 	(wire
 		(pts
+			(xy 69.85 58.42) (xy 69.85 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a23f8ca-5ead-43cc-ac3e-904505ff581d")
+	)
+	(wire
+		(pts
 			(xy 58.42 33.02) (xy 44.45 33.02)
 		)
 		(stroke
@@ -3531,6 +3776,16 @@
 			(type default)
 		)
 		(uuid "2ea6a13b-e63a-4244-a21f-0e700e92de18")
+	)
+	(wire
+		(pts
+			(xy 54.61 96.52) (xy 59.69 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "306a1213-2b02-42a4-a801-8a21599d7a0e")
 	)
 	(wire
 		(pts
@@ -3561,6 +3816,16 @@
 			(type default)
 		)
 		(uuid "36953045-4df9-4a47-b60a-bfc3596000e7")
+	)
+	(wire
+		(pts
+			(xy 110.49 99.06) (xy 85.09 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4205747b-7dff-408f-95fa-ad4a3fba102f")
 	)
 	(wire
 		(pts
@@ -3644,6 +3909,16 @@
 	)
 	(wire
 		(pts
+			(xy 59.69 88.9) (xy 59.69 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "569fb379-8a67-4e3f-bdbe-9c5527619374")
+	)
+	(wire
+		(pts
 			(xy 44.45 31.75) (xy 44.45 33.02)
 		)
 		(stroke
@@ -3694,6 +3969,16 @@
 	)
 	(wire
 		(pts
+			(xy 25.4 101.6) (xy 74.93 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "69e20c79-45aa-428e-935a-7bd5e435cb25")
+	)
+	(wire
+		(pts
 			(xy 207.01 120.65) (xy 219.71 120.65)
 		)
 		(stroke
@@ -3711,6 +3996,16 @@
 			(type default)
 		)
 		(uuid "7509769a-fa70-4ed8-ba82-01216bbb447e")
+	)
+	(wire
+		(pts
+			(xy 59.69 93.98) (xy 110.49 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76fe4b06-0aaf-4f0c-a725-372fc673fed3")
 	)
 	(wire
 		(pts
@@ -3774,6 +4069,16 @@
 	)
 	(wire
 		(pts
+			(xy 13.97 96.52) (xy 13.97 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "81719389-5e8f-47ff-a3f1-a85f2aa34da7")
+	)
+	(wire
+		(pts
 			(xy 260.35 111.76) (xy 261.62 111.76)
 		)
 		(stroke
@@ -3834,6 +4139,26 @@
 	)
 	(wire
 		(pts
+			(xy 13.97 101.6) (xy 25.4 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "90d3450b-2e8b-4e19-af77-648fa80e5500")
+	)
+	(wire
+		(pts
+			(xy 85.09 99.06) (xy 85.09 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "93b8026e-0ba8-4b7d-9d1a-a4375efd3dca")
+	)
+	(wire
+		(pts
 			(xy 215.9 64.77) (xy 215.9 68.58)
 		)
 		(stroke
@@ -3854,13 +4179,13 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 81.28) (xy 78.74 48.26)
+			(xy 25.4 118.11) (xy 25.4 120.65)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "97124975-7887-49f4-a660-6c4daacc97cb")
+		(uuid "96deee7a-5a3f-4c22-aa71-b1f27749f467")
 	)
 	(wire
 		(pts
@@ -3954,6 +4279,16 @@
 	)
 	(wire
 		(pts
+			(xy 13.97 81.28) (xy 13.97 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a6f33bc7-cbfb-4531-a019-20e6255aabc0")
+	)
+	(wire
+		(pts
 			(xy 88.9 44.45) (xy 88.9 48.26)
 		)
 		(stroke
@@ -3961,6 +4296,16 @@
 			(type default)
 		)
 		(uuid "a9a75923-6833-42b2-b4ba-016021ebb091")
+	)
+	(wire
+		(pts
+			(xy 71.12 88.9) (xy 110.49 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ace710ba-8e11-42b1-93e7-295fc562dd60")
 	)
 	(wire
 		(pts
@@ -3984,23 +4329,13 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 86.36) (xy 73.66 86.36)
+			(xy 68.58 53.34) (xy 72.39 53.34)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "b7c7aaa6-055b-4742-9fa8-b54d969dcf3b")
-	)
-	(wire
-		(pts
-			(xy 78.74 48.26) (xy 88.9 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b85e2e0e-8488-402d-bb9e-1ee9b40762bd")
 	)
 	(wire
 		(pts
@@ -4034,7 +4369,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 91.44) (xy 110.49 91.44)
+			(xy 68.58 58.42) (xy 69.85 58.42)
 		)
 		(stroke
 			(width 0)
@@ -4044,23 +4379,13 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 88.9) (xy 110.49 88.9)
+			(xy 68.58 55.88) (xy 71.12 55.88)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "bb018056-fcf4-4108-857f-118318b73a00")
-	)
-	(wire
-		(pts
-			(xy 91.44 99.06) (xy 110.49 99.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc2ee0f0-17c1-4208-aea5-46bc6218c817")
 	)
 	(wire
 		(pts
@@ -4204,7 +4529,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 81.28) (xy 78.74 81.28)
+			(xy 68.58 48.26) (xy 88.9 48.26)
 		)
 		(stroke
 			(width 0)
@@ -4221,6 +4546,26 @@
 			(type default)
 		)
 		(uuid "e40b4215-7b27-4537-ae47-8ce93a12ae93")
+	)
+	(wire
+		(pts
+			(xy 54.61 93.98) (xy 59.69 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e44f9551-0509-45c8-95f1-c20b81b2820c")
+	)
+	(wire
+		(pts
+			(xy 69.85 91.44) (xy 110.49 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8be377d-28aa-40e7-9def-8b21d563a1d4")
 	)
 	(wire
 		(pts
@@ -4284,6 +4629,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 101.6) (xy 74.93 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ef3be222-1ffe-42e8-bb90-6a4974884867")
+	)
+	(wire
+		(pts
 			(xy 210.82 109.22) (xy 224.79 109.22)
 		)
 		(stroke
@@ -4311,6 +4666,16 @@
 			(type default)
 		)
 		(uuid "f363909c-7571-4d58-986f-827579bd49c9")
+	)
+	(wire
+		(pts
+			(xy 71.12 55.88) (xy 71.12 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8a74595-ffcd-4209-a4b0-d9bf01b1fd47")
 	)
 	(wire
 		(pts
@@ -4354,7 +4719,7 @@
 	)
 	(text "VDD"
 		(exclude_from_sim no)
-		(at 60.706 83.82 0)
+		(at 59.436 50.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4398,7 +4763,7 @@
 	)
 	(text "PGC"
 		(exclude_from_sim no)
-		(at 61.214 91.44 0)
+		(at 59.69 58.674 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4409,7 +4774,7 @@
 	)
 	(text "VSS"
 		(exclude_from_sim no)
-		(at 61.214 86.36 0)
+		(at 59.944 53.34 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4420,7 +4785,7 @@
 	)
 	(text "MCLR"
 		(exclude_from_sim no)
-		(at 60.198 81.28 0)
+		(at 58.928 48.26 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4431,7 +4796,7 @@
 	)
 	(text "PGD"
 		(exclude_from_sim no)
-		(at 60.96 88.9 0)
+		(at 59.69 55.88 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4450,16 +4815,6 @@
 			)
 		)
 		(uuid "9732b4e7-1a8a-4f2a-a27b-33cfe64ddfd9")
-	)
-	(text "Konfigurasti external oscillator"
-		(exclude_from_sim no)
-		(at 90.424 95.25 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "dbd873dc-68c0-4630-8329-596d51fcd798")
 	)
 	(label "RB13"
 		(at 218.44 106.68 0)
@@ -4779,6 +5134,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 13.97 81.28 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "04d9dde2-894a-4244-bcfa-61b042599660")
+		(property "Reference" "#PWR031"
+			(at 13.97 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 13.97 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 13.97 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 13.97 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 13.97 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "68847fcd-4fe6-403b-944e-8958e03af692")
+		)
+		(instances
+			(project "schematics"
+				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
+					(reference "#PWR031")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector:Conn_01x03_Pin")
 		(at 57.15 133.35 0)
 		(unit 1)
@@ -4982,7 +5403,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x05_Pin")
-		(at 64.77 86.36 0)
+		(at 63.5 53.34 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4991,7 +5412,7 @@
 		(fields_autoplaced yes)
 		(uuid "13519927-545b-4878-9f5d-f3b844ceb752")
 		(property "Reference" "J4"
-			(at 65.405 76.2 0)
+			(at 64.135 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4999,7 +5420,7 @@
 			)
 		)
 		(property "Value" "PICKIT_01x05_Pin"
-			(at 65.405 78.74 0)
+			(at 64.135 45.72 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5007,7 +5428,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 64.77 86.36 0)
+			(at 63.5 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5016,7 +5437,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 64.77 86.36 0)
+			(at 63.5 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5025,7 +5446,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x05, script generated"
-			(at 64.77 86.36 0)
+			(at 63.5 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5119,6 +5540,72 @@
 			(project ""
 				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
 					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 59.69 76.2 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "23c3d1c3-0017-4a01-8db0-9f9d66bf3c14")
+		(property "Reference" "#PWR030"
+			(at 59.69 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 59.69 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 59.69 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 59.69 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 59.69 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9288da5f-060f-44b0-974d-1ff6218a6013")
+		)
+		(instances
+			(project "schematics"
+				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
@@ -5818,7 +6305,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 73.66 83.82 270)
+		(at 72.39 50.8 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5827,7 +6314,7 @@
 		(fields_autoplaced yes)
 		(uuid "3c7b384c-fff3-4a2c-ae89-62c1457b6742")
 		(property "Reference" "#PWR020"
-			(at 69.85 83.82 0)
+			(at 68.58 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5836,7 +6323,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 77.47 83.8199 90)
+			(at 76.2 50.7999 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5845,7 +6332,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 73.66 83.82 0)
+			(at 72.39 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5854,7 +6341,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 73.66 83.82 0)
+			(at 72.39 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5863,7 +6350,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 73.66 83.82 0)
+			(at 72.39 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6067,6 +6554,73 @@
 			(project ""
 				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
 					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 59.69 96.52 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "44168216-cb87-41ec-8233-180ed300ef95")
+		(property "Reference" "#PWR032"
+			(at 66.04 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 63.5 96.5199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 59.69 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 59.69 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 59.69 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a4764554-f1ae-4304-a43d-92303ec527d7")
+		)
+		(instances
+			(project "schematics"
+				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
+					(reference "#PWR032")
 					(unit 1)
 				)
 			)
@@ -6870,6 +7424,127 @@
 		)
 	)
 	(symbol
+		(lib_id "CL21X107MRYN3WE:CL21X107MRYN3WE")
+		(at 59.69 88.9 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "538acb76-f60c-4d17-9899-72f87a93b769")
+		(property "Reference" "C16"
+			(at 55.88 81.2799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10p"
+			(at 55.88 83.8199 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "CAPC2012X145N"
+			(at 155.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.samsungsem.com/kr/support/product-search/mlcc/__icsFiles/afieldfile/2019/06/18/CL21B105KBFNNNE-19.pdf"
+			(at 255.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "General Multilayer Ceramic Capacitors"
+			(at 59.69 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.45"
+			(at 455.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 555.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 655.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "SAMSUNG"
+			(at 755.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CL21X107MRYN3WE"
+			(at 855.88 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0b1868d2-9ea3-44b7-b7a6-ed2f71a4c9a2")
+		)
+		(pin "2"
+			(uuid "51c9976a-be37-4a8b-8ffa-5a3f979fb634")
+		)
+		(instances
+			(project "schematics"
+				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
+					(reference "C16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 223.52 81.28 0)
 		(unit 1)
@@ -6938,7 +7613,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 91.44 99.06 270)
+		(at 85.09 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -6947,7 +7622,7 @@
 		(fields_autoplaced yes)
 		(uuid "6b413d2e-4758-4d0f-9da3-afcb0d0db192")
 		(property "Reference" "#PWR05"
-			(at 85.09 99.06 0)
+			(at 85.09 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6956,7 +7631,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 87.63 99.0599 90)
+			(at 85.0899 106.68 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6966,7 +7641,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 91.44 99.06 0)
+			(at 85.09 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6975,7 +7650,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 91.44 99.06 0)
+			(at 85.09 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6984,7 +7659,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 91.44 99.06 0)
+			(at 85.09 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7006,7 +7681,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 73.66 86.36 90)
+		(at 72.39 53.34 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7015,7 +7690,7 @@
 		(fields_autoplaced yes)
 		(uuid "6b747140-2642-4a24-a2f7-facd55cd5eaf")
 		(property "Reference" "#PWR019"
-			(at 80.01 86.36 0)
+			(at 78.74 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7024,7 +7699,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 77.47 86.3599 90)
+			(at 76.2 53.3399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7033,7 +7708,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 73.66 86.36 0)
+			(at 72.39 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7042,7 +7717,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 73.66 86.36 0)
+			(at 72.39 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7051,7 +7726,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 73.66 86.36 0)
+			(at 72.39 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7200,6 +7875,72 @@
 			(project ""
 				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
 					(reference "#PWR02")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 25.4 120.65 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6fffee1e-b04e-40b9-8d20-5e679f253bbc")
+		(property "Reference" "#PWR029"
+			(at 25.4 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 25.4 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 25.4 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 25.4 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 25.4 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "580504a1-bef2-45c0-9e52-db3e0f15cb48")
+		)
+		(instances
+			(project ""
+				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
+					(reference "#PWR029")
 					(unit 1)
 				)
 			)
@@ -8031,6 +8772,127 @@
 		)
 	)
 	(symbol
+		(lib_id "CL21X107MRYN3WE:CL21X107MRYN3WE")
+		(at 25.4 118.11 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "944f46b2-233e-4c2e-af95-6846b8677ab4")
+		(property "Reference" "C15"
+			(at 21.59 110.4899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10p"
+			(at 21.59 113.0299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "CAPC2012X145N"
+			(at 121.59 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.samsungsem.com/kr/support/product-search/mlcc/__icsFiles/afieldfile/2019/06/18/CL21B105KBFNNNE-19.pdf"
+			(at 221.59 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Description" "General Multilayer Ceramic Capacitors"
+			(at 25.4 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Height" "1.45"
+			(at 421.59 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" ""
+			(at 521.59 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" ""
+			(at 621.59 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "SAMSUNG"
+			(at 721.59 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CL21X107MRYN3WE"
+			(at 821.59 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6b909dc9-f11d-4882-aff7-d660f8adc508")
+		)
+		(pin "2"
+			(uuid "9ae1bb02-f7af-481f-be7a-d4459e2f4c36")
+		)
+		(instances
+			(project "schematics"
+				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
+					(reference "C15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 215.9 64.77 0)
 		(unit 1)
@@ -8732,6 +9594,142 @@
 			(project "schematics"
 				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
 					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "830108288709:830108288709")
+		(at 13.97 93.98 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c2c0fb31-3552-4412-8bd8-783dadabc615")
+		(property "Reference" "Y2"
+			(at 34.29 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "16MHz crystal"
+			(at 34.29 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "830108288709"
+			(at 50.8 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/catalog/datasheet/830108340709.pdf"
+			(at 50.8 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "Standard 3.2 x 2.5mm SMD crystal in a ceramic package with a seam sealed metal lid, hermetically sealed"
+			(at 13.97 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description_1" "Standard 3.2 x 2.5mm SMD crystal in a ceramic package with a seam sealed metal lid, hermetically sealed"
+			(at 50.8 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Height" "0.5"
+			(at 50.8 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Mouser Part Number" "710-830108288709"
+			(at 50.8 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Wurth-Elektronik/830108288709?qs=hd1VzrDQEGh1P0bXtFDXZQ%3D%3D"
+			(at 50.8 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Wurth Elektronik"
+			(at 50.8 106.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "830108288709"
+			(at 50.8 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1edd14ef-9184-42f7-a347-263a6bc0582f")
+		)
+		(pin "2"
+			(uuid "ab46d28b-e8c9-4ac0-bd81-df0ba90baad2")
+		)
+		(pin "4"
+			(uuid "24b289d2-9769-4ca4-9fec-26dc881e5447")
+		)
+		(pin "3"
+			(uuid "02cc5939-c2f2-4875-b06b-803dd39544f5")
+		)
+		(instances
+			(project ""
+				(path "/be652b9a-b406-4c1b-9f3b-1d87964716dc"
+					(reference "Y2")
 					(unit 1)
 				)
 			)
