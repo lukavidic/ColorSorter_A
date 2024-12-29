@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP M22-2510305
+D 2.00mm (0.079") Pitch SIL Vertical 2.4mm Throughboard Pin Header, 3.5mm mating pin height, gold, 3 contacts
+K
+F https://cdn.harwin.com/pdfs/M22-251.pdf
+$ENDCMP
+#
+#End Doc Library

@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP M20-9990546
+D M20 Header, Pin, Sil, Vertical, 5 W HARWIN M20-99 Series, 2.54mm Pitch 5 Way 1 Row Straight PCB Header, Solder Termination, 3A
+K
+F https://cdn.harwin.com/pdfs/M20-999.pdf
+$ENDCMP
+#
+#End Doc Library
