@@ -5341,7 +5341,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Microcontroller-PIC24FJ64GA702-I_SO:SOIC127P1030X265-28N"
+		(property "Footprint" "PIC:SOIC127P1030X265-28N"
 			(at 158.75 201.6 0)
 			(effects
 				(font
@@ -6072,7 +6072,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "C_Ceramic-100nF:C0402"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at -0.94 124.46 0)
 			(effects
 				(font
@@ -6193,7 +6193,7 @@
 				)
 			)
 		)
-		(property "Footprint" "HDRV5W64P0X254_1X5_1270X254X610P"
+		(property "Footprint" "5_PIN_MALE:HDRV5W64P0X254_1X5_1270X254X610P"
 			(at 148.59 134.29 0)
 			(effects
 				(font
@@ -6323,7 +6323,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "C_Ceramic-10uF:C0805"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 366.7 114.3 0)
 			(effects
 				(font
@@ -6512,7 +6512,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "C_Ceramic-100nF:C0402"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 272.72 95.25 0)
 			(effects
 				(font
@@ -6632,7 +6632,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 116.84 108.458 90)
 			(effects
 				(font
@@ -6769,7 +6769,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "C_Ceramic-100nF:C0402"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 205.41 140.97 0)
 			(effects
 				(font
@@ -6891,7 +6891,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "HDRV3W60P0X200_1X3_600X200X525P"
+		(property "Footprint" "3_PIN_MALE:HDRV3W60P0X200_1X3_600X200X525P"
 			(at 262.89 120.32 0)
 			(effects
 				(font
@@ -7096,7 +7096,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "0.1u"
 			(at 120.65 46.9899 90)
 			(effects
 				(font
@@ -7105,7 +7105,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "C_Polarized_Tantalum-10uF:CAPPC3528X210N"
+		(property "Footprint" "C_Polarized_Tantalum-10u:CAPPC3528X210N"
 			(at 116.84 46.99 0)
 			(effects
 				(font
@@ -7548,7 +7548,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CAPC2012X145N"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 163.5 90.17 0)
 			(effects
 				(font
@@ -8073,7 +8073,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "C_Ceramic-10uF:C0805"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 213.03 140.97 0)
 			(effects
 				(font
@@ -8253,7 +8253,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
+		(property "Value" "0.1u"
 			(at 91.44 46.9899 90)
 			(effects
 				(font
@@ -8262,7 +8262,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "C_Polarized_Tantalum-10uF:CAPPC3528X210N"
+		(property "Footprint" "C_Polarized_Tantalum-10u:CAPPC3528X210N"
 			(at 87.63 46.99 0)
 			(effects
 				(font
@@ -8703,7 +8703,7 @@
 				)
 			)
 		)
-		(property "Footprint" "2_pin_Male:HDRV2W60P0X200_1X2_400X200X525P"
+		(property "Footprint" "2_PIN_MALE:HDRV2W60P0X200_1X2_400X200X525P"
 			(at 27.94 -50.47 0)
 			(effects
 				(font
@@ -8825,7 +8825,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "C_Ceramic-10uF:C0805"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 181.61 223.19 0)
 			(effects
 				(font
@@ -8946,7 +8946,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder"
 			(at 93.472 99.06 90)
 			(effects
 				(font
@@ -9016,7 +9016,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "2_PIN_MALE:HDRV2W60P0X200_1X2_400X200X525P"
 			(at 95.25 114.3 0)
 			(effects
 				(font
@@ -9085,7 +9085,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "CAPC2012X145N"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 129.21 119.38 0)
 			(effects
 				(font
@@ -9271,7 +9271,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "C_Ceramic-100nF:C0402"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 359.08 114.3 0)
 			(effects
 				(font
@@ -9527,7 +9527,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "HDRV3W60P0X200_1X3_600X200X525P"
+		(property "Footprint" "3_PIN_MALE:HDRV3W60P0X200_1X3_600X200X525P"
 			(at 33.02 273.99 0)
 			(effects
 				(font
@@ -9785,7 +9785,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "C_Ceramic-10uF:C0805"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 280.34 95.25 0)
 			(effects
 				(font
@@ -9972,7 +9972,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "C_Polarized_Tantalum-10uF:CAPPC3528X210N"
+		(property "Footprint" "C_Polarized_Tantalum-10u:CAPPC3528X210N"
 			(at 80.01 46.99 0)
 			(effects
 				(font
@@ -10281,7 +10281,7 @@
 				)
 			)
 		)
-		(property "Footprint" "830108288709"
+		(property "Footprint" "Crystal16MHZ:830108288709"
 			(at 58.42 101.6 0)
 			(effects
 				(font
@@ -10615,7 +10615,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "C_Ceramic-100nF:C0402"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 305.74 93.98 0)
 			(effects
 				(font
@@ -10736,7 +10736,7 @@
 				)
 			)
 		)
-		(property "Footprint" "HDRV5W64P0X254_1X5_1270X254X610P"
+		(property "Footprint" "5_PIN_MALE:HDRV5W64P0X254_1X5_1270X254X610P"
 			(at 266.7 -33.96 0)
 			(effects
 				(font
@@ -10867,7 +10867,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "HDRV3W60P0X200_1X3_600X200X525P"
+		(property "Footprint" "3_PIN_MALE:HDRV3W60P0X200_1X3_600X200X525P"
 			(at 33.02 252.4 0)
 			(effects
 				(font
@@ -10992,7 +10992,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "C_Polarized_Tantalum-10uF:CAPPC3528X210N"
+		(property "Footprint" "C_Polarized_Tantalum-10u:CAPPC3528X210N"
 			(at 128.27 46.99 0)
 			(effects
 				(font
@@ -11300,7 +11300,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ESP8266-01_ESP-01:XCVR_ESP8266-01_ESP-01"
+		(property "Footprint" "ESP8266EX:XCVR_ESP8266-01_ESP-01"
 			(at 232.41 114.3 0)
 			(effects
 				(font
@@ -11708,7 +11708,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "C0805"
+		(property "Footprint" "C_Ceramic_100n:C0402"
 			(at 313.36 93.98 0)
 			(effects
 				(font
