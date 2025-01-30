@@ -9587,14 +9587,14 @@
 			)
 		)
 	)
-	(gr_text "ColorSorter_A\n-\nLuka Zeljko\nAna Vulin\nAndjela Savicic"
-		(at 165.5 79 0)
+	(gr_text "ColorSorter_A\nLuka Zeljko\nAna Vulin\nAndjela Savicic"
+		(at 172.9 80.05 90)
 		(layer "F.SilkS")
 		(uuid "47d1a00d-4f5f-421b-939e-c379bbf0684e")
 		(effects
 			(font
-				(size 0.75 0.75)
-				(thickness 0.025)
+				(size 1.4 1.4)
+				(thickness 0.3)
 				(bold yes)
 			)
 			(justify left bottom)
