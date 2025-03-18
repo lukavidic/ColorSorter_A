@@ -17,6 +17,15 @@ int main() {
 	button_init();
 	wifi_init();
 	led_init();
+    
+    while(1) {
+        servo_set_angle(800);
+        __delay_ms(1000);
+        servo_set_angle(1000);
+        __delay_ms(1000);
+        servo_set_angle(400);
+        __delay_ms(1000);
+    }
 }
 
 void pins_init() {

@@ -20,7 +20,5 @@ void servo_init() {
 }
 
 void servo_set_angle(int angle) {
-	int pulse_width = 8000 + ((angle * 8000) / 180);
-
-	OC1R = pulse_width;
+    OC1R = angle;
 }
