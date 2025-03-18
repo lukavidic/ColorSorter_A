@@ -5,6 +5,10 @@
 #include "../wifi_module/wifi_module.h"
 #include "../button/button.h"
 
+#pragma config FNOSC = FRC    // Interni oscilator
+#pragma config JTAGEN = OFF   // IskljuCen JTAG
+#pragma config FWDTEN = OFF   // IskljuCen Watchdog timer
+
 void pins_init();
 
 int main() {
