@@ -5,4 +5,8 @@
 
 void color_sensor_init();
 
+void color_get_write(int data);
+
+int color_get_data();
+
 #endif

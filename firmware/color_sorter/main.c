@@ -17,15 +17,20 @@ int main() {
 	button_init();
 	wifi_init();
 	led_init();
-    
-    while(1) {
-        servo_set_angle(800);
-        __delay_ms(1000);
-        servo_set_angle(1000);
-        __delay_ms(1000);
-        servo_set_angle(400);
-        __delay_ms(1000);
-    }
+	color_sensor_init();
+
+	I2C1CONLbits.PEN = 1;
+	I2C1CONLbits.SEN = 1;
+	while(IFS1bits.MI2C1IF == 0);
+	TRISAbits.TRISA2 = 0;
+	LATAbits.LATA2 = 1;
+	IFS1bits.MI2C1IF = 0;
+
+	I2C1TRN = 0b00010000;
+	I2C1TRN = 0x00;
+	I2C1TRN = 0x00;
+	I2C1TRN = 0x00;
+
 }
 
 void pins_init() {
