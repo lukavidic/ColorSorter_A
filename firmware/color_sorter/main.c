@@ -1,8 +1,9 @@
-#include "button.h";
-#include "servo.h";
-#include "color_sensor.h";
-#include "led.h";
-#include "wifi_module.h";
+#include "../inc/inc.h"
+#include "../servo/servo.h"
+#include "../color_sensor/color_sensor.h"
+#include "../led/led.h"
+#include "../wifi_module/wifi_module.h"
+#include "../button/button.h"
 
 void pins_init();
 

@@ -1,7 +1,7 @@
 #ifndef LED_H
 #define LED_H
 
-#include "inc.h";
+#include "../inc/inc.h"
 
 void led_init();
 

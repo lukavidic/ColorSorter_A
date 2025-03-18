@@ -1,4 +1,4 @@
-#include "servo.h";
+#include "servo.h"
 
 void servo_init() {
 	TRISBbits.TRISB10 = 0;

@@ -1,7 +1,7 @@
 #ifndef SERVO_H
 #define SERVO_H
 
-#include "inc.h";
+#include "../inc/inc.h"
 
 void servo_init();
 

@@ -1,7 +1,7 @@
 #ifndef WIFI_H
 #define WIFI_H
 
-#include "inc.h";
+#include "../inc/inc.h"
 
 void wifi_init();
 
