@@ -6,5 +6,6 @@
 #define PRESCALER 256
 
 #include <libpic30.h>
+#include <stdint.h>
 
 #endif
