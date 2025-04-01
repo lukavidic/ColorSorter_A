@@ -4,27 +4,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ColorGUI">
    <children>
-      <Button fx:id="ButtonLeft" layoutX="281.0" layoutY="93.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" text="&lt;" />
-      <Button fx:id="ButtonRight" layoutX="281.0" layoutY="141.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" text="&gt;" />
-      <Button fx:id="ButtonLeftAll" layoutX="281.0" layoutY="188.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" text="&lt;&lt;" />
-      <Button fx:id="ButtonRightAll" layoutX="281.0" layoutY="236.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" text="&gt;&gt;" />
-      <AnchorPane fx:id="PaneLeft" layoutX="65.0" layoutY="94.0" prefHeight="213.0" prefWidth="200.0">
-         <children>
-            <Label fx:id="RedLabel" layoutX="160.0" prefHeight="28.0" prefWidth="38.0" style="-fx-background-color: red; -fx-border-color: black;" textFill="RED" />
-            <Label fx:id="BlueLabel" layoutX="160.0" layoutY="28.0" prefHeight="28.0" prefWidth="38.0" style="-fx-background-color: blue; -fx-border-color: black;" textFill="RED" />
-            <Label fx:id="GreenLabel" layoutX="160.0" layoutY="84.0" prefHeight="28.0" prefWidth="38.0" style="-fx-background-color: green; -fx-border-color: black;" textFill="RED" />
-            <Label fx:id="WhiteLabel" layoutX="160.0" layoutY="56.0" prefHeight="28.0" prefWidth="38.0" style="-fx-background-color: white; -fx-border-color: black;" textFill="RED" />
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="PaneRight" layoutX="347.0" layoutY="94.0" prefHeight="213.0" prefWidth="200.0">
-         <children>
-            <Label fx:id="YellowLabel" layoutX="-2.0" prefHeight="28.0" prefWidth="38.0" style="-fx-background-color: yellow; -fx-border-color: black;" textFill="RED" />
-            <Label fx:id="BlackLabel" layoutX="-2.0" layoutY="28.0" prefHeight="28.0" prefWidth="38.0" style="-fx-background-color: black;" textFill="RED" />
-         </children>
-      </AnchorPane>
-      <Button fx:id="ButtonStart" layoutX="205.0" layoutY="320.0" mnemonicParsing="false" text="START" />
-      <Button fx:id="ButtonStop" layoutX="347.0" layoutY="320.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="STOP" />
+      <Button fx:id="ButtonLeftAll" layoutX="281.0" layoutY="184.0" mnemonicParsing="false" onMouseClicked="#LeftAllClicked" prefHeight="38.0" prefWidth="38.0" text="&lt;&lt;" />
+      <Button fx:id="ButtonRightAll" layoutX="281.0" layoutY="232.0" mnemonicParsing="false" onMouseClicked="#RightAllClicked" prefHeight="38.0" prefWidth="38.0" text="&gt;&gt;" />
+      <AnchorPane fx:id="PaneLeft" layoutX="214.0" layoutY="77.0" prefHeight="268.0" prefWidth="38.0" />
+      <AnchorPane fx:id="PaneRight" layoutX="347.0" layoutY="78.0" prefHeight="268.0" prefWidth="23.0" />
+      <Button fx:id="ButtonStart" layoutX="205.0" layoutY="351.0" mnemonicParsing="false" onMouseClicked="#MouseClicked" text="START" />
+      <Button fx:id="ButtonStop" layoutX="347.0" layoutY="351.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="STOP" />
+      <Label layoutX="33.0" layoutY="14.0" text="Click on color to move it to the other side, or press button to move all colors to one side" textAlignment="JUSTIFY" textOverrun="CENTER_ELLIPSIS" wrapText="true" />
    </children>
 </AnchorPane>
