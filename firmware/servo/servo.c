@@ -1,5 +1,5 @@
 #include "servo.h"
-
+#include "xc.h"
 void servo_init() {
 	TRISBbits.TRISB10 = 0;
 	OSCCONbits.IOLOCK = 0;

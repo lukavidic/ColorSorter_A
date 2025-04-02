@@ -3,52 +3,20 @@
 
 #include "../inc/inc.h"
 
-/* vectors where RGB values of color sensor will be stored */
-//uint8_t red[2];
-//uint8_t green[2];
-//uint8_t blue[2];
+void read_colors(); 
 
-/* 
- * i2c init function
- * called only one time, at the start of the program
- */
-void i2c_init();
+void detect_color();
 
-/* i2c start function
- * called every time we want to transmitt message
- * to color sensor
- */
-void i2c_start();
+float color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_t g2, uint16_t b2);
 
-/* i2c receive function
- * called by i2c_write function
- * to start receiving
- * from color sensor
- */
-void i2c_receive();
+void WS2812_Send_Byte(uint8_t byte);
 
-/* i2c stop function
- * called when we want to stop receiving message
- * from color sensor
- */
-void i2c_stop();
+void WS2812_SetColor(uint8_t red, uint8_t green, uint8_t blue);
 
-/* i2c send data function
- * used to send data
- * to color sensor
- */
-void i2c_send_data(uint8_t data);
+uint16_t VEML3328_readConfig(uint16_t r);
 
-/* i2c write
- * write byte
- * to I2C1TRN register
- */
-void i2c_write(uint8_t data);
+void uart_send_char(uint8_t c);
 
-/* i2c get data function
- * called when we want to get data from color sensor
- * data is written to receive_data vector
- */
-void i2c_get_data(uint8_t receive_data[2]);
+void uart_send_string(const char *str);
 
 #endif

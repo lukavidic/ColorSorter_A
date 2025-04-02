@@ -15,7 +15,7 @@ void wifi_init() {
 	UART1bits.UARTEN = 1; // Enable UART1
 	UART1bits.USIDL = 0; // Continue operation even in  idle mode
 	UART1bits.IREN = 0; // irDA encoder/decoder disabled
-	UART1bits.UEN = 0b00 // U1RX and U1TX enabled and used; CTS, RTS, BCLK controlled by port latches
+	UART1bits.UEN = 0b00; // U1RX and U1TX enabled and used; CTS, RTS, BCLK controlled by port latches
 	UART1bits.LPBACK = 0; // Loopback mode disabled
 	UART1bits.ABAUD = 0; // Baud rate measurement disabled
 	UART1bits.U1RX = 0; // Idle state of RX is '1'
@@ -31,7 +31,7 @@ void wifi_init() {
 	U1STAbits.UT1INV = 0; // Idle state of U1TX is '1'
 	U1STAbits.UT1BRK = 0; // Sync break transmission is disabled or completed
 	U1STAbits.UT1EN = 0; // Transmitting disabled initialy
-	U1STAbits.UR1ISEL = 0b11 // Interrupt flag bit is set when character is received
+	U1STAbits.UR1ISEL = 0b11; // Interrupt flag bit is set when character is received
 	U1STAbits.ADDEN = 0; // Address detect mode disabled
 	
 	__delay_ms(100);
