@@ -13,4 +13,8 @@ void servo_init();
  */
 void servo_set_angle(int angle);
 
+void servo_left();
+void servo_center();
+void servo_right();
+
 #endif
