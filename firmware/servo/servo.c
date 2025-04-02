@@ -14,11 +14,23 @@ void servo_init() {
     
     T2CONbits.TCKPS = 0b01;
 	T2CONbits.TON = 1;
-	OC1R = 300;
-    PR2 = 9999;
+	OC1R = 3000;
+    PR2 = 40000;
     OC1RS = PR2;
 }
 
 void servo_set_angle(int angle) {
     OC1R = angle;
+}
+
+void servo_right() {
+	OC1R = 1400;
+}
+
+void servo_left() {
+	OC1R = 4600;
+}
+
+void servo_center() {
+	OC1R = 3150;
 }
