@@ -98,11 +98,13 @@ void read_colors(){
 
     
     for (int i = 0; i < NUM_SAMPLES; i++) {
+        
         sum_red += VEML3328_readConfig(R_DATA);
         sum_green += VEML3328_readConfig(G_DATA);
         sum_blue += VEML3328_readConfig(B_DATA);
 
         __delay_ms(100);
+     
     }
 
     avg_red = sum_red / NUM_SAMPLES;
@@ -112,8 +114,10 @@ void read_colors(){
     sensor_value_red = avg_red;
     sensor_value_blue = avg_blue;
     sensor_value_green = avg_green;
-    sprintf(buff, "AVG Red = %u, AVG Green = %u, AVG Blue = %u\r\n", avg_red, avg_green, avg_blue);
+
+    sprintf(buff, "AVG Red = %u, AVG Green = %u, AVG Blue = %u\r\n", sensor_value_red, sensor_value_blue, sensor_value_green);
     uart_send_string(buff);
+    
     detect_color();
     
 } 
@@ -123,9 +127,10 @@ float color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_
     return sqrtf(powf(r1 - r2, 2) + powf(g1 - g2, 2) + powf(b1 - b2, 2));
     
 }
+
 void uart_send_char(uint8_t c) {
     while (U1STAbits.UTXBF);  
-    U1TXREG = c;  
+    U1TXREG = c;
 }
 
 void uart_send_string(const char *str) {
@@ -134,6 +139,7 @@ void uart_send_string(const char *str) {
         uart_send_char(*str++);
     }
 }
+
 
 /*void i2c_init() {
     

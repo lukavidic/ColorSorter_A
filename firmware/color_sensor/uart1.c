@@ -3,10 +3,6 @@
 
 void UART1_Initialize(void)
 {
-    __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
-    RPOR2bits.RP5R = 0x0003;    //RB5->UART1:U1TX
-    __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
-    
     // STSEL 1; IREN disabled; PDSEL 8N; UARTEN enabled; RTSMD disabled; USIDL disabled; WAKE disabled; ABAUD disabled; LPBACK disabled; BRGH enabled; URXINV disabled; UEN TX_RX; 
     // Data Bits = 8; Parity = None; Stop Bits = 1;
     U1MODE = (0x8008 & ~(1<<15));  // disabling UARTEN bit

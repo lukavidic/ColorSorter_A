@@ -22,11 +22,6 @@ uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
 void SPI1_Initialize (void)
 {
     
-    __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
-    RPOR3bits.RP6R = 0x0008;    //RB6->SPI1:SCK1OUT
-    RPOR3bits.RP7R = 0x0007;    //RB7->SPI1:SDO1
-    __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
-    
     // AUDEN disabled; FRMEN disabled; AUDMOD I2S; FRMSYPW One clock wide; AUDMONO stereo; FRMCNT 0; MSSEN disabled; FRMPOL disabled; IGNROV disabled; SPISGNEXT not sign-extended; FRMSYNC disabled; URDTEN disabled; IGNTUR disabled; 
     SPI1CON1H = 0x00;
     // WLENGTH 0; 

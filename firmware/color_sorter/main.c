@@ -24,17 +24,18 @@ int main() {
 	wifi_init();
 	led_init();
     led_on();
-
-	while(1) {
-		
-    }
     
+    i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);
+    __delay32(16000000);
+    i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);
+    __delay32(16000000);
     while(1){
         
-        WS2812_SetColor(255,255,255);
+        WS2812_SetColor(128, 128, 128);
+        read_colors();
+        //uart_send_string("baba");
         __delay_ms(1000);
-        WS2812_SetColor(0,0,0);
-        __delay_ms(1000);
+        
     }
 
     
@@ -63,18 +64,53 @@ int main() {
 
 void pins_init() {
     
-	ANSB = 0;
+    LATA = 0x0000;
+    LATB = 0x0000;
+
+    TRISBbits.TRISB8  = 1; // SCL - i2c
+    TRISBbits.TRISB9  = 1; // SDA - i2c
+    //TRISBbits.TRISB10 = 0; // PWM - Servo SG90 communication
+    TRISBbits.TRISB5  = 0; // UART1
+    TRISBbits.TRISB7  = 0; // OCM1A - WS2812 communication
+    TRISBbits.TRISB6  = 0; // SPI1-CLOCK
+    
+    //TRISA = 0x0013;
+    //TRISB = 0xFF1F;
+
+    IOCPDA = 0x0000;
+    IOCPDB = 0x0000;
+    IOCPUA = 0x0000;
+    IOCPUB = 0x0000;
+
+    ODCA = 0x0000;
+    ODCB = 0x0000;
+
+    ANSA = 0;//ANSA = 0x000B;
+    ANSB = 0;//ANSB = 0xF00C;
+   
+    __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
+
+    RPOR3bits.RP6R = 0x0008;    //RB6->SPI1:SCK1OUT
+    RPOR2bits.RP5R = 0x0003;    //RB5->UART1:U1TX
+    RPOR3bits.RP7R = 0x0007;    //RB7->SPI1:SDO1
+
+    __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
+    
+	/*ANSB = 0;
 	ANSA = 0;
     
+    ODCA = 0x0000;
+    ODCB = 0x0000;
+ 
     LATA = 0x0000;
     LATB = 0x0000;
     
     TRISBbits.TRISB8  = 1; // SCL - i2c
     TRISBbits.TRISB9  = 1; // SDA - i2c
-    TRISBbits.TRISB10 = 0; // PWM - Servo SG90 communication
+    //TRISBbits.TRISB10 = 0; // PWM - Servo SG90 communication
     TRISBbits.TRISB5  = 0; // UART1
     TRISBbits.TRISB7  = 0; // OCM1A - WS2812 communication
-    TRISBbits.TRISB6  = 0; // SPI1-CLOCK 
+    TRISBbits.TRISB6  = 0; // SPI1-CLOCK*/
     
     INTERRUPT_Initialize();
     SPI1_Initialize();
