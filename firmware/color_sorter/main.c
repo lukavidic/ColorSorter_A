@@ -18,22 +18,37 @@ void pins_init();
 void INTERRUPT_Initialize (void);
 
 int main() {
-	pins_init();
+	//pins_init();
+    ANSA =0;
+    ANSB =0;
 	servo_init();
 	button_init();
 	wifi_init();
 	led_init();
     led_on();
     
-    i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);
+    /*i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);
     __delay32(16000000);
     i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);
-    __delay32(16000000);
+    __delay32(16000000);*/
+    char* detected_color = "Nepoznata boja";
     while(1){
         
-        WS2812_SetColor(128, 128, 128);
-        read_colors();
-        //uart_send_string("baba");
+        //WS2812_SetColor(128, 128, 128);
+        //detected_color = read_colors();
+        /*uart_send_string("Detektovana: ");
+        uart_send_string(detected_color);
+        uart_send_string("\r\n");*/
+        /*if(strcmp(detected_color, "ROZA")==0){
+            servo_right();
+        }else if(strcmp(detected_color, "BIJELA")==0){
+            servo_left();
+        }else{
+            servo_center();
+        }*/
+        servo_left();
+        __delay_ms(1000);
+        servo_right();
         __delay_ms(1000);
         
     }

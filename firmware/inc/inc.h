@@ -20,5 +20,6 @@
 
 #include <libpic30.h>
 #include <stdint.h>
+#include <string.h>
 
 #endif

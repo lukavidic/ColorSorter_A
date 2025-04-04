@@ -20,19 +20,19 @@ typedef struct {
 } Color;
 
 const Color colors[] = {
-    {"CRVENA", 5800, 3300, 3500},
-    {"ZELENA", 1100, 4100, 4000},
-    {"PLAVA", 1400, 6100, 12200},
-    {"SVIJETLO PLAVA", 3200, 7300, 12000},
-    {"ZUTA", 6400, 8900, 5500},
-    {"NARANDZASTA", 5800, 2900, 2400},
-    {"ROZA", 4800, 2900, 4000},
-    {"CRNA", 900, 1800, 2400},
-    {"BIJELA", 6900, 12700, 18700},
-    {"SMEDJA", 1500, 2400, 2900}
+    {"CRVENA", 5000, 2800, 3000},
+    {"ZELENA", 800, 3700, 3600},
+    {"PLAVA", 1000, 5600, 11300},
+    {"BIJELA", 6100, 11800, 17700},
+    {"ZUTA", 5700, 8400, 5200},
+    {"NARANDZASTA", 5200, 2400, 1900},
+    {"ROZA", 4300, 2600, 3800},
+    {"CRNA", 600, 1400, 1900},
+    {"SMEDJA", 1000, 1500, 1800},
+    {"NO",1200,2000,2000}
 };
 
-void detect_color(){
+char* detect_color(){
     
     uint16_t r = sensor_value_red;
     uint16_t g = sensor_value_green;
@@ -49,9 +49,11 @@ void detect_color(){
         }
     }
 
-    uart_send_string("Detektovana: ");
-    uart_send_string(detected_color);
-    uart_send_string("\r\n");
+    //uart_send_string("Detektovana: ");
+    //uart_send_string(detected_color);
+    //uart_send_string("\r\n");
+    
+    return detected_color;
     
 }
 
@@ -84,7 +86,7 @@ uint16_t VEML3328_readConfig(uint16_t r){
     return ((reg & 0xFF) << 8) | (reg >> 8);
 }
 
-void read_colors(){
+char* read_colors(){
     
     char buff[100];
     uint16_t values_red[NUM_SAMPLES];
@@ -118,7 +120,7 @@ void read_colors(){
     sprintf(buff, "AVG Red = %u, AVG Green = %u, AVG Blue = %u\r\n", sensor_value_red, sensor_value_blue, sensor_value_green);
     uart_send_string(buff);
     
-    detect_color();
+    return detect_color();
     
 } 
 
@@ -128,7 +130,8 @@ float color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_
     
 }
 
-void uart_send_char(uint8_t c) {
+//Used for debugging
+/*void uart_send_char(uint8_t c) {
     while (U1STAbits.UTXBF);  
     U1TXREG = c;
 }
@@ -138,7 +141,7 @@ void uart_send_string(const char *str) {
         //UART1_Write(*str++);
         uart_send_char(*str++);
     }
-}
+}*/
 
 
 /*void i2c_init() {
