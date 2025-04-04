@@ -4,6 +4,7 @@
 #include "../color_sensor/uart1.h"
 #include "../color_sensor/i2c_simple_master.h"
 #include "../color_sensor/i2c_master.h"
+
 #include "xc.h"
 #include <stdio.h>
 #include <math.h>
