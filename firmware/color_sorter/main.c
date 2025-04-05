@@ -31,16 +31,16 @@ int main() {
 	__delay_ms(1000);
     i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);
 	__delay_ms(2000);
-	__delay32(16000000);
+	__delay32(32000000);
     char* detected_color = "Nepoznata boja";
     while(1){
 		led_on();
     	WS2812_SetColor(128, 128, 128);
         detected_color = read_colors();
 		/* uart_send_string(detected_color); */
-        if(strcmp(detected_color, "CRNA")==0 || strcmp(detected_color, "CRN")==0 || strcmp(detected_color, "CR")==0){
+        if(strcmp(detected_color, "CRNA")==0){
             servo_right();
-        }else if(strcmp(detected_color, "BIJELA")==0 || strcmp(detected_color, "BIJEL")==0 || strcmp(detected_color, "BIJE")==0 || strcmp(detected_color, "ZELENA") || strcmp(detected_color, "ZELE") || strcmp(detected_color, "ZELEN")){
+        }else if(strcmp(detected_color, "BIJELA")==0){
             servo_left();
         }else{
 			servo_center();
