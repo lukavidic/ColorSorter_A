@@ -172,7 +172,6 @@ void __attribute__((interrupt(auto_psv))) _U2ErrInterrupt(void) {
 void __attribute__((interrupt(auto_psv))) _U1RXInterrupt(void) {
 	IFS0bits.U1RXIF = 0;
 	buffer[head] = U1RXREG;
-	wifi_sendpls2();
 
 	// TEMPORARY, JUST FOR TESTING:
 	/* for(int i=tail;i<=head;i++) */
@@ -204,5 +203,5 @@ void wifi_sendpls() {
 }
 void wifi_sendpls2() {
 	for(int i=0;i<BUFF_SIZE;i++)
-		wifi_send_character(buffer[i]);
+		wifi_send_character2(buffer[i]);
 }

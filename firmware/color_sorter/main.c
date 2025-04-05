@@ -15,12 +15,17 @@ int main() {
 	servo_init();
 	button_init();
 	wifi_init();
+	wifi_init2();
 	led_init();
     led_on();
 
-	while(1) {
-		
-	}
+	wifi_send_string("AT+UART_CUR=115200,8,1,0,0");
+	__delay_ms(2000);
+    while(1) {
+        wifi_send_string("AT");
+        __delay_ms(1000);
+		wifi_sendpls2();
+    }
 }
 
 void pins_init() {
