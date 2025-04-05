@@ -18,7 +18,7 @@ void pins_init();
 void INTERRUPT_Initialize (void);
 
 int main() {
-	//pins_init();
+	pins_init();
     ANSA =0;
     ANSB =0;
 	servo_init();
@@ -27,30 +27,27 @@ int main() {
 	led_init();
     led_on();
     
-    /*i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);
-    __delay32(16000000);
+    i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);
+	__delay_ms(1000);
     i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);
-    __delay32(16000000);*/
+	__delay_ms(2000);
+	__delay32(16000000);
     char* detected_color = "Nepoznata boja";
     while(1){
-        
-        //WS2812_SetColor(128, 128, 128);
-        //detected_color = read_colors();
-        /*uart_send_string("Detektovana: ");
-        uart_send_string(detected_color);
-        uart_send_string("\r\n");*/
-        /*if(strcmp(detected_color, "ROZA")==0){
+		led_on();
+    	WS2812_SetColor(128, 128, 128);
+        detected_color = read_colors();
+		/* uart_send_string(detected_color); */
+        if(strcmp(detected_color, "CRNA")==0 || strcmp(detected_color, "CRN")==0 || strcmp(detected_color, "CR")==0){
             servo_right();
-        }else if(strcmp(detected_color, "BIJELA")==0){
+        }else if(strcmp(detected_color, "BIJELA")==0 || strcmp(detected_color, "BIJEL")==0 || strcmp(detected_color, "BIJE")==0 || strcmp(detected_color, "ZELENA") || strcmp(detected_color, "ZELE") || strcmp(detected_color, "ZELEN")){
             servo_left();
         }else{
-            servo_center();
-        }*/
-        servo_left();
-        __delay_ms(1000);
-        servo_right();
-        __delay_ms(1000);
-        
+			servo_center();
+        }
+		led_off();
+		__delay_ms(400);
+		servo_center();
     }
 
     
@@ -103,13 +100,13 @@ void pins_init() {
     ANSA = 0;//ANSA = 0x000B;
     ANSB = 0;//ANSB = 0xF00C;
    
-    __builtin_write_OSCCONL(OSCCON & 0xbf); // unlock PPS
+	OSCCONbits.IOLOCK = 0;
 
     RPOR3bits.RP6R = 0x0008;    //RB6->SPI1:SCK1OUT
     RPOR2bits.RP5R = 0x0003;    //RB5->UART1:U1TX
     RPOR3bits.RP7R = 0x0007;    //RB7->SPI1:SDO1
 
-    __builtin_write_OSCCONL(OSCCON | 0x40); // lock PPS
+	OSCCONbits.IOLOCK = 1;
     
 	/*ANSB = 0;
 	ANSA = 0;

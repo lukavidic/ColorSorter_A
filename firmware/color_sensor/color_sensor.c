@@ -50,10 +50,6 @@ char* detect_color(){
         }
     }
 
-    //uart_send_string("Detektovana: ");
-    //uart_send_string(detected_color);
-    //uart_send_string("\r\n");
-    
     return detected_color;
     
 }
@@ -118,9 +114,6 @@ char* read_colors(){
     sensor_value_blue = avg_blue;
     sensor_value_green = avg_green;
 
-    sprintf(buff, "AVG Red = %u, AVG Green = %u, AVG Blue = %u\r\n", sensor_value_red, sensor_value_blue, sensor_value_green);
-    uart_send_string(buff);
-    
     return detect_color();
     
 } 
@@ -132,7 +125,7 @@ float color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_
 }
 
 //Used for debugging
-/*void uart_send_char(uint8_t c) {
+void uart_send_char(uint8_t c) {
     while (U1STAbits.UTXBF);  
     U1TXREG = c;
 }
@@ -142,7 +135,7 @@ void uart_send_string(const char *str) {
         //UART1_Write(*str++);
         uart_send_char(*str++);
     }
-}*/
+}
 
 
 /*void i2c_init() {
