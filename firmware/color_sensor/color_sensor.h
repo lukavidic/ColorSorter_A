@@ -19,4 +19,5 @@ void uart_send_char(uint8_t c);
 
 void uart_send_string(const char *str);
 
+
 #endif

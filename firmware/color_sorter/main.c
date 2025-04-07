@@ -7,6 +7,7 @@
 #include "../color_sensor/i2c_types.h"
 #include "../color_sensor/spi1.h"
 #include "../led/led.h"
+#include "../inc/inc.h"
 #include "../wifi_module/wifi_module.h"
 #include "../button/button.h"
 
@@ -16,6 +17,33 @@
 
 void pins_init();
 void INTERRUPT_Initialize (void);
+
+int reset_counter = 1; 
+
+void __attribute__((interrupt, no_auto_psv)) _INT1Interrupt(void) {
+    IFS1bits.INT1IF = 0;                        // Ocisti INT1 zastavicu prekida
+
+    if(reset_counter==1) 
+    {
+        
+        led_off();
+        servo_center();
+        WS2812_SetColor(0, 0, 0);
+        i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);           //onemogucuje rad servo
+        reset_counter++;
+    }
+    
+    else if(reset_counter==2) 
+    {
+        led_on();
+        WS2812_SetColor(128, 128, 128);
+        i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);           //omoguci rad servo
+        reset_counter=1;
+        __delay_ms(2000);
+    }
+    
+}
+
 
 int main() {
 	pins_init();
@@ -29,11 +57,11 @@ int main() {
     
     i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);
 	__delay_ms(1000);
-    i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);
+    i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0430);
 	__delay_ms(2000);
 	__delay32(32000000);
     char* detected_color = "Nepoznata boja";
-    while(1){
+    while(reset_counter!=1){
 		led_on();
     	WS2812_SetColor(128, 128, 128);
         detected_color = read_colors();
@@ -42,7 +70,20 @@ int main() {
             servo_right();
         }else if(strcmp(detected_color, "BIJELA")==0){
             servo_left();
-        }else{
+        }else if(strcmp(detected_color, "ZUTA")){
+			servo_left();
+        }else if(strcmp(detected_color, "ROZA")){
+			servo_right();
+        }else if(strcmp(detected_color, "CRVENA")){
+			servo_left();
+        }
+        else if(strcmp(detected_color, "ZELENA")){
+			servo_right();
+        }else if(strcmp(detected_color, "NARANDZASTA")){
+			servo_left();
+        }else if(strcmp(detected_color, "PLAVA")){
+			servo_right();
+        }else if(strcmp(detected_color, "SMEDJA")){
 			servo_center();
         }
 		led_off();
@@ -103,8 +144,9 @@ void pins_init() {
 	OSCCONbits.IOLOCK = 0;
 
     RPOR3bits.RP6R = 0x0008;    //RB6->SPI1:SCK1OUT
-    RPOR2bits.RP5R = 0x0003;    //RB5->UART1:U1TX
+    //RPOR2bits.RP5R = 0x0003;    //RB5->UART1:U1TX
     RPOR3bits.RP7R = 0x0007;    //RB7->SPI1:SDO1
+    RPINR0bits.INT1R = 5;   
 
 	OSCCONbits.IOLOCK = 1;
     
