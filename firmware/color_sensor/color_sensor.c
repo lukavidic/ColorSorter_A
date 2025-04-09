@@ -29,8 +29,8 @@ const Color colors[] = {
     {"ROZA",      34100, 20200, 29800},
     {"CRNA",       6000, 12300, 16500},
     {"BIJELA",    48900, 65535, 65535},
-    {"SMEDJA",     8000, 11800, 14700},
-    {"NO",         1200,  2000,  2000}
+  //{"SMEDJA",     8000, 11800, 14700},
+    {"NO",         15700,  19000,  21000}
 };
 
 char* detect_color(){
@@ -50,6 +50,10 @@ char* detect_color(){
         }
     }
 
+    uart_send_string("Detektovana: ");
+    uart_send_string(detected_color);
+    uart_send_string("\r\n");
+    
     return detected_color;
     
 }
@@ -114,6 +118,9 @@ char* read_colors(){
     sensor_value_blue = avg_blue;
     sensor_value_green = avg_green;
 
+    sprintf(buff, "AVG Red = %u, AVG Green = %u, AVG Blue = %u\r\n", sensor_value_red, sensor_value_green, sensor_value_blue);
+    uart_send_string(buff);
+    
     return detect_color();
     
 } 

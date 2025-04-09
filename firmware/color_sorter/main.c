@@ -18,32 +18,31 @@
 void pins_init();
 void INTERRUPT_Initialize (void);
 
-int reset_counter = 1; 
+volatile int reset_counter = 1;
+volatile int press_counter = 1; 
 
 void __attribute__((interrupt, no_auto_psv)) _INT1Interrupt(void) {
-    IFS1bits.INT1IF = 0;                        // Ocisti INT1 zastavicu prekida
+    IFS1bits.INT1IF = 0;
 
-    if(reset_counter==1) 
-    {
+    press_counter++;
+
+    if (press_counter % 2 == 0) {
         
         led_off();
         servo_center();
         WS2812_SetColor(0, 0, 0);
-        i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);           //onemogucuje rad servo
-        reset_counter++;
-    }
-    
-    else if(reset_counter==2) 
-    {
+        //i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);
+        reset_counter = 0;
+    } else {
+        
         led_on();
         WS2812_SetColor(128, 128, 128);
-        i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);           //omoguci rad servo
-        reset_counter=1;
-        __delay_ms(2000);
+        //i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);
+        reset_counter = 1;
     }
-    
-}
 
+    __delay_ms(300); 
+}
 
 int main() {
 	pins_init();
@@ -61,34 +60,37 @@ int main() {
 	__delay_ms(2000);
 	__delay32(32000000);
     char* detected_color = "Nepoznata boja";
-    while(reset_counter!=1){
-		led_on();
-    	WS2812_SetColor(128, 128, 128);
-        detected_color = read_colors();
-		/* uart_send_string(detected_color); */
-        if(strcmp(detected_color, "CRNA")==0){
-            servo_right();
-        }else if(strcmp(detected_color, "BIJELA")==0){
-            servo_left();
-        }else if(strcmp(detected_color, "ZUTA")){
-			servo_left();
-        }else if(strcmp(detected_color, "ROZA")){
-			servo_right();
-        }else if(strcmp(detected_color, "CRVENA")){
-			servo_left();
+    while(1){
+        if (reset_counter == 1) {
+            led_on();
+            WS2812_SetColor(128, 128, 128);
+            detected_color = read_colors();
+            if(strcmp(detected_color, "CRNA")==0){
+                servo_right();
+            }else if(strcmp(detected_color, "BIJELA")==0){
+                servo_left();
+            }else if(strcmp(detected_color, "ZUTA")==0){
+                servo_left();
+            }else if(strcmp(detected_color, "ROZA")==0){
+                servo_right();
+            }else if(strcmp(detected_color, "CRVENA")==0){
+                servo_left();
+            }else if(strcmp(detected_color, "ZELENA")==0){
+                servo_right();
+            }else if(strcmp(detected_color, "NARANDZASTA")==0){
+                servo_left();
+            }else if(strcmp(detected_color, "PLAVA")==0){
+                servo_right();
+            }else if(strcmp(detected_color, "NO")==0){
+                servo_center();
+            }
+            led_off();
+            __delay_ms(400);
+            servo_center();
+        
+        }else{
+            __delay_ms(500);
         }
-        else if(strcmp(detected_color, "ZELENA")){
-			servo_right();
-        }else if(strcmp(detected_color, "NARANDZASTA")){
-			servo_left();
-        }else if(strcmp(detected_color, "PLAVA")){
-			servo_right();
-        }else if(strcmp(detected_color, "SMEDJA")){
-			servo_center();
-        }
-		led_off();
-		__delay_ms(400);
-		servo_center();
     }
 
     
@@ -144,9 +146,9 @@ void pins_init() {
 	OSCCONbits.IOLOCK = 0;
 
     RPOR3bits.RP6R = 0x0008;    //RB6->SPI1:SCK1OUT
-    //RPOR2bits.RP5R = 0x0003;    //RB5->UART1:U1TX
+    RPOR2bits.RP5R = 0x0003;    //RB5->UART1:U1TX
     RPOR3bits.RP7R = 0x0007;    //RB7->SPI1:SDO1
-    RPINR0bits.INT1R = 5;   
+    //RPINR0bits.INT1R = 5;   
 
 	OSCCONbits.IOLOCK = 1;
     
