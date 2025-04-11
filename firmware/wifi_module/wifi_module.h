@@ -5,6 +5,10 @@
 
 #define BUFF_SIZE 80
 
+extern volatile char buffer[BUFF_SIZE];
+extern volatile unsigned head, tail;
+extern unsigned char counter;
+
 /**
  * @brief initialise wifi module
  *

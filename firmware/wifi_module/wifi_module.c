@@ -4,7 +4,6 @@ volatile char buffer[BUFF_SIZE];
 volatile unsigned head = 0, tail = 0;
 unsigned char counter = 0;
 
-
 void wifi_init() {
 	/* Set RB12(RX) and RB13(TX) pins to input and output, respectively */
 	TRISBbits.TRISB12 = 1;
@@ -72,6 +71,15 @@ void wifi_init() {
 	/* __delay_ms(5000); */
 	/* wifi_send_string("AT+CWJAP_CUR=\"etfbl.net\",\"\"\r\n"); // Connect to etfbl.net network */
 	/* __delay_ms(5000); */
+
+	wifi_send_string("AT+UART_DEF=115200,8,1,0,0\r\n");
+	__delay_ms(900);
+	wifi_send_string("ATE0\r\n");
+	__delay_ms(900);
+	wifi_send_string("AT+UART_DEF=115200,8,1,0,0\r\n");
+	__delay_ms(900);
+	wifi_send_string("ATE0\r\n");
+	__delay_ms(2000);
 }
 
 void wifi_init2() {

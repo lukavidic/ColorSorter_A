@@ -9,6 +9,7 @@
 #pragma config FWDTEN = OFF   // IskljuCen Watchdog timer
 
 void pins_init();
+void clear_buffer();
 
 int main() {
 	pins_init();
@@ -17,15 +18,22 @@ int main() {
 	wifi_init();
 	wifi_init2();
 	led_init();
-    led_on();
 
-	wifi_send_string("AT+UART_CUR=115200,8,1,0,0");
-	__delay_ms(2000);
     while(1) {
-        wifi_send_string("AT");
+		/* clear_buffer(); */
+		wifi_send_string("AT\r\n");
         __delay_ms(1000);
 		wifi_sendpls2();
+		for(int i=0;i<BUFF_SIZE-1;i++)
+			if(buffer[i] == 'O' && buffer[i+1] == 'K')
+				led_on();
     }
+}
+
+void clear_buffer() {
+	for(int i=0;i<BUFF_SIZE;i++){
+		buffer[i] = '0';
+	}
 }
 
 void pins_init() {
