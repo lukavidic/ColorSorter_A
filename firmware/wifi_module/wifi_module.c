@@ -36,7 +36,6 @@ void wifi_init() {
 
 	OSCCONbits.IOLOCK = 1; // Disable remapping
 	
-<<<<<<< HEAD
 	/* U1MODE register setup */
 	U1MODEbits.BRGH = 1; // Baud rate high speed mode
 	U1MODEbits.USIDL = 0; // Continue operation even in  idle mode
