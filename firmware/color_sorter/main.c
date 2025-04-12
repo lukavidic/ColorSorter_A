@@ -51,7 +51,6 @@ int main() {
 	servo_init();
 	button_init();
 	wifi_init();
-	wifi_init2();
 	led_init();
 	wifi_setup_connection();
 

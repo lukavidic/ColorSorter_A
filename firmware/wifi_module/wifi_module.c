@@ -154,7 +154,6 @@ void __attribute__((interrupt(auto_psv))) _U1RXInterrupt(void) {
     if (U1STAbits.URXDA)  // Check if there are data incoming
     { 
         buffer[head] = U1RXREG; // Put data in buffer
-		wifi_send_character2(buffer[head]); // FOR DEBUGGIN
         head = (head + 1) % BUFF_SIZE;   // Update pointer
     }  
 }
