@@ -4,5 +4,6 @@
 #include "../inc/inc.h"
 
 void button_init();
+void initPrekidi();
 
 #endif

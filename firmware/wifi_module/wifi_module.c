@@ -36,6 +36,7 @@ void wifi_init() {
 
 	OSCCONbits.IOLOCK = 1; // Disable remapping
 	
+<<<<<<< HEAD
 	/* U1MODE register setup */
 	U1MODEbits.BRGH = 1; // Baud rate high speed mode
 	U1MODEbits.USIDL = 0; // Continue operation even in  idle mode
@@ -161,9 +162,4 @@ void __attribute__((interrupt(auto_psv))) _U1RXInterrupt(void) {
 
 void __attribute__((interrupt(auto_psv))) _U1TXInterrupt(void) {
 	IFS0bits.U1TXIF = 0;
-}
-
-void wifi_sendpls() {
-	for(int i=0;i<BUFF_SIZE;i++)
-		wifi_send_character(buffer[i]);
 }
