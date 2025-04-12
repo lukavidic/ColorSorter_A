@@ -21,8 +21,11 @@ int main() {
 	wifi_setup_connection();
 
     while(1) {
-		if(strstr(buffer, "All Left"))
+		if(strstr(buffer, "Left"))
+			servo_left();
+		if(strstr(buffer, "Right"))
 			servo_right();
+		clean_buffer();
 		/* wifi_send_app("AT+CAOO\r\n"); */
 		/* __delay_ms(100); */
 		/* __delay_ms(1000); */
@@ -32,14 +35,6 @@ int main() {
 		/* 	if(buffer[i] == 'O' && buffer[i+1] == 'K') */
 		/* 		led_on(); */
     }
-}
-
-void clear_buffer() {
-	for(int i=0;i<BUFF_SIZE;i++){
-		buffer[i] = '0';
-	}
-	head = 0;
-	tail = 0;
 }
 
 void pins_init() {

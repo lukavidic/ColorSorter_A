@@ -339,7 +339,7 @@ public class ColorGUI {
 		for(int i=0;i<8;i++)
 			positions[i] = false;
 		refreshColors();
-		sendData("All Left");
+		sendData("LeftAll");
     }
 
     @FXML
@@ -347,6 +347,7 @@ public class ColorGUI {
 		for(int i=0;i<8;i++)
 			positions[i] = true;
 		refreshColors();
+		sendData("RightAll");
     }
 }
 
