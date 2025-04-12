@@ -24,6 +24,7 @@ void __attribute__((interrupt(auto_psv))) _U2TXInterrupt(void);
 void wifi_sendpls2();
 void wifi_setup_connection();
 void clean_buffer();
+void wifi_send_app(char* data);
 
 /**
  * @brief send character to wifi module

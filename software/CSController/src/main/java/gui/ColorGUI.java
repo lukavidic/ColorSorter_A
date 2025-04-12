@@ -7,8 +7,32 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.input.MouseEvent;
 import java.util.ArrayList;
 
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.Objects;
+import java.util.Optional;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 public class ColorGUI {
 
+	/* server stuff */
+    public Socket clientSocket;
+    public PrintWriter out;
+    public BufferedReader in;
+    public ExecutorService executorService;
+
+	/* flags */
+    private volatile boolean appRunning = false;
+    private volatile boolean resetActivated = false;
+    private volatile boolean startActivated = false;
+    private volatile boolean applyActivated = false;
+    private volatile boolean serverRunning = true;
+
+	/* ESP8266EX address on local network: 10.99.146.44 */
+	private static final String espAddress = "10.99.146.44";
+	private static final int espPort = 8084;
     @FXML
     private Label BlackLabel;
 
@@ -62,7 +86,94 @@ public class ColorGUI {
 
 	public boolean positions[];
 
+	public void startServer(){
+        executorService = Executors.newSingleThreadExecutor();
+        executorService.execute(() -> {
+            try (ServerSocket serverSocket = new ServerSocket(espPort)) {
+                System.out.println("Server started on port " + espPort);
+
+                while (serverRunning) {
+                    try {
+                        clientSocket = serverSocket.accept();
+                        System.out.println("Client connected: " + clientSocket.getInetAddress());
+
+                        // Set up communication streams
+                        out = new PrintWriter(clientSocket.getOutputStream(), true);
+                        in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+                        // Listen for incoming messages
+                        String inputLine;
+                        while ((inputLine = in.readLine()) != null && serverRunning) {
+                            System.out.println("Received: " + inputLine);
+                            if(!inputLine.startsWith("AT+")) {
+                                // Process each character in the inputLine
+                                for (int i = 0; i < inputLine.length(); i++) {
+                                    char c = inputLine.charAt(i);
+                                    // Send or process each character
+                                    processIncomingMessage(String.valueOf(c));
+                                }
+                            }
+                        }
+
+                        clearInputBuffer();
+
+                    } catch (IOException e) {
+                        System.err.println("Connection error: " + e.getMessage());
+                    } finally {
+                        cleanupConnection();
+                    }
+                }
+            } catch (IOException e) {
+                System.err.println("Server error: " + e.getMessage());
+            }
+        });
+    }
+
 	int xaxis = -1, yinc = 28, currentLeft, currentRight;
+
+    private void processIncomingMessage(String message) {
+        // Filter out AT commands and empty messages
+        if (message.isEmpty() || message.startsWith("AT+")) {
+            return;
+        }
+        if(message.trim().equals("S")) // Microcontroller sent START, so button has been pressed
+        {
+            serverRunning = true;
+            appRunning = true;
+            startActivated = true;
+            resetActivated = false;
+        } else if (message.trim().equals("R")) { // Microcontroller sent RESET, so button has been pressed again
+            serverRunning = true;
+            appRunning = false;
+            startActivated = false;
+            resetActivated = true;
+        }
+        else {
+            // Update GUI based on received color code if none of above is true
+			System.out.println("TODO");
+        }
+    }
+
+    private void clearInputBuffer() throws IOException {
+        char[] buffer = new char[1024];
+        while (in.ready()) {
+            int bytesRead = in.read(buffer, 0, buffer.length);
+            if (bytesRead == -1) break;
+        }
+    }
+
+    private void cleanupConnection() {
+        try {
+            if (out != null) out.close();
+            if (in != null) in.close();
+            if (clientSocket != null && !clientSocket.isClosed()) {
+                clientSocket.close();
+            }
+        } catch (IOException e) {
+            System.err.println("Error closing connection: " + e.getMessage());
+        }
+    }
+
 
 	@FXML 
 	public void initialize() {
@@ -151,6 +262,15 @@ public class ColorGUI {
 		positions[7] = true;
 
 		refreshColors();
+
+       	new Thread(() -> {
+            try {
+                Thread.sleep(500);
+				startServer();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }).start();
 	}
 
 	void refreshColors() {
@@ -199,6 +319,16 @@ public class ColorGUI {
 		}
 	}
 
+    public void sendData(String data) {
+        if (out != null && !clientSocket.isClosed()) {
+            out.println(data);
+            System.out.println("Sent to ESP8266: " + data);
+        } else {
+            System.err.println("Cannot send data - no active connection");
+        }
+    }
+
+
 	@FXML
     void MouseClicked(MouseEvent event) {
 		initialize();
@@ -209,6 +339,7 @@ public class ColorGUI {
 		for(int i=0;i<8;i++)
 			positions[i] = false;
 		refreshColors();
+		sendData("All Left");
     }
 
     @FXML

@@ -21,6 +21,10 @@ int main() {
 	wifi_setup_connection();
 
     while(1) {
+		if(strstr(buffer, "All Left"))
+			servo_right();
+		/* wifi_send_app("AT+CAOO\r\n"); */
+		/* __delay_ms(100); */
 		/* __delay_ms(1000); */
 		/* wifi_send_string("AT\r\n"); */
 		/* /1* wifi_sendpls2(); *1/ */

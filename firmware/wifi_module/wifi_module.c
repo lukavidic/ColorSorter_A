@@ -13,7 +13,7 @@ const char* CMD_MODE = "AT+CWMODE=1\r\n";
 const char* CMD_LIST_AP = "AT+CWLAP\r\n";
 const char* CMD_WIFI_CONN = "AT+CWJAP=\"etfbl.net\",\"\"\r\n";
 const char* CMD_CONN_TYPE = "AT+CIPMUX=0\r\n";
-const char* CMD_START_TCP = "AT+CIPSTART=\"TCP\",\"10.99.131.223\",8084\r\n";
+const char* CMD_START_TCP = "AT+CIPSTART=\"TCP\",\"10.99.171.98\",8084\r\n";
 const char* CMD_SEND = "AT+CIPSEND=3\r\n";
 const char* CMD_IP = "AT+CIFSR\r\n";
 
@@ -117,6 +117,21 @@ void wifi_setup_connection() {
     wifi_send_string(CMD_IP);
 	__delay_ms(1000);
     clean_buffer();
+
+	wifi_send_string(CMD_START_TCP);
+	__delay_ms(1000);
+	clean_buffer();
+}
+
+void wifi_send_app(char* data) {
+    wifi_send_string(CMD_START_TCP);
+    __delay_ms(100);
+    
+    wifi_send_string(CMD_SEND);
+    __delay_ms(100); 
+    
+    wifi_send_string(data);
+    __delay_ms(100);
 }
 
 void clean_buffer() {
