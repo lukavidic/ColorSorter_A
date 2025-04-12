@@ -4,6 +4,19 @@ volatile char buffer[BUFF_SIZE];
 volatile unsigned head = 0, tail = 0;
 unsigned char counter = 0;
 
+/* IP ADDRESS OF ESP8266EX ON ETFBL.NET IS: 10.99.146.44 */
+
+const char* CMD_AT = "AT\r\n";
+const char* CMD_BAUDR = "AT+UART_DEF=115200,8,1,0,0\r\n";
+const char* CMD_RST = "AT+RST\r\n";
+const char* CMD_MODE = "AT+CWMODE=1\r\n";
+const char* CMD_LIST_AP = "AT+CWLAP\r\n";
+const char* CMD_WIFI_CONN = "AT+CWJAP=\"etfbl.net\",\"\"\r\n";
+const char* CMD_CONN_TYPE = "AT+CIPMUX=0\r\n";
+const char* CMD_START_TCP = "AT+CIPSTART=\"TCP\",\"10.99.131.223\",8084\r\n";
+const char* CMD_SEND = "AT+CIPSEND=3\r\n";
+const char* CMD_IP = "AT+CIFSR\r\n";
+
 void wifi_init() {
 	/* Set RB12(RX) and RB13(TX) pins to input and output, respectively */
 	TRISBbits.TRISB12 = 1;
@@ -72,14 +85,45 @@ void wifi_init() {
 	/* wifi_send_string("AT+CWJAP_CUR=\"etfbl.net\",\"\"\r\n"); // Connect to etfbl.net network */
 	/* __delay_ms(5000); */
 
-	wifi_send_string("AT+UART_DEF=115200,8,1,0,0\r\n");
-	__delay_ms(900);
-	wifi_send_string("ATE0\r\n");
-	__delay_ms(900);
-	wifi_send_string("AT+UART_DEF=115200,8,1,0,0\r\n");
-	__delay_ms(900);
-	wifi_send_string("ATE0\r\n");
-	__delay_ms(2000);
+}
+
+void wifi_setup_connection() {
+    clean_buffer();
+    wifi_send_string(CMD_AT); 
+    __delay_ms(1000);
+    
+    clean_buffer();
+    wifi_send_string(CMD_BAUDR); 
+    __delay_ms(1000);
+    
+    /* clean_buffer(); */
+    /* wifi_send_string(CMD_RST); */
+    /* __delay_ms(1000); */
+    
+    clean_buffer();
+    wifi_send_string(CMD_MODE);
+    __delay_ms(1000);
+    
+    clean_buffer();
+    wifi_send_string(CMD_WIFI_CONN);
+    __delay_ms(1000);
+    
+    clean_buffer();
+    wifi_send_string(CMD_CONN_TYPE);
+    __delay_ms(1000);
+    
+	__delay_ms(3000);
+    clean_buffer();
+    wifi_send_string(CMD_IP);
+	__delay_ms(1000);
+    clean_buffer();
+}
+
+void clean_buffer() {
+	for(int i=0;i<BUFF_SIZE;i++) {
+		buffer[i] = 0;
+	}
+	head = tail = 0;
 }
 
 void wifi_init2() {
@@ -178,14 +222,14 @@ void __attribute__((interrupt(auto_psv))) _U2ErrInterrupt(void) {
 }
 
 void __attribute__((interrupt(auto_psv))) _U1RXInterrupt(void) {
-	IFS0bits.U1RXIF = 0;
-	buffer[head] = U1RXREG;
-
-	// TEMPORARY, JUST FOR TESTING:
-	/* for(int i=tail;i<=head;i++) */
-	/* 	wifi_send_character(buffer[i]); */
-	/* tail = head; */
-	head = (head + 1) % BUFF_SIZE;
+    IFS0bits.U1RXIF = 0;  // Reset interrupt flag
+    
+    if (U1STAbits.URXDA)  // Check if there are data incoming
+    { 
+        buffer[head] = U1RXREG; // Put data in buffer
+		wifi_send_character2(buffer[head]); // FOR DEBUGGIN
+        head = (head + 1) % BUFF_SIZE;   // Update pointer
+    }  
 }
 void __attribute__((interrupt(auto_psv))) _U2RXInterrupt(void) {
 	IFS1bits.U2RXIF = 0;
@@ -193,7 +237,7 @@ void __attribute__((interrupt(auto_psv))) _U2RXInterrupt(void) {
 
 	// TEMPORARY, JUST FOR TESTING:
 	/* for(int i=tail;i<=head;i++) */
-	/* 	wifi_send_character(buffer[i]); */
+	/* 	wifi_send_character2(buffer[i]); */
 	/* tail = head; */
 	head = (head + 1) % BUFF_SIZE;
 }

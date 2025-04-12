@@ -22,6 +22,8 @@ void __attribute__((interrupt(auto_psv))) _U2ErrInterrupt(void);
 void __attribute__((interrupt(auto_psv))) _U2RXInterrupt(void);
 void __attribute__((interrupt(auto_psv))) _U2TXInterrupt(void);
 void wifi_sendpls2();
+void wifi_setup_connection();
+void clean_buffer();
 
 /**
  * @brief send character to wifi module
