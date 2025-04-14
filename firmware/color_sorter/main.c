@@ -18,32 +18,6 @@
 void pins_init();
 void INTERRUPT_Initialize (void);
 
-volatile int reset_counter = 1;
-volatile int press_counter = 1; 
-
-void __attribute__((interrupt, no_auto_psv)) _INT1Interrupt(void) {
-    IFS1bits.INT1IF = 0;
-
-    press_counter++;
-
-    if (press_counter % 2 == 0) {
-        
-        led_off();
-        servo_center();
-        WS2812_SetColor(0, 0, 0);
-        //i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x8011);
-        reset_counter = 0;
-    } else {
-        
-        led_on();
-        WS2812_SetColor(128, 128, 128);
-        //i2c_write2ByteRegister(VEML3328_SLAVE_ADD, CONF, 0x0400);
-        reset_counter = 1;
-    }
-
-    __delay_ms(300); 
-}
-
 int main() {
 	pins_init();
     ANSA =0;
@@ -62,7 +36,6 @@ int main() {
     char* detected_color = "Nepoznata boja";
     while(1){
         if (reset_counter == 1) {
-            led_on();
             WS2812_SetColor(128, 128, 128);
             detected_color = read_colors();
             if(strcmp(detected_color, "CRNA")==0){
@@ -84,7 +57,6 @@ int main() {
             }else if(strcmp(detected_color, "NO")==0){
                 servo_center();
             }
-            led_off();
             __delay_ms(400);
             servo_center();
         
@@ -101,7 +73,6 @@ void pins_init() {
 
     TRISBbits.TRISB8  = 1; // SCL - i2c
     TRISBbits.TRISB9  = 1; // SDA - i2c
-    TRISBbits.TRISB5  = 0; // UART1
     TRISBbits.TRISB7  = 0; // OCM1A - WS2812 communication
     TRISBbits.TRISB6  = 0; // SPI1-CLOCK
     
@@ -123,7 +94,7 @@ void pins_init() {
 
     RPOR3bits.RP6R = 0x0008;    //RB6->SPI1:SCK1OUT
     RPOR3bits.RP7R = 0x0007;    //RB7->SPI1:SDO1
-    RPINR0bits.INT1R = 5;   
+    RPINR0bits.INT1R = 5;    	//RB5->Button interrupt
 
 	OSCCONbits.IOLOCK = 1;
     
@@ -145,7 +116,7 @@ void pins_init() {
     
     INTERRUPT_Initialize();
     SPI1_Initialize();
-    UART1_Initialize();
+    /* UART1_Initialize(); */
     
 }
 void INTERRUPT_Initialize (void)

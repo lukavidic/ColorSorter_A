@@ -1,4 +1,5 @@
 #include "wifi_module.h"
+#include "../button/button.h"
 
 volatile char buffer[BUFF_SIZE];
 volatile unsigned head = 0, tail = 0;
@@ -155,6 +156,17 @@ void __attribute__((interrupt(auto_psv))) _U1RXInterrupt(void) {
     { 
         buffer[head] = U1RXREG; // Put data in buffer
         head = (head + 1) % BUFF_SIZE;   // Update pointer
+		led_on();
+		if(strstr((const char*)buffer, "000")) {
+			press_counter = 0;
+			reset_counter = 0;
+			clean_buffer();
+		}
+		else if(strstr((const char*)buffer, "111")) {
+			press_counter = 1;
+			reset_counter = 1;
+			clean_buffer();
+		}
     }  
 }
 

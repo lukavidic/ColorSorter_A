@@ -328,18 +328,12 @@ public class ColorGUI {
         }
     }
 
-
-	@FXML
-    void MouseClicked(MouseEvent event) {
-		initialize();
-    }
-
 	@FXML
     void LeftAllClicked(MouseEvent event) {
 		for(int i=0;i<8;i++)
 			positions[i] = false;
 		refreshColors();
-		sendData("LeftAll");
+		sendData("LA\r\n");
     }
 
     @FXML
@@ -347,7 +341,22 @@ public class ColorGUI {
 		for(int i=0;i<8;i++)
 			positions[i] = true;
 		refreshColors();
-		sendData("RightAll");
+		sendData("RA\r\n");
     }
+
+	@FXML
+    void StartClicked(MouseEvent event) {
+		ButtonStart.setStyle("-fx-background-color: green");
+		ButtonStop.setStyle("-fx-background-color: ");
+		sendData("1111");
+    }
+
+    @FXML
+    void StopClicked(MouseEvent event) {
+		ButtonStart.setStyle("-fx-background-color: ");
+		ButtonStop.setStyle("-fx-background-color: red");
+		sendData("0000");
+    }
+
 }
 
