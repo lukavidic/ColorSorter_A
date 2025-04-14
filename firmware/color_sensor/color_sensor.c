@@ -22,15 +22,16 @@ typedef struct {
 
 const Color colors[] = {
     {"ZELENA",     6500, 29000, 28000},
-    {"PLAVA",      8800, 45100, 65500},
+    {"PLAVA",      13800, 45100, 65500},
     {"CRVENA",    40500, 21800, 24400},
     {"ZUTA",      45000, 65535, 40500},
     {"NARANDZASTA",40700, 18800, 14500},
     {"ROZA",      34100, 20200, 29800},
     {"CRNA",       6000, 12300, 16500},
     {"BIJELA",    48900, 65535, 65535},
-  //{"SMEDJA",     8000, 11800, 14700},
-    {"NO",         15700,  19000,  21000}
+    {"NO",         15700,  19000,  21000},
+    {"OCRNA",      7800,11800,16000}, // zeton okrenut naopacke
+    {"OBIJELA",      30800,45900,63900} // zeton okrenut naopacke
 };
 
 char* detect_color(){
@@ -118,8 +119,10 @@ char* read_colors(){
 
 float color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_t g2, uint16_t b2){
     
-    return sqrtf(powf(r1 - r2, 2) + powf(g1 - g2, 2) + powf(b1 - b2, 2));
-    
+    int32_t dr = (int32_t)r1 - (int32_t)r2;
+    int32_t dg = (int32_t)g1 - (int32_t)g2;
+    int32_t db = (int32_t)b1 - (int32_t)b2;
+    return sqrtf(dr*dr + dg*dg + db*db);
 }
 
 /*void i2c_init() {
