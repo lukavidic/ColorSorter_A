@@ -2,7 +2,6 @@
 #include "../color_sensor/color_sensor.h"
 #include "../color_sensor/i2c1_driver.h"
 #include "../color_sensor/i2c_master.h"
-#include "../color_sensor/uart1.h"
 #include "../color_sensor/i2c_simple_master.h"
 #include "../color_sensor/i2c_types.h"
 #include "../color_sensor/spi1.h"
@@ -38,28 +37,51 @@ int main() {
         if (reset_counter == 1) {
             WS2812_SetColor(128, 128, 128);
             detected_color = read_colors();
-            if(strcmp(detected_color, "CRNA")==0){
-                servo_right();
-            }else if(strcmp(detected_color, "BIJELA")==0){
-                servo_left();
-            }else if(strcmp(detected_color, "ZUTA")==0){
-                servo_left();
-            }else if(strcmp(detected_color, "ROZA")==0){
-                servo_right();
-            }else if(strcmp(detected_color, "CRVENA")==0){
-                servo_left();
+            if(strcmp(detected_color, "CRVENA")==0){
+				if(color_sides[0] == 1)
+					servo_right();
+				else servo_left();
+				wifi_send_app("000\r\n");
             }else if(strcmp(detected_color, "ZELENA")==0){
-                servo_right();
-            }else if(strcmp(detected_color, "NARANDZASTA")==0){
-                servo_left();
+				if(color_sides[1] == 1)
+					servo_right();
+				else servo_left();
+				wifi_send_app("111\r\n");
             }else if(strcmp(detected_color, "PLAVA")==0){
-                servo_right();
+				if(color_sides[2] == 1)
+					servo_right();
+				else servo_left();
+				wifi_send_app("222\r\n");
+            }else if(strcmp(detected_color, "ZUTA")==0){
+				if(color_sides[3] == 1)
+					servo_right();
+				else servo_left();
+				wifi_send_app("333\r\n");
+            }else if(strcmp(detected_color, "NARANDZASTA")==0){
+				if(color_sides[4] == 1)
+					servo_right();
+				else servo_left();
+				wifi_send_app("444\r\n");
+            }else if(strcmp(detected_color, "ROZA")==0){
+				if(color_sides[5] == 1)
+					servo_right();
+				else servo_left();
+				wifi_send_app("555\r\n");
+            }else if(strcmp(detected_color, "BIJELA")==0 || strcmp(detected_color, "OBIJELA")==0){
+				if(color_sides[6] == 1)
+					servo_right();
+				else servo_left();
+				wifi_send_app("666\r\n");
+			}else if(strcmp(detected_color, "CRNA")==0 || strcmp(detected_color, "OCRNA")==0){
+				if(color_sides[7] == 1)
+					servo_right();
+				else servo_left();
+				wifi_send_app("777\r\n");
             }else if(strcmp(detected_color, "NO")==0){
                 servo_center();
             }
             __delay_ms(400);
             servo_center();
-        
         }else{
             __delay_ms(500);
         }
@@ -98,25 +120,8 @@ void pins_init() {
 
 	OSCCONbits.IOLOCK = 1;
     
-	/*ANSB = 0;
-	ANSA = 0;
-    
-    ODCA = 0x0000;
-    ODCB = 0x0000;
- 
-    LATA = 0x0000;
-    LATB = 0x0000;
-    
-    TRISBbits.TRISB8  = 1; // SCL - i2c
-    TRISBbits.TRISB9  = 1; // SDA - i2c
-    //TRISBbits.TRISB10 = 0; // PWM - Servo SG90 communication
-    TRISBbits.TRISB5  = 0; // UART1
-    TRISBbits.TRISB7  = 0; // OCM1A - WS2812 communication
-    TRISBbits.TRISB6  = 0; // SPI1-CLOCK*/
-    
     INTERRUPT_Initialize();
     SPI1_Initialize();
-    /* UART1_Initialize(); */
     
 }
 void INTERRUPT_Initialize (void)

@@ -8,6 +8,10 @@
 extern volatile char buffer[BUFF_SIZE];
 extern volatile unsigned head, tail;
 extern unsigned char counter;
+/* colors current direction - (1 - right, 0 - left)
+ * Order of colors: red, green, blue, yellow, orange, pink, white, black
+ */
+extern int color_sides[8];
 
 /**
  * @brief initialise wifi module

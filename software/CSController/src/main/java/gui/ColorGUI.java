@@ -186,6 +186,7 @@ public class ColorGUI {
 		RedLabel.setPrefHeight(28);
 		RedLabel.setOnMouseClicked(e -> {
 			positions[0] = !positions[0];
+			sendData("000\r\n");
 			refreshColors();
 		});
 
@@ -195,6 +196,7 @@ public class ColorGUI {
 		GreenLabel.setPrefHeight(28);
 		GreenLabel.setOnMouseClicked(e -> {
 			positions[1] = !positions[1];
+			sendData("111\r\n");
 			refreshColors();
 		});
 
@@ -204,6 +206,7 @@ public class ColorGUI {
 		BlueLabel.setPrefHeight(28);
 		BlueLabel.setOnMouseClicked(e -> {
 			positions[2] = !positions[2];
+			sendData("222\r\n");
 			refreshColors();
 		});
 
@@ -213,6 +216,7 @@ public class ColorGUI {
 		YellowLabel.setPrefHeight(28);
 		YellowLabel.setOnMouseClicked(e -> {
 			positions[3] = !positions[3];
+			sendData("333\r\n");
 			refreshColors();
 		});
 
@@ -222,6 +226,7 @@ public class ColorGUI {
 		OrangeLabel.setPrefHeight(28);
 		OrangeLabel.setOnMouseClicked(e -> {
 			positions[4] = !positions[4];
+			sendData("444\r\n");
 			refreshColors();
 		});
 
@@ -231,6 +236,7 @@ public class ColorGUI {
 		PinkLabel.setPrefHeight(28);
 		PinkLabel.setOnMouseClicked(e -> {
 			positions[5] = !positions[5];
+			sendData("555\r\n");
 			refreshColors();
 		});
 
@@ -240,6 +246,7 @@ public class ColorGUI {
 		WhiteLabel.setPrefHeight(28);
 		WhiteLabel.setOnMouseClicked(e -> {
 			positions[6] = !positions[6];
+			sendData("666\r\n");
 			refreshColors();
 		});
 
@@ -249,6 +256,7 @@ public class ColorGUI {
 		BlackLabel.setPrefHeight(28);
 		BlackLabel.setOnMouseClicked(e -> {
 			positions[7] = !positions[7];
+			sendData("777\r\n");
 			refreshColors();
 		});
 
@@ -348,14 +356,14 @@ public class ColorGUI {
     void StartClicked(MouseEvent event) {
 		ButtonStart.setStyle("-fx-background-color: green");
 		ButtonStop.setStyle("-fx-background-color: ");
-		sendData("1111");
+		sendData("START\r\n");
     }
 
     @FXML
     void StopClicked(MouseEvent event) {
 		ButtonStart.setStyle("-fx-background-color: ");
 		ButtonStop.setStyle("-fx-background-color: red");
-		sendData("0000");
+		sendData("STOP\r\n");
     }
 
 }

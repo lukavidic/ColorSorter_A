@@ -4,6 +4,8 @@
 volatile char buffer[BUFF_SIZE];
 volatile unsigned head = 0, tail = 0;
 unsigned char counter = 0;
+int color_sides[8] = { 0, 0, 0, 0, 1, 1, 1, 1};
+
 
 /* IP ADDRESS OF ESP8266EX ON ETFBL.NET IS: 10.99.146.44 */
 
@@ -115,8 +117,8 @@ void wifi_setup_connection() {
 }
 
 void wifi_send_app(char* data) {
-    wifi_send_string(CMD_START_TCP);
-    __delay_ms(100);
+    /* wifi_send_string(CMD_START_TCP); */
+    /* __delay_ms(100); */
     
     wifi_send_string(CMD_SEND);
     __delay_ms(100); 
@@ -157,14 +159,53 @@ void __attribute__((interrupt(auto_psv))) _U1RXInterrupt(void) {
         buffer[head] = U1RXREG; // Put data in buffer
         head = (head + 1) % BUFF_SIZE;   // Update pointer
 		led_on();
-		if(strstr((const char*)buffer, "000")) {
+		if(strstr((const char*)buffer, "STOP")) {
 			press_counter = 0;
 			reset_counter = 0;
 			clean_buffer();
+        	led_off();
+        	servo_center();
+        	WS2812_SetColor(0, 0, 0);
 		}
-		else if(strstr((const char*)buffer, "111")) {
+		else if(strstr((const char*)buffer, "START")) {
 			press_counter = 1;
 			reset_counter = 1;
+			clean_buffer();
+        	led_on();
+        	servo_center();
+        	WS2812_SetColor(128, 128, 128);
+		}
+		else if(strstr((const char*)buffer, "LA")) {
+			for(int i=0;i<8;i++)
+				color_sides[i] = 0;
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "RA")) {
+			for(int i=0;i<8;i++)
+				color_sides[i] = 1;
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "000")) {
+			color_sides[0] = !color_sides[0];
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "111")) {
+			color_sides[1] = !color_sides[1];
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "222")) {
+			color_sides[2] = !color_sides[2];
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "333")) {
+			color_sides[3] = !color_sides[3];
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "444")) {
+			color_sides[4] = !color_sides[4];
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "555")) {
+			color_sides[5] = !color_sides[5];
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "666")) {
+			color_sides[6] = !color_sides[6];
+			clean_buffer();
+		} else if(strstr((const char*)buffer, "777")) {
+			color_sides[7] = !color_sides[7];
 			clean_buffer();
 		}
     }  
