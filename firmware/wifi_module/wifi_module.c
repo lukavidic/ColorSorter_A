@@ -89,10 +89,6 @@ void wifi_setup_connection() {
     wifi_send_string(CMD_BAUDR); 
     __delay_ms(1000);
     
-    /* clean_buffer(); */
-    /* wifi_send_string(CMD_RST); */
-    /* __delay_ms(1000); */
-    
     clean_buffer();
     wifi_send_string(CMD_MODE);
     __delay_ms(1000);
