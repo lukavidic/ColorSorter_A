@@ -1,3 +1,16 @@
+/**
+ * @file Main.java
+ * @brief Entry point of the JavaFX desktop application for controlling microcontroller.
+ *
+ * This class serves as the main entry point for the JavaFX application.
+ * It loads the FXML layout file, initializes the primary window (stage)
+ * and sets up the graphical user interface.
+ * The `start` method uses the FXMLLoader to
+ * parse the `color_gui.fxml` file and obtain an instance of the `ColorGUI` controller, which handles all UI logic.
+ * 
+ * The static reference to the controller (`GuiInstance`) allows other parts of the application to access the UI logic if needed.
+ */
+
 package mks;
 
 import javafx.application.*;
@@ -15,6 +28,12 @@ public class Main extends Application{
 		launch(args);
 	}
 
+	/**
+	 * The `start` method uses the FXMLLoader to
+	 * parse the `color_gui.fxml` file and obtain an
+	 * instance of the `ColorGUI` controller,
+	 * which handles all UI logic.
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		String pathToFXML = "src" + File.separator + "main" + File.separator + "java" + File.separator + "gui" + File.separator + "color_gui.fxml";

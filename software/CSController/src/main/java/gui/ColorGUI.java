@@ -1,3 +1,17 @@
+/**
+ * @file ColorGUI.java
+ * @brief Controller class for the JavaFX desktop application used to interact with microcontroller
+ *
+ * This class contains the core logic of the JavaFX-based desktop application.
+ * It defines and manages all UI components described in the FXML layout and
+ * handles user interactions, input validation, and communication with the microcontroller
+ * over a WiFi connection. The class includes event handlers, updates to the UI based on 
+ * system state, and the sending/receiving of messages to/from the embedded system.
+ * It acts as the main bridge between the graphical interface and the backend system logic.
+ *
+ * The application entry point and basic setup are handled separately in the Main.java file.
+ */
+
 package gui;
 
 import javafx.fxml.FXML;
@@ -86,6 +100,9 @@ public class ColorGUI {
 
 	public boolean positions[];
 
+	/**
+	 * Starts server that will communicate with microcontroller
+	 */
 	public void startServer(){
         executorService = Executors.newSingleThreadExecutor();
         executorService.execute(() -> {
@@ -131,6 +148,9 @@ public class ColorGUI {
 
 	int xaxis = -1, yinc = 28, currentLeft, currentRight;
 
+	/**
+	 * Function that processes received message from microcontroller
+	 */
     private void processIncomingMessage(String message) {
         // Filter out AT commands and empty messages
         if (message.isEmpty() || message.startsWith("AT+")) {
@@ -154,6 +174,9 @@ public class ColorGUI {
         }
     }
 
+	/**
+	 * Cleans interrupt buffer
+	 */
     private void clearInputBuffer() throws IOException {
         char[] buffer = new char[1024];
         while (in.ready()) {
@@ -162,6 +185,9 @@ public class ColorGUI {
         }
     }
 
+	/**
+	 * Closes connection when communication is finished
+	 */
     private void cleanupConnection() {
         try {
             if (out != null) out.close();
@@ -175,6 +201,12 @@ public class ColorGUI {
     }
 
 
+	/**
+	 * @brief Function called first time program is started
+	 *
+	 * Styles gui, sets up events for clicking on each color
+	 * Also starts server using startServer() function
+	 */
 	@FXML 
 	public void initialize() {
 		PaneRight.getChildren().clear();
@@ -281,6 +313,10 @@ public class ColorGUI {
         }).start();
 	}
 
+	/**
+	 * Redraws colors after a color has been clicked or
+	 * when all colors have been shifted to right or left
+	 */
 	void refreshColors() {
 		int i=0;
 		listLeft.clear();
@@ -327,6 +363,11 @@ public class ColorGUI {
 		}
 	}
 
+	/**
+	 * Function used to send data to microcontroller
+	 *
+	 * @param[in] data we want to send
+	 */
     public void sendData(String data) {
         if (out != null && !clientSocket.isClosed()) {
             out.println(data);
@@ -336,6 +377,9 @@ public class ColorGUI {
         }
     }
 
+	/**
+	 * Handler for LeftAll button
+	 */
 	@FXML
     void LeftAllClicked(MouseEvent event) {
 		for(int i=0;i<8;i++)
@@ -344,6 +388,9 @@ public class ColorGUI {
 		sendData("LA\r\n");
     }
 
+	/**
+	 * Handler for RightAll button
+	 */
     @FXML
     void RightAllClicked(MouseEvent event) {
 		for(int i=0;i<8;i++)
@@ -352,6 +399,9 @@ public class ColorGUI {
 		sendData("RA\r\n");
     }
 
+	/**
+	 * Sends start command to microcontroller
+	 */
 	@FXML
     void StartClicked(MouseEvent event) {
 		ButtonStart.setStyle("-fx-background-color: green");
@@ -359,12 +409,13 @@ public class ColorGUI {
 		sendData("START\r\n");
     }
 
+	/**
+	 * Sends stop command to microcontroller
+	 */
     @FXML
     void StopClicked(MouseEvent event) {
 		ButtonStart.setStyle("-fx-background-color: ");
 		ButtonStop.setStyle("-fx-background-color: red");
 		sendData("STOP\r\n");
     }
-
 }
-
