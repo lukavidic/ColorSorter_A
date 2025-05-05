@@ -1,3 +1,11 @@
+/**
+ * @file wifi_module.c
+ * @brief File for wifi communication
+ *
+ * This file contains definitions of functions decleared
+ * in wifi_moudle.h file
+ */ 
+
 #include "wifi_module.h"
 #include "../button/button.h"
 

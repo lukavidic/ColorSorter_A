@@ -1,3 +1,10 @@
+/**
+ * @file inc.h
+ *
+ * This file includes needed libraries
+ * and defines needed macros
+ */
+
 #ifndef INC
 #define INC
 
