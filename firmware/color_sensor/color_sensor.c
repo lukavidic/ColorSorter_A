@@ -1,3 +1,11 @@
+/**
+ * @file color_sensor.c
+ * @brief Color sensor module source file
+ *
+ * This file contains definitions of functions decleared in
+ * color_sensor.h
+ */
+
 #include "color_sensor.h"
 #include "../led/led.h"
 #include "../inc/inc.h"

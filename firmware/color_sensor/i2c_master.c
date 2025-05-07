@@ -1,3 +1,11 @@
+/**
+ * @file i2c_master.c
+ * @brief I2C master source file
+ *
+ * This file contains definitions of functions decleared in
+ * i2c_master.h
+ */
+
 #include <xc.h>
 #include <stdbool.h>
 #include <stdlib.h>

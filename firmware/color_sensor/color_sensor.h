@@ -1,3 +1,8 @@
+/**
+ * @file color_sensor.h
+ * @brief Color sensor module header file
+ */
+
 #ifndef COLOR_H
 #define COLOR_H
 
@@ -12,6 +17,7 @@
  *  @return The name of the closest matching color as a string.
  */
 char* read_colors(); 
+
 /**
  *  @brief Detects the color based on sensor readings.
  *  
@@ -21,6 +27,7 @@ char* read_colors();
  *  @return The name of the closest matching color as a string.
  */
 char* detect_color();
+
 /**
  *  @brief Calculates the Euclidean distance between two RGB colors.
  *  
@@ -37,6 +44,7 @@ char* detect_color();
  *  @return The Euclidean distance between the two colors.
  */
 float color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_t g2, uint16_t b2);
+
 /**
  *  @brief Sends a single byte of data to the WS2812 RGB LED.
  *  
@@ -45,6 +53,7 @@ float color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_
  *  @param byte The byte to be sent to the WS2812.
  */
 void WS2812_Send_Byte(uint8_t byte);
+
 /**
  *  @brief Sets the color of the WS2812 RGB LED.
  *  

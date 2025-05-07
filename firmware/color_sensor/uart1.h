@@ -1,3 +1,9 @@
+/**
+ * @file uart1.h
+ * @brief UART1 header file used to test i2c communication
+ */
+
+
 #ifndef _UART1_H
 #define _UART1_H
 

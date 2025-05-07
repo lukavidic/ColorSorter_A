@@ -1,3 +1,10 @@
+/**
+ * @file led.c
+ * @brief LED module source file
+ *
+ * Contains definitions of functions decleared in led.h
+ */
+
 #include "led.h"
 
 void led_init() {

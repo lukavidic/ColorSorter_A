@@ -1,3 +1,11 @@
+/**
+ * @file i2c_types.c
+ * @brief I2C types source file
+ *
+ * This file contains definitions of functions decleared in
+ * i2c_types.h
+ */
+
 #include "i2c_types.h"
 #include "../inc/inc.h"
 #include <xc.h>

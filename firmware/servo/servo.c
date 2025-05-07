@@ -1,3 +1,10 @@
+/**
+ * @file servo.c
+ * @brief Servo module source file
+ *
+ * Contains definitions of functions decleared in servo.h
+ */
+
 #include "servo.h"
 #include "xc.h"
 void servo_init() {

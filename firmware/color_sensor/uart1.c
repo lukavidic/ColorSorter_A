@@ -1,3 +1,11 @@
+/**
+ * @file uart1.c
+ * @brief UART communication protocol source file
+ *
+ * This file contains definitions of functions decleared in
+ * uart1.h
+ */
+
 #include <xc.h>
 #include "uart1.h"
 

@@ -1,3 +1,10 @@
+/**
+ * @file button.c
+ * @brief Button module source file
+ *
+ * File containing definitions of functions decleared in button.h
+ */
+
 #include "button.h"
 #include "../led/led.h"
 #include "../servo/servo.h"

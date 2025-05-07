@@ -1,3 +1,8 @@
+/**
+ * @file i2c1_driver.h
+ * @brief I2C driver header
+ */
+
 #ifndef __I2C1_DRIVER_H
 #define __I2C1_DRIVER_H
 

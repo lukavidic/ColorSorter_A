@@ -1,3 +1,11 @@
+/**
+ * @file spi1.c
+ * @brief SPI protocol source file
+ *
+ * This file contains definitions of functions decleared in
+ * spi1.h
+ */
+
 #include "spi1.h"
 #include "xc.h"
 /**

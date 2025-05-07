@@ -1,3 +1,11 @@
+/**
+ * @file main.c
+ * @brief File that contains main function of project
+ *
+ * This file contains main function that calls initialize functions
+ * of all modules needed for proper functioning of project
+ */
+
 #include "../servo/servo.h"
 #include "../color_sensor/color_sensor.h"
 #include "../color_sensor/i2c1_driver.h"

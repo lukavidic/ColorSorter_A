@@ -1,3 +1,7 @@
+/**
+ * @file i2c_simple_master.h
+ * @brief I2C simple master header file
+ */
 
 #ifndef I2C_SIMPLE_MASTER_H
 #define	I2C_SIMPLE_MASTER_H

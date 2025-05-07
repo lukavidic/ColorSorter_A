@@ -1,3 +1,11 @@
+/**
+ * @file i2c1_driver.c
+ * @brief I2C driver source file
+ *
+ * This file contains definitions of functions decleared in
+ * i2c1_driver.h
+ */
+
 #include <stdio.h>
 #include <stdint.h>
 #include <stdbool.h>

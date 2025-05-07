@@ -1,3 +1,11 @@
+/**
+ * @file i2c_simple_master.c
+ * @brief I2C simple master source file
+ *
+ * This file contains definitions of functions decleared in
+ * i2c_simple_master.h
+ */
+
 #include "i2c_master.h"
 #include "i2c_simple_master.h"
 #include "../inc/inc.h"

@@ -1,3 +1,8 @@
+/**
+ * @file i2c_types.h
+ * @brief i2c types header file
+ */
+
 #ifndef I2C_TYPES_H
 #define	I2C_TYPES_H
 

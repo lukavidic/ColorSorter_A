@@ -1,3 +1,7 @@
+/**
+ * @file spi1.h
+ * @brief SPI comunnication protocol header file
+ */
 
 #ifndef _SPI1_H
 #define _SPI1_H
