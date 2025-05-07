@@ -217,10 +217,25 @@ void i2c1_driver_setSlaveI2cISR(interruptHandler handler){
     i2c1_driver_Slavei2cISR = handler;
 }
 
+
+
+/**
+ * @brief Interrupt service routine for I2C1 master interrupt.
+ *
+ * This interrupt handler is called when an I2C1 master mode interrupt occurs. It invokes
+ * the user-defined ISR set by the `i2c1_driver_setMasterI2cISR` function.
+ */
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _MI2C1Interrupt ( void )
 {
     (*i2c1_driver_Masteri2cISR)();
 }
+
+/**
+ * @brief Interrupt service routine for I2C1 slave interrupt.
+ *
+ * This interrupt handler is called when an I2C1 slave mode interrupt occurs. It invokes
+ * the user-defined ISR set by the `i2c1_driver_setSlaveI2cISR` function.
+ */
 void __attribute__ ( ( interrupt, no_auto_psv ) ) _SI2C1Interrupt ( void )
 {
     (*i2c1_driver_Slavei2cISR)();

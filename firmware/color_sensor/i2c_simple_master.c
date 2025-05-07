@@ -3,23 +3,21 @@
 #include "../inc/inc.h"
 #include <xc.h>
 /****************************************************************/
+/**
+ * @brief Callback invoked when the first byte (register address) has been transmitted in a write transaction.
+ *
+ * This function sets up the next byte (actual data to be written to the register) in the buffer,
+ * and disables further data complete callbacks by passing NULLs.
+ * 
+ * @param p Pointer to the data byte to be written.
+ * @return i2c_operations_t Returns `i2c_continue` to keep the I2C FSM running.
+ */
 static i2c_operations_t wr1RegCompleteHandler(void *p)
 {
     i2c_setBuffer(p,1);
     i2c_setDataCompleteCallback(NULL,NULL);
     return i2c_continue;
 }
-
-/**
- *  \ingroup doc_driver_i2c_code
- *  \brief Function to write 1 byte of data to a register location
- *  
- *  \param [in] address [type]i2c_address_t The slave address
- *         [in] reg     [type]uint8_t The register address to be written to
- *         [in] data    [type]uint8_t The data to be written
- *  
- *  \return None
- */
 void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data)
 {
     while(!i2c_open(address)); // sit here until we get the bus..
@@ -30,16 +28,6 @@ void i2c_write1ByteRegister(i2c_address_t address, uint8_t reg, uint8_t data)
     while(I2C_BUSY == i2c_close()); // sit here until finished.
 }
 
-/**
- *  \ingroup doc_driver_i2c_code
- *  \brief Function to write N byte of data 
- *  
- *  \param [in] address [type]i2c_address_t Slave address
- *         [in] data    [type]uint8_t Array of data to be send
- *         [in] len     [type]uint8_t The size of the array
- *  
- *  \return None
- */
 void i2c_writeNBytes(i2c_address_t address, void* data, size_t len)
 {
     while(!i2c_open(address)); // sit here until we get the bus..
@@ -50,22 +38,20 @@ void i2c_writeNBytes(i2c_address_t address, void* data, size_t len)
 }
 
 /****************************************************************/
+/**
+ * @brief Callback invoked after the register address has been sent during a read operation.
+ *
+ * Sets the buffer to receive a single byte and schedules a restart-read operation.
+ *
+ * @param p Pointer to the buffer where the read byte will be stored.
+ * @return i2c_operations_t Returns `i2c_restart_read` to initiate a read transaction.
+ */
 static i2c_operations_t rd1RegCompleteHandler(void *p)
 {
     i2c_setBuffer(p,1);
     i2c_setDataCompleteCallback(NULL,NULL);
     return i2c_restart_read;
 }
-
-/**
- *  \ingroup doc_driver_i2c_code
- *  \brief Function to read 1 byte of data from a register location
- *  
- *  \param [in] address [type]i2c_address_t Slave address
- *         [in] reg     [type]uint8_t The register address to be read
- *  
- *  \return [out] The read data byte
- */
 uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg)
 {
     uint8_t    d2=42;
@@ -88,6 +74,15 @@ uint8_t i2c_read1ByteRegister(i2c_address_t address, uint8_t reg)
 }
 
 /****************************************************************/
+/**
+ * @brief Callback handler for completing a 2-byte I2C read operation.
+ *
+ * This function sets a 2-byte read buffer and disables further callbacks.
+ * It is used after writing the register address to initiate the read phase.
+ *
+ * @param p Pointer to the memory location where the result should be stored.
+ * @return i2c_operations_t Operation indicating that a restart read should occur.
+ */
 static i2c_operations_t rd2RegCompleteHandler(void *p)
 {
     i2c_setBuffer(p,2);
@@ -95,15 +90,6 @@ static i2c_operations_t rd2RegCompleteHandler(void *p)
     return i2c_restart_read;
 }
 
-/**
- *  \ingroup doc_driver_i2c_code
- *  \brief Function to read 2 byte of data from a register location
- *  
- *  \param [in] address [type]i2c_address_t Slave address
- *         [in] reg     [type]uint8_t The register address to be read
- *  
- *  \return [out] The read 2 bytes of data
- */
 uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg)
 {
     // result is little endian
@@ -120,6 +106,14 @@ uint16_t i2c_read2ByteRegister(i2c_address_t address, uint8_t reg)
 }
 
 /****************************************************************/
+/**
+ * @brief Callback handler for completing a 2-byte I2C write operation.
+ *
+ * This function sets a 2-byte write buffer and disables further callbacks.
+ *
+ * @param p Pointer to the data to be written.
+ * @return i2c_operations_t Operation indicating the write should continue.
+ */
 static i2c_operations_t wr2RegCompleteHandler(void *p)
 {
     i2c_setBuffer(p,2);
@@ -127,16 +121,6 @@ static i2c_operations_t wr2RegCompleteHandler(void *p)
     return i2c_continue;
 }
 
-/**
- *  \ingroup doc_driver_i2c_code
- *  \brief Function to write 1 byte of data to a register location
- *  
- *  \param [in] address [type]i2c_address_t The slave address
- *         [in] reg     [type]uint8_t The register address to be written to
- *         [in] data    [type]uint8_t The data to be written
- *  
- *  \return None
- */
 void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data)
 {
     //LATAbits.LATA2 = 1;
@@ -156,12 +140,23 @@ void i2c_write2ByteRegister(i2c_address_t address, uint8_t reg, uint16_t data)
 }
 
 /****************************************************************/
+
+/**
+ * @brief Internal structure for buffered I2C block reads.
+ */
 typedef struct
 {
     size_t len;
     char *data;
 }buf_t;
-
+/**
+ * @brief Callback handler for completing a block I2C read operation.
+ *
+ * Sets up the read buffer and disables further callbacks.
+ *
+ * @param p Pointer to a buf_t structure containing the buffer and its length.
+ * @return i2c_operations_t Operation indicating that a restart read should occur.
+ */
 static i2c_operations_t rdBlkRegCompleteHandler(void *p)
 {
     i2c_setBuffer(((buf_t *)p)->data,((buf_t*)p)->len);
@@ -169,17 +164,6 @@ static i2c_operations_t rdBlkRegCompleteHandler(void *p)
     return i2c_restart_read;
 }
 
-/**
- *  \ingroup doc_driver_i2c_code
- *  \brief Function to read block of data from a register location
- *  
- *  \param [in] address [type]i2c_address_t Slave address
- *         [in] reg     [type]uint8_t The register address to be read
- *         [out] data   [type]void* The read data block
- *         [in] len     [type]size_t The size of data block
- *  
- *  \return None
- */
 void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t len)
 {
     // result is little endian
@@ -195,16 +179,6 @@ void i2c_readDataBlock(i2c_address_t address, uint8_t reg, void *data, size_t le
     while(I2C_BUSY == i2c_close()); // sit here until finished.
 }
 
-/**
- *  \ingroup doc_driver_i2c_code
- *  \brief Function to read N bytes of data
- *  
- *  \param [in] address [type]i2c_address_t Slave address
- *         [out] data   [type]void* The read data block
- *         [in] len     [type]size_t The size of data block
- *  
- *  \return None
- */
 void i2c_readNBytes(i2c_address_t address, void *data, size_t len)
 {
     while(!i2c_open(address)); // sit here until we get the bus..
