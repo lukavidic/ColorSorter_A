@@ -1,0 +1,300 @@
+\doxysection{color\+\_\+sensor/i2c\+\_\+master.h File Reference}
+\hypertarget{i2c__master_8h}{}\label{i2c__master_8h}\index{color\_sensor/i2c\_master.h@{color\_sensor/i2c\_master.h}}
+
+
+I2C master header.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}i2c\+\_\+types.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8h_a536af21725163d55747a98cdc6c83e98}{i2c\+\_\+open}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address)
+\begin{DoxyCompactList}\small\item\em Opens the I2C bus for communication with a specific device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_a6270908e8b769610b4650a42f506426c}{i2c\+\_\+set\+Address}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address)
+\begin{DoxyCompactList}\small\item\em Sets the target device I2C address. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8h_a7a40fe027bd43837e5e916b645261d61}{i2c\+\_\+close}} (void)
+\begin{DoxyCompactList}\small\item\em Closes the I2C bus if it is not currently busy. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8h_aa479176ebb7ea62621510cc9c442c319}{i2c\+\_\+master\+Operation}} (bool read)
+\begin{DoxyCompactList}\small\item\em Initiates an I2C master operation (read or write). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8h_aebaaee0e8323bbcbd241e369be0f8d11}{i2c\+\_\+master\+Write}} (void)
+\begin{DoxyCompactList}\small\item\em Initiates an I2C master write operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8h_a66a3e093419357a30f1a2476a6a127ed}{i2c\+\_\+master\+Read}} (void)
+\begin{DoxyCompactList}\small\item\em Initiates an I2C master read operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_af3d4e339efdb52f3374b888ead6a49a6}{i2c\+\_\+set\+Time\+Out}} (uint8\+\_\+t to)
+\begin{DoxyCompactList}\small\item\em Sets the I2C timeout value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_ad35520df4141178be178811c0018ed48}{i2c\+\_\+set\+Buffer}} (void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{wifi__module_8c_aaa870c48d7cd60032958b2036641c0bb}{buffer}}, size\+\_\+t buffer\+Size)
+\begin{DoxyCompactList}\small\item\em Sets the data buffer for an I2C transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_a3b2eac2de12d3099c2f9c2f51b98b643}{i2c\+\_\+set\+Data\+Complete\+Callback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when I2C data transfer is complete. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_ac7261a9e4685dd57a243b975049dcb56}{i2c\+\_\+set\+Write\+Collision\+Callback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when a write collision occurs on the I2C bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_a784d3caacfe920c9e064224df5490d8f}{i2c\+\_\+set\+Address\+NACKCallback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when the I2C address is not acknowledged (NACK). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_a38929307b3085fee5f160224dd1b4166}{i2c\+\_\+set\+Data\+NACKCallback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when data is not acknowledged (NACK) on the I2C bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_a395cf56845bb2784fe12d92d04bf4906}{i2c\+\_\+set\+Time\+Out\+Callback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when an I2C timeout occurs. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_a86a50c15643f081fcffda86640d26db1}{i2c\+\_\+\+ISR}} (void)
+\begin{DoxyCompactList}\small\item\em Main I2C interrupt service routine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8h_aa6d2b06adde8dfd145dcddd79b72854f}{i2c\+\_\+bus\+Collision\+ISR}} (void)
+\begin{DoxyCompactList}\small\item\em I2C bus collision interrupt service routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I2C master header. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{i2c__master_8h_aa6d2b06adde8dfd145dcddd79b72854f}\index{i2c\_master.h@{i2c\_master.h}!i2c\_busCollisionISR@{i2c\_busCollisionISR}}
+\index{i2c\_busCollisionISR@{i2c\_busCollisionISR}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_busCollisionISR()}{i2c\_busCollisionISR()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_aa6d2b06adde8dfd145dcddd79b72854f} 
+void i2c\+\_\+bus\+Collision\+ISR (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+I2C bus collision interrupt service routine. 
+
+Clears the bus collision condition flag to resume normal I2C operation. \Hypertarget{i2c__master_8h_a7a40fe027bd43837e5e916b645261d61}\index{i2c\_master.h@{i2c\_master.h}!i2c\_close@{i2c\_close}}
+\index{i2c\_close@{i2c\_close}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_close()}{i2c\_close()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a7a40fe027bd43837e5e916b645261d61} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+close (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Closes the I2C bus if it is not currently busy. 
+
+If the bus is not actively in use and the current address matches, this function resets the {\ttfamily in\+Use} flag, disables interrupts, and marks the address as free.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} Returns the last error status ({\ttfamily i2c\+\_\+status.\+error}) if successfully closed, otherwise returns {\ttfamily I2\+C\+\_\+\+BUSY} if the bus is still active. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8h_a86a50c15643f081fcffda86640d26db1}\index{i2c\_master.h@{i2c\_master.h}!i2c\_ISR@{i2c\_ISR}}
+\index{i2c\_ISR@{i2c\_ISR}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_ISR()}{i2c\_ISR()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a86a50c15643f081fcffda86640d26db1} 
+void i2c\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main I2C interrupt service routine. 
+
+Clears the I2C interrupt flag, checks for address NACK conditions, and invokes the appropriate state handler from the FSM table based on the current state.
+
+Note\+: Write collision flags are ignored; premature SSPBUF writes are not handled here. \Hypertarget{i2c__master_8h_aa479176ebb7ea62621510cc9c442c319}\index{i2c\_master.h@{i2c\_master.h}!i2c\_masterOperation@{i2c\_masterOperation}}
+\index{i2c\_masterOperation@{i2c\_masterOperation}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_masterOperation()}{i2c\_masterOperation()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_aa479176ebb7ea62621510cc9c442c319} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+master\+Operation (\begin{DoxyParamCaption}\item[{bool}]{read}{}\end{DoxyParamCaption})}
+
+
+
+Initiates an I2C master operation (read or write). 
+
+This function begins either a master read or write transaction, depending on the {\ttfamily read} parameter. It sets the appropriate internal state, starts the I2C transfer, and chooses between interrupt-\/based or polled operation depending on IRQ availability.
+
+
+\begin{DoxyParams}{Parameters}
+{\em read} & If {\ttfamily true}, initiates a read operation; if {\ttfamily false}, initiates a write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} {\ttfamily I2\+C\+\_\+\+NOERR} if operation started successfully, otherwise {\ttfamily I2\+C\+\_\+\+BUSY}. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8h_a66a3e093419357a30f1a2476a6a127ed}\index{i2c\_master.h@{i2c\_master.h}!i2c\_masterRead@{i2c\_masterRead}}
+\index{i2c\_masterRead@{i2c\_masterRead}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_masterRead()}{i2c\_masterRead()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a66a3e093419357a30f1a2476a6a127ed} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+master\+Read (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initiates an I2C master read operation. 
+
+This is a convenience wrapper around {\ttfamily i2c\+\_\+master\+Operation(true)}.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} {\ttfamily I2\+C\+\_\+\+NOERR} if operation started successfully, otherwise {\ttfamily I2\+C\+\_\+\+BUSY}. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8h_aebaaee0e8323bbcbd241e369be0f8d11}\index{i2c\_master.h@{i2c\_master.h}!i2c\_masterWrite@{i2c\_masterWrite}}
+\index{i2c\_masterWrite@{i2c\_masterWrite}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_masterWrite()}{i2c\_masterWrite()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_aebaaee0e8323bbcbd241e369be0f8d11} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+master\+Write (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initiates an I2C master write operation. 
+
+This is a convenience wrapper around {\ttfamily i2c\+\_\+master\+Operation(false)}.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} {\ttfamily I2\+C\+\_\+\+NOERR} if operation started successfully, otherwise {\ttfamily I2\+C\+\_\+\+BUSY}. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8h_a536af21725163d55747a98cdc6c83e98}\index{i2c\_master.h@{i2c\_master.h}!i2c\_open@{i2c\_open}}
+\index{i2c\_open@{i2c\_open}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_open()}{i2c\_open()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a536af21725163d55747a98cdc6c83e98} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Opens the I2C bus for communication with a specific device. 
+
+This function attempts to take control of the I2C bus and set the device address for communication. It initializes internal state and callback handlers for common I2C events.
+
+\begin{DoxyNote}{Note}
+If the bus is already in use ({\ttfamily in\+Use} flag is set), the function will return {\ttfamily I2\+C\+\_\+\+BUSY}.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The 7-\/bit I2C address of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} {\ttfamily I2\+C\+\_\+\+NOERR} if the bus was successfully opened, otherwise {\ttfamily I2\+C\+\_\+\+BUSY}. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8h_a6270908e8b769610b4650a42f506426c}\index{i2c\_master.h@{i2c\_master.h}!i2c\_setAddress@{i2c\_setAddress}}
+\index{i2c\_setAddress@{i2c\_setAddress}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_setAddress()}{i2c\_setAddress()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a6270908e8b769610b4650a42f506426c} 
+void i2c\+\_\+set\+Address (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Sets the target device I2C address. 
+
+This function updates the internal {\ttfamily i2c\+\_\+status} structure with a new I2C address. Useful when changing the device target without reopening the bus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The new I2C address to be set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8h_a784d3caacfe920c9e064224df5490d8f}\index{i2c\_master.h@{i2c\_master.h}!i2c\_setAddressNACKCallback@{i2c\_setAddressNACKCallback}}
+\index{i2c\_setAddressNACKCallback@{i2c\_setAddressNACKCallback}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_setAddressNACKCallback()}{i2c\_setAddressNACKCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a784d3caacfe920c9e064224df5490d8f} 
+void i2c\+\_\+set\+Address\+NACKCallback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when the I2C address is not acknowledged (NACK). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked when the address is NACKed. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8h_ad35520df4141178be178811c0018ed48}\index{i2c\_master.h@{i2c\_master.h}!i2c\_setBuffer@{i2c\_setBuffer}}
+\index{i2c\_setBuffer@{i2c\_setBuffer}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_setBuffer()}{i2c\_setBuffer()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_ad35520df4141178be178811c0018ed48} 
+void i2c\+\_\+set\+Buffer (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{buffer\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Sets the data buffer for an I2C transaction. 
+
+This function configures the data buffer and its size for the upcoming I2C operation, if the buffer is currently available. Once set, the buffer is marked as used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the data buffer. \\
+\hline
+{\em buffer\+Size} & Size of the data buffer in bytes. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8h_a3b2eac2de12d3099c2f9c2f51b98b643}\index{i2c\_master.h@{i2c\_master.h}!i2c\_setDataCompleteCallback@{i2c\_setDataCompleteCallback}}
+\index{i2c\_setDataCompleteCallback@{i2c\_setDataCompleteCallback}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_setDataCompleteCallback()}{i2c\_setDataCompleteCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a3b2eac2de12d3099c2f9c2f51b98b643} 
+void i2c\+\_\+set\+Data\+Complete\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when I2C data transfer is complete. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked upon data completion. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8h_a38929307b3085fee5f160224dd1b4166}\index{i2c\_master.h@{i2c\_master.h}!i2c\_setDataNACKCallback@{i2c\_setDataNACKCallback}}
+\index{i2c\_setDataNACKCallback@{i2c\_setDataNACKCallback}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_setDataNACKCallback()}{i2c\_setDataNACKCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a38929307b3085fee5f160224dd1b4166} 
+void i2c\+\_\+set\+Data\+NACKCallback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when data is not acknowledged (NACK) on the I2C bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked when data is NACKed. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8h_af3d4e339efdb52f3374b888ead6a49a6}\index{i2c\_master.h@{i2c\_master.h}!i2c\_setTimeOut@{i2c\_setTimeOut}}
+\index{i2c\_setTimeOut@{i2c\_setTimeOut}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_setTimeOut()}{i2c\_setTimeOut()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_af3d4e339efdb52f3374b888ead6a49a6} 
+void i2c\+\_\+set\+Time\+Out (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{to}{}\end{DoxyParamCaption})}
+
+
+
+Sets the I2C timeout value. 
+
+This function safely sets the timeout threshold for I2C operations. Interrupts are disabled during the update to avoid race conditions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em to} & The new timeout value to set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8h_a395cf56845bb2784fe12d92d04bf4906}\index{i2c\_master.h@{i2c\_master.h}!i2c\_setTimeOutCallback@{i2c\_setTimeOutCallback}}
+\index{i2c\_setTimeOutCallback@{i2c\_setTimeOutCallback}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_setTimeOutCallback()}{i2c\_setTimeOutCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_a395cf56845bb2784fe12d92d04bf4906} 
+void i2c\+\_\+set\+Time\+Out\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when an I2C timeout occurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked on timeout. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8h_ac7261a9e4685dd57a243b975049dcb56}\index{i2c\_master.h@{i2c\_master.h}!i2c\_setWriteCollisionCallback@{i2c\_setWriteCollisionCallback}}
+\index{i2c\_setWriteCollisionCallback@{i2c\_setWriteCollisionCallback}!i2c\_master.h@{i2c\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_setWriteCollisionCallback()}{i2c\_setWriteCollisionCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8h_ac7261a9e4685dd57a243b975049dcb56} 
+void i2c\+\_\+set\+Write\+Collision\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when a write collision occurs on the I2C bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked on write collision. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}

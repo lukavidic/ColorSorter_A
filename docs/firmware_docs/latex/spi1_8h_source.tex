@@ -1,0 +1,64 @@
+\doxysection{spi1.\+h}
+\hypertarget{spi1_8h_source}{}\label{spi1_8h_source}\index{color\_sensor/spi1.h@{color\_sensor/spi1.h}}
+\mbox{\hyperlink{spi1_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_SPI1\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_SPI1\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <xc.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stddef.h>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{extern}\ \textcolor{stringliteral}{"{}C"{}}\ \{}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif\ \ \ \ \ \ \ }\textcolor{preprocessor}{}}
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ SPI1\_DUMMY\_DATA\ 0x0}}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ SPI1\_FIFO\_FILL\_LIMIT\ 0x8}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//Check\ to\ make\ sure\ that\ the\ FIFO\ limit\ does\ not\ exceed\ the\ maximum\ allowed\ limit\ of\ 8}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#if\ (SPI1\_FIFO\_FILL\_LIMIT\ >\ 8)}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\ \ \ \ \#define\ SPI1\_FIFO\_FILL\_LIMIT\ 8}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00057\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00058\ \ \ \ \ \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012a69e392271481ac8c49fb6f35a7bc7c53}{SPI1\_SHIFT\_REGISTER\_EMPTY}}\ \ =\ 1\ <<\ 7,}
+\DoxyCodeLine{00059\ \ \ \ \ \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012a877f4b63731f235b5fe552030d1388c5}{SPI1\_RECEIVE\_OVERFLOW}}\ =\ 1\ <<\ 6,}
+\DoxyCodeLine{00060\ \ \ \ \ \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012afc7ba2714535aa5d614b5759b1d40579}{SPI1\_RECEIVE\_FIFO\_EMPTY}}\ =\ 1\ <<\ 5,}
+\DoxyCodeLine{00061\ \ \ \ \ \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012a949c786b6788d844c479a2f299fdf7dc}{SPI1\_TRANSMIT\_BUFFER\_FULL}}\ =\ 1\ <<\ 1,}
+\DoxyCodeLine{00062\ \ \ \ \ \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012aba7791551998b7c485e613812eaa6a84}{SPI1\_RECEIVE\_BUFFER\_FULL}}\ =\ 1\ <<\ 0}
+\DoxyCodeLine{00063\ \}\mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012}{SPI1\_STATUS}};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{spi1_8h_a0607cad7a6b302950091fea719146a54}{SPI1\_Initialize}}\ (\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00140\ uint8\_t\ \mbox{\hyperlink{spi1_8h_a6553e18263c48505676958ce4c937167}{SPI1\_Exchange8bit}}(\ uint8\_t\ data\ );}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ uint16\_t\ \mbox{\hyperlink{spi1_8h_a466cff635af902560dbb6dacb5ace1bf}{SPI1\_Exchange8bitBuffer}}(uint8\_t\ *dataTransmitted,\ uint16\_t\ byteCount,\ uint8\_t\ *dataReceived);}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012}{SPI1\_STATUS}}\ \mbox{\hyperlink{spi1_8h_a05acfdd41894527bd8833b8f549680ed}{SPI1\_StatusGet}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#ifdef\ \_\_cplusplus\ \ }\textcolor{comment}{//\ Provide\ C++\ Compatibility}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_SPI1\_H}}
+\DoxyCodeLine{00204\ }
+
+\end{DoxyCode}

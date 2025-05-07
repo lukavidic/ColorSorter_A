@@ -1,0 +1,68 @@
+\doxysection{i2c1\+\_\+driver.\+h}
+\hypertarget{i2c1__driver_8h_source}{}\label{i2c1__driver_8h_source}\index{color\_sensor/i2c1\_driver.h@{color\_sensor/i2c1\_driver.h}}
+\mbox{\hyperlink{i2c1__driver_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ \_\_I2C1\_DRIVER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ \_\_I2C1\_DRIVER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00013\ \ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{typedef}\ void\ (*\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interruptHandler}})(void);}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{/*\ arbitration\ interface\ */}}
+\DoxyCodeLine{00022\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_aff5fb84305b4e5655721c950a3488196}{i2c1\_driver\_close}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \textcolor{comment}{/*\ Interrupt\ interfaces\ */}}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a8ef15a19099711e8ee10fd31a7d7b847}{i2c1\_enableIRQ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00037\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{i2c1__driver_8h_a3a562d793c89fe5f86c8954605041f1f}{i2c1\_IRQisEnabled}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_ad88ed6deb0c925a79b507f0eced17c38}{i2c1\_disableIRQ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00049\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a33f284f52c97edb7125db041f382b98e}{i2c1\_clearIRQ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a733a1bea54d71551298a6780208796c9}{i2c1\_setIRQ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00065\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_ae5cddc4b1527423f7d4b697326b0e8b3}{i2c1\_waitForEvent}}(uint16\_t*);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \textcolor{comment}{/*\ I2C\ interfaces\ */}}
+\DoxyCodeLine{00076\ \textcolor{keywordtype}{bool}\ \ \mbox{\hyperlink{i2c1__driver_8h_a73e12d1ac2f9ed036a413a4ec4973512}{i2c1\_driver\_driver\_open}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00084\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{i2c1__driver_8h_ac99db9ea0d028200180c594b863fb6b0}{i2c1\_driver\_getRXData}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00093\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_acfa3b364ea251fef22f8530f1dabe12d}{i2c1\_driver\_TXData}}(uint8\_t);}
+\DoxyCodeLine{00099\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a3291584a36361a8b886a5565a0897474}{i2c1\_driver\_resetBus}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00105\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a826f86a40e425c0280cac832497d48f1}{i2c1\_driver\_start}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00112\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a9417c263829b30c425f14cd5576b4f44}{i2c1\_driver\_restart}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00119\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a822b30de8bc66d6a5dd767066497ad87}{i2c1\_driver\_stop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00128\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{i2c1__driver_8h_a35f6f9da194842280debb04be644c373}{i2c1\_driver\_isNACK}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00136\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a0c0e213e454c56ad73d3eb1daa66dbec}{i2c1\_driver\_startRX}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00143\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a7b61d469696ce43586ad65b00fe497c8}{i2c1\_driver\_sendACK}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00150\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_aee61ef34c048aa4149d15fc7bfba83d0}{i2c1\_driver\_sendNACK}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00157\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a3639e5e0f758d398635ebe19d3e3bfc3}{i2c1\_driver\_clearBusCollision}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00167\ \textcolor{keywordtype}{bool}\ \ \mbox{\hyperlink{i2c1__driver_8h_a0f9e55c5736c1b1fc31d3055093bf997}{i2c1\_driver\_initSlaveHardware}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00174\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_af08a3c0de397654999ff28878635b84b}{i2c1\_driver\_releaseClock}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00183\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{i2c1__driver_8h_af0a6e32e38bd9467f0ece088996bae76}{i2c1\_driver\_isBuferFull}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00194\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{i2c1__driver_8h_a5e4122ae176771eaca282cce372486bd}{i2c1\_driver\_isStart}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00203\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{i2c1__driver_8h_a5b2c47d3881ea90cf7f8654b826176f6}{i2c1\_driver\_isStop}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00214\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{i2c1__driver_8h_ae7ec5ac5ff5ad12465ca489d1fcf1bee}{i2c1\_driver\_isAddress}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00224\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{i2c1__driver_8h_a3f7cf8eea1e9a6c4fe27584994f1169e}{i2c1\_driver\_isData}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00234\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{i2c1__driver_8h_a678cb4a782b2af3024b46c99302b4f02}{i2c1\_driver\_isRead}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00243\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a77c2d72c9fca24dd43990df49d51ca53}{i2c1\_driver\_enableStartIRQ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00252\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_acbc71e0e45d8c7464e36ce128cfd1e9c}{i2c1\_driver\_disableStartIRQ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00260\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a4a74f266c1ad5e78e30c92ba898f021c}{i2c1\_driver\_enableStopIRQ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00268\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_af2ac828c29858571eeb12a8a768b6eaf}{i2c1\_driver\_disableStopIRQ}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00278\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_aa907711128fc436c2e7542b32148187c}{i2c1\_driver\_setBusCollisionISR}}(\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interruptHandler}}\ handler);}
+\DoxyCodeLine{00288\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_a406d4d1be058f2358fc613e45db46513}{i2c1\_driver\_setMasterI2cISR}}(\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interruptHandler}}\ handler);}
+\DoxyCodeLine{00298\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c1__driver_8h_aab163b34535ddda4fea4ea0a7cdf5a94}{i2c1\_driver\_setSlaveI2cISR}}(\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interruptHandler}}\ handler);}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_\_I2C1\_DRIVER\_H}}
+
+\end{DoxyCode}

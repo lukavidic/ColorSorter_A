@@ -1,0 +1,83 @@
+\doxysection{button/button.c File Reference}
+\hypertarget{button_8c}{}\label{button_8c}\index{button/button.c@{button/button.c}}
+
+
+Button module source file.  
+
+
+{\ttfamily \#include "{}button.\+h"{}}\newline
+{\ttfamily \#include "{}../led/led.\+h"{}}\newline
+{\ttfamily \#include "{}../servo/servo.\+h"{}}\newline
+{\ttfamily \#include "{}../color\+\_\+sensor/color\+\_\+sensor.\+h"{}}\newline
+{\ttfamily \#include "{}../inc/inc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{button_8c_a681470fea7c7eaa67094df3e5567a8f7}{button\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the button and sets up interrupt configuration. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{button_8c_aab3a22f4fca32e3600be53c5cd5cdc55}{init\+Prekidi}} ()
+\begin{DoxyCompactList}\small\item\em Initializes interrupts for the button. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{button_8c_a226557d5e42f7e29ddaff30606138459}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((interrupt, no\+\_\+auto\+\_\+psv))
+\begin{DoxyCompactList}\small\item\em Interrupt service routine for I2\+C1 slave interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{button_8c_aac274e9c06b25faa040b6ba219fc2e75}{reset\+\_\+counter}} = 1
+\item 
+volatile int \mbox{\hyperlink{button_8c_a81abebcb507939407ceaeb9007b656bc}{press\+\_\+counter}} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Button module source file. 
+
+File containing definitions of functions decleared in \doxylink{button_8h}{button.\+h} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{button_8c_a226557d5e42f7e29ddaff30606138459}\index{button.c@{button.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!button.c@{button.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{button_8c_a226557d5e42f7e29ddaff30606138459} 
+void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(interrupt, no\+\_\+auto\+\_\+psv)}]{}{}\end{DoxyParamCaption})}
+
+
+
+Interrupt service routine for I2\+C1 slave interrupt. 
+
+INT1 interrupt handler (button press).
+
+This interrupt handler is called when an I2\+C1 slave mode interrupt occurs. It invokes the user-\/defined ISR set by the {\ttfamily i2c1\+\_\+driver\+\_\+set\+Slave\+I2c\+ISR} function. \Hypertarget{button_8c_a681470fea7c7eaa67094df3e5567a8f7}\index{button.c@{button.c}!button\_init@{button\_init}}
+\index{button\_init@{button\_init}!button.c@{button.c}}
+\doxysubsubsection{\texorpdfstring{button\_init()}{button\_init()}}
+{\footnotesize\ttfamily \label{button_8c_a681470fea7c7eaa67094df3e5567a8f7} 
+void button\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the button and sets up interrupt configuration. 
+
+This function configures pin RB5 as an input and calls the function to initialize interrupts. \Hypertarget{button_8c_aab3a22f4fca32e3600be53c5cd5cdc55}\index{button.c@{button.c}!initPrekidi@{initPrekidi}}
+\index{initPrekidi@{initPrekidi}!button.c@{button.c}}
+\doxysubsubsection{\texorpdfstring{initPrekidi()}{initPrekidi()}}
+{\footnotesize\ttfamily \label{button_8c_aab3a22f4fca32e3600be53c5cd5cdc55} 
+void init\+Prekidi (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes interrupts for the button. 
+
+This function sets up the parameters for INT1 interrupt, enables the interrupt on falling edge, and enables global interrupts. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{button_8c_a81abebcb507939407ceaeb9007b656bc}\index{button.c@{button.c}!press\_counter@{press\_counter}}
+\index{press\_counter@{press\_counter}!button.c@{button.c}}
+\doxysubsubsection{\texorpdfstring{press\_counter}{press\_counter}}
+{\footnotesize\ttfamily \label{button_8c_a81abebcb507939407ceaeb9007b656bc} 
+volatile int press\+\_\+counter = 1}
+
+\Hypertarget{button_8c_aac274e9c06b25faa040b6ba219fc2e75}\index{button.c@{button.c}!reset\_counter@{reset\_counter}}
+\index{reset\_counter@{reset\_counter}!button.c@{button.c}}
+\doxysubsubsection{\texorpdfstring{reset\_counter}{reset\_counter}}
+{\footnotesize\ttfamily \label{button_8c_aac274e9c06b25faa040b6ba219fc2e75} 
+int reset\+\_\+counter = 1}
+

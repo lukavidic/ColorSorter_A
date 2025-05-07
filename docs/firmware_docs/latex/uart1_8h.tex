@@ -1,0 +1,227 @@
+\doxysection{color\+\_\+sensor/uart1.h File Reference}
+\hypertarget{uart1_8h}{}\label{uart1_8h}\index{color\_sensor/uart1.h@{color\_sensor/uart1.h}}
+
+
+UART1 header file used to test i2c communication.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include "{}../inc/inc.\+h"{}}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38}{UART1\+\_\+\+STATUS}} \{ \newline
+\mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a64201dc35e33f9e3e3a546c7955c0f9a}{UART1\+\_\+\+RX\+\_\+\+DATA\+\_\+\+AVAILABLE}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 0)
+, \mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a7b4e6891ce1399bdcc0d5a0df31b6c7d}{UART1\+\_\+\+RX\+\_\+\+OVERRUN\+\_\+\+ERROR}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 1)
+, \mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38ac43473cad794e936eeb01c85273a4265}{UART1\+\_\+\+FRAMING\+\_\+\+ERROR}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 2)
+, \mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a43aec9e79f13c60c2538875afa663715}{UART1\+\_\+\+PARITY\+\_\+\+ERROR}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 3)
+, \newline
+\mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38ac73b2328d7240fe55aa9726bc08bafdd}{UART1\+\_\+\+RECEIVER\+\_\+\+IDLE}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 4)
+, \mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a08cd008fd60513d534686cd30f0285f5}{UART1\+\_\+\+TX\+\_\+\+COMPLETE}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 8)
+, \mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a2c5d95c9eeaa073e8ed30837eee8133a}{UART1\+\_\+\+TX\+\_\+\+FULL}} = (1 \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 9)
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize}} (void)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{uart1_8h_a4e34071aa3125eb037bd6ae844c7ffbb}{UART1\+\_\+\+Read}} (void)
+\item 
+void \mbox{\hyperlink{uart1_8h_a90e1d95e8003b3fd38e37e35e5864b2f}{UART1\+\_\+\+Write}} (uint8\+\_\+t tx\+Data)
+\item 
+bool \mbox{\hyperlink{uart1_8h_a35ebdf043c6e4995ff711ebc13954861}{UART1\+\_\+\+Is\+Rx\+Ready}} (void)
+\item 
+bool \mbox{\hyperlink{uart1_8h_ae2fc49fa99787bc951e12bd840b1248c}{UART1\+\_\+\+Is\+Tx\+Ready}} (void)
+\item 
+bool \mbox{\hyperlink{uart1_8h_a693f8124b5bec099c5141b65e47f2bb9}{UART1\+\_\+\+Is\+Tx\+Done}} (void)
+\item 
+void \mbox{\hyperlink{uart1_8h_ac3e8be95fdd5f9beb7edb56b07d3e408}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((deprecated)) UART1\+\_\+\+Enable(void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+UART1 header file used to test i2c communication. 
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38}\index{uart1.h@{uart1.h}!UART1\_STATUS@{UART1\_STATUS}}
+\index{UART1\_STATUS@{UART1\_STATUS}!uart1.h@{uart1.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_STATUS}{UART1\_STATUS}}
+{\footnotesize\ttfamily \label{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38} 
+enum \mbox{\hyperlink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38}{UART1\+\_\+\+STATUS}}}
+
+UART1 Driver Hardware Flags
+
+@\+Summary Specifies the status of the hardware receive or transmit
+
+@\+Description This type specifies the status of the hardware receive or transmit. More than one of these values may be OR\textquotesingle{}d together to create a complete status value. To test a value of this type, the bit of interest must be AND\textquotesingle{}ed with value and checked to see if the result is non-\/zero. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART1\_RX\_DATA\_AVAILABLE@{UART1\_RX\_DATA\_AVAILABLE}!uart1.h@{uart1.h}}\index{uart1.h@{uart1.h}!UART1\_RX\_DATA\_AVAILABLE@{UART1\_RX\_DATA\_AVAILABLE}}}\Hypertarget{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a64201dc35e33f9e3e3a546c7955c0f9a}\label{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a64201dc35e33f9e3e3a546c7955c0f9a} 
+UART1\+\_\+\+RX\+\_\+\+DATA\+\_\+\+AVAILABLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART1\_RX\_OVERRUN\_ERROR@{UART1\_RX\_OVERRUN\_ERROR}!uart1.h@{uart1.h}}\index{uart1.h@{uart1.h}!UART1\_RX\_OVERRUN\_ERROR@{UART1\_RX\_OVERRUN\_ERROR}}}\Hypertarget{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a7b4e6891ce1399bdcc0d5a0df31b6c7d}\label{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a7b4e6891ce1399bdcc0d5a0df31b6c7d} 
+UART1\+\_\+\+RX\+\_\+\+OVERRUN\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART1\_FRAMING\_ERROR@{UART1\_FRAMING\_ERROR}!uart1.h@{uart1.h}}\index{uart1.h@{uart1.h}!UART1\_FRAMING\_ERROR@{UART1\_FRAMING\_ERROR}}}\Hypertarget{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38ac43473cad794e936eeb01c85273a4265}\label{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38ac43473cad794e936eeb01c85273a4265} 
+UART1\+\_\+\+FRAMING\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART1\_PARITY\_ERROR@{UART1\_PARITY\_ERROR}!uart1.h@{uart1.h}}\index{uart1.h@{uart1.h}!UART1\_PARITY\_ERROR@{UART1\_PARITY\_ERROR}}}\Hypertarget{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a43aec9e79f13c60c2538875afa663715}\label{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a43aec9e79f13c60c2538875afa663715} 
+UART1\+\_\+\+PARITY\+\_\+\+ERROR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART1\_RECEIVER\_IDLE@{UART1\_RECEIVER\_IDLE}!uart1.h@{uart1.h}}\index{uart1.h@{uart1.h}!UART1\_RECEIVER\_IDLE@{UART1\_RECEIVER\_IDLE}}}\Hypertarget{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38ac73b2328d7240fe55aa9726bc08bafdd}\label{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38ac73b2328d7240fe55aa9726bc08bafdd} 
+UART1\+\_\+\+RECEIVER\+\_\+\+IDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART1\_TX\_COMPLETE@{UART1\_TX\_COMPLETE}!uart1.h@{uart1.h}}\index{uart1.h@{uart1.h}!UART1\_TX\_COMPLETE@{UART1\_TX\_COMPLETE}}}\Hypertarget{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a08cd008fd60513d534686cd30f0285f5}\label{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a08cd008fd60513d534686cd30f0285f5} 
+UART1\+\_\+\+TX\+\_\+\+COMPLETE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UART1\_TX\_FULL@{UART1\_TX\_FULL}!uart1.h@{uart1.h}}\index{uart1.h@{uart1.h}!UART1\_TX\_FULL@{UART1\_TX\_FULL}}}\Hypertarget{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a2c5d95c9eeaa073e8ed30837eee8133a}\label{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38a2c5d95c9eeaa073e8ed30837eee8133a} 
+UART1\+\_\+\+TX\+\_\+\+FULL&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{uart1_8h_ac3e8be95fdd5f9beb7edb56b07d3e408}\index{uart1.h@{uart1.h}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!uart1.h@{uart1.h}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{uart1_8h_ac3e8be95fdd5f9beb7edb56b07d3e408} 
+void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(deprecated)}]{}{}\end{DoxyParamCaption})}
+
+@\+Summary Allows setting of a the enable bit for the UART1 mode
+
+@\+Description This routine is used to enable the UART1
+
+@\+Preconditions \doxylink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()} function should have been called before calling this function.
+
+@\+Returns None
+
+@\+Param None
+
+@\+Example Refer to \doxylink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}; for an example
+
+@\+Summary Allows setting of a the disable bit for the UART1 mode
+
+@\+Description This routine is used to disable the UART1
+
+@\+Preconditions \doxylink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()} function should have been called before calling this function.
+
+@\+Returns None
+
+@\+Param None
+
+@\+Example Refer to \doxylink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}; for an example
+
+@\+Summary Returns the transmitter and receiver status
+
+@\+Description This returns the transmitter and receiver status. The returned status may contain a value with more than one of the bits specified in the \doxylink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38}{UART1\+\_\+\+STATUS} enumeration set. ~\newline
+ The caller should perform an "{}\+AND"{} with the bit of interest and verify if the result is non-\/zero (as shown in the example) to verify the desired status bit.
+
+@\+Preconditions UART1\+\_\+\+Initialize function should have been called before calling this function
+
+@\+Param None.
+
+@\+Returns A \doxylink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38}{UART1\+\_\+\+STATUS} value describing the current status of the transfer.
+
+@\+Example {\ttfamily  while(!(UART1\+\_\+\+Status\+Get \& UART1\+\_\+\+TX\+\_\+\+COMPLETE )) \{ Wait for the tranmission to complete \} }
+
+@\+Summary Allows setting of a the disable bit for the UART1 mode
+
+@\+Description This routine is used to disable the UART1
+
+@\+Preconditions \doxylink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()} function should have been called before calling this function.
+
+@\+Returns None
+
+@\+Param None
+
+@\+Example Refer to \doxylink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()}; for an example
+
+@\+Summary Returns the transmitter and receiver status
+
+@\+Description This returns the transmitter and receiver status. The returned status may contain a value with more than one of the bits specified in the \doxylink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38}{UART1\+\_\+\+STATUS} enumeration set. ~\newline
+ The caller should perform an "{}\+AND"{} with the bit of interest and verify if the result is non-\/zero (as shown in the example) to verify the desired status bit.
+
+@\+Preconditions UART1\+\_\+\+Initialize function should have been called before calling this function
+
+@\+Param None.
+
+@\+Returns A \doxylink{uart1_8h_a4dcb49cb33e1a9b53cabb3faf59fbd38}{UART1\+\_\+\+STATUS} value describing the current status of the transfer.
+
+@\+Example {\ttfamily  while(!(UART1\+\_\+\+Status\+Get \& UART1\+\_\+\+TX\+\_\+\+COMPLETE )) \{ Wait for the tranmission to complete \} } \Hypertarget{uart1_8h_a10757505060dc7bf0fe148c5363eae08}\index{uart1.h@{uart1.h}!UART1\_Initialize@{UART1\_Initialize}}
+\index{UART1\_Initialize@{UART1\_Initialize}!uart1.h@{uart1.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_Initialize()}{UART1\_Initialize()}}
+{\footnotesize\ttfamily \label{uart1_8h_a10757505060dc7bf0fe148c5363eae08} 
+void UART1\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+Section\+: UART1 APIs @\+Summary Initialization routine that takes inputs from the UART1 GUI.
+
+@\+Description This routine initializes the UART1 driver. This routine must be called before any other UART1 routine is called.
+
+@\+Preconditions None
+
+@\+Param None
+
+@\+Returns None
+
+@\+Example None. \Hypertarget{uart1_8h_a35ebdf043c6e4995ff711ebc13954861}\index{uart1.h@{uart1.h}!UART1\_IsRxReady@{UART1\_IsRxReady}}
+\index{UART1\_IsRxReady@{UART1\_IsRxReady}!uart1.h@{uart1.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_IsRxReady()}{UART1\_IsRxReady()}}
+{\footnotesize\ttfamily \label{uart1_8h_a35ebdf043c6e4995ff711ebc13954861} 
+bool UART1\+\_\+\+Is\+Rx\+Ready (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+@\+Description Indicates of there is data available to read.
+
+@\+Returns true if byte can be read. false if byte can\textquotesingle{}t be read right now. \Hypertarget{uart1_8h_a693f8124b5bec099c5141b65e47f2bb9}\index{uart1.h@{uart1.h}!UART1\_IsTxDone@{UART1\_IsTxDone}}
+\index{UART1\_IsTxDone@{UART1\_IsTxDone}!uart1.h@{uart1.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_IsTxDone()}{UART1\_IsTxDone()}}
+{\footnotesize\ttfamily \label{uart1_8h_a693f8124b5bec099c5141b65e47f2bb9} 
+bool UART1\+\_\+\+Is\+Tx\+Done (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+@\+Description Indicates if all bytes have been transferred.
+
+@\+Returns true if all bytes transfered. false if there is still data pending to transfer. \Hypertarget{uart1_8h_ae2fc49fa99787bc951e12bd840b1248c}\index{uart1.h@{uart1.h}!UART1\_IsTxReady@{UART1\_IsTxReady}}
+\index{UART1\_IsTxReady@{UART1\_IsTxReady}!uart1.h@{uart1.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_IsTxReady()}{UART1\_IsTxReady()}}
+{\footnotesize\ttfamily \label{uart1_8h_ae2fc49fa99787bc951e12bd840b1248c} 
+bool UART1\+\_\+\+Is\+Tx\+Ready (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+@\+Description Indicates if a byte can be written.
+
+@\+Returns true if byte can be written. false if byte can\textquotesingle{}t be written right now. \Hypertarget{uart1_8h_a4e34071aa3125eb037bd6ae844c7ffbb}\index{uart1.h@{uart1.h}!UART1\_Read@{UART1\_Read}}
+\index{UART1\_Read@{UART1\_Read}!uart1.h@{uart1.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_Read()}{UART1\_Read()}}
+{\footnotesize\ttfamily \label{uart1_8h_a4e34071aa3125eb037bd6ae844c7ffbb} 
+uint8\+\_\+t UART1\+\_\+\+Read (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+@\+Summary Read a byte of data from the UART1.
+
+@\+Description This routine reads a byte of data from the UART1.
+
+@\+Preconditions \doxylink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()} function should have been called before calling this function. This is a blocking function. So the receive status should be checked to see if the receiver is not empty before calling this function.
+
+@\+Param None
+
+@\+Returns A data byte received by the driver. \Hypertarget{uart1_8h_a90e1d95e8003b3fd38e37e35e5864b2f}\index{uart1.h@{uart1.h}!UART1\_Write@{UART1\_Write}}
+\index{UART1\_Write@{UART1\_Write}!uart1.h@{uart1.h}}
+\doxysubsubsection{\texorpdfstring{UART1\_Write()}{UART1\_Write()}}
+{\footnotesize\ttfamily \label{uart1_8h_a90e1d95e8003b3fd38e37e35e5864b2f} 
+void UART1\+\_\+\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{tx\+Data}{}\end{DoxyParamCaption})}
+
+@\+Summary Writes a byte of data to the UART1.
+
+@\+Description This routine writes a byte of data to the UART1.
+
+@\+Preconditions \doxylink{uart1_8h_a10757505060dc7bf0fe148c5363eae08}{UART1\+\_\+\+Initialize()} function should have been called before calling this function. The transfer status should be checked to see if transmitter is not busy before calling this function.
+
+@\+Param tx\+Data -\/ Data byte to write to the UART1
+
+@\+Returns None 

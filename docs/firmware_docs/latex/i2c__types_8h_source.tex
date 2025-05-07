@@ -1,0 +1,44 @@
+\doxysection{i2c\+\_\+types.\+h}
+\hypertarget{i2c__types_8h_source}{}\label{i2c__types_8h_source}\index{color\_sensor/i2c\_types.h@{color\_sensor/i2c\_types.h}}
+\mbox{\hyperlink{i2c__types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ I2C\_TYPES\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ I2C\_TYPES\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2ace87b5d78440f46dff71b0de56adc79a}{I2C\_NOERR}},\ \textcolor{comment}{//\ The\ message\ was\ sent.}}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2a49e65f3960437d80b8328e7898cc90de}{I2C\_BUSY}},\ \ \textcolor{comment}{//\ Message\ was\ NOT\ sent,\ bus\ was\ busy.}}
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2a2fa4d728abcc354ab37d4ff073289900}{I2C\_FAIL}}\ \ \ \textcolor{comment}{//\ Message\ was\ NOT\ sent,\ bus\ failure}}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ you\ are\ interested\ in\ the\ failure\ reason,}}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sit\ on\ the\ event\ call-\/backs.}}
+\DoxyCodeLine{00018\ \}\ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\_error\_t}};}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{enum}}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5aa5420d45eedce96cc6004b8649ae7b93}{i2c\_stop}}=1,}
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a64481ebd63ac835c9df286cf694b9b5f}{i2c\_restart\_read}},}
+\DoxyCodeLine{00024\ \ \ \ \ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a4aef4a7544b87eafbe7a581b542b1bba}{i2c\_restart\_write}},}
+\DoxyCodeLine{00025\ \ \ \ \ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a50c4d830ffd758a9a2413279b7feac88}{i2c\_continue}},}
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5af20dc5c7473618a21faec8f2a88cddac}{i2c\_reset\_link}}}
+\DoxyCodeLine{00027\ \}\ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\_operations\_t}};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\_operations\_t}}\ (*\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\_callback}})(\textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{typedef}\ uint8\_t\ \mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{comment}{//\ common\ callback\ responses}}
+\DoxyCodeLine{00043\ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\_operations\_t}}\ \mbox{\hyperlink{i2c__types_8h_a738d603b92ce367b1e7f9ae415e064c0}{i2c\_returnStop}}(\textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00053\ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\_operations\_t}}\ \mbox{\hyperlink{i2c__types_8h_a11497912943cb61fd1992c7cb5878a80}{i2c\_returnReset}}(\textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00063\ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\_operations\_t}}\ \mbox{\hyperlink{i2c__types_8h_a2e53a965038198361d2c27b061cdd4a7}{i2c\_restartWrite}}(\textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00074\ \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\_operations\_t}}\ \mbox{\hyperlink{i2c__types_8h_ac16a4b5bb030267d54b0a8c34299dc14}{i2c\_restartRead}}(\textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ I2C\_TYPES\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00077\ }
+
+\end{DoxyCode}

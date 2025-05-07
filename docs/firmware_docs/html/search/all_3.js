@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['c_5fdata_0',['C_DATA',['../inc_8h.html#a74edeb42505a9b56b0db274e2c7f52e8',1,'inc.h']]],
+  ['callbackpayload_1',['callbackPayload',['../structi2c__status__t.html#ac47642b6b170381ff8162a227c6324f3',1,'i2c_status_t']]],
+  ['callbacktable_2',['callbackTable',['../structi2c__status__t.html#ace7353871c9cfe2f44bd4e48d7415353',1,'i2c_status_t']]],
+  ['clean_5fbuffer_3',['clean_buffer',['../wifi__module_8c.html#abc0b1ba1f366b4271d084e2a9ece74f3',1,'clean_buffer():&#160;wifi_module.c'],['../wifi__module_8h.html#abc0b1ba1f366b4271d084e2a9ece74f3',1,'clean_buffer():&#160;wifi_module.c']]],
+  ['cmd_5fat_4',['CMD_AT',['../wifi__module_8c.html#a2f02c951091b93013b8b9781970eb454',1,'wifi_module.c']]],
+  ['cmd_5fbaudr_5',['CMD_BAUDR',['../wifi__module_8c.html#aea06436728ed19e9ca975a54c6867532',1,'wifi_module.c']]],
+  ['cmd_5fconn_5ftype_6',['CMD_CONN_TYPE',['../wifi__module_8c.html#abb0a03ee6dcc397253ca31f83a30cfb5',1,'wifi_module.c']]],
+  ['cmd_5fip_7',['CMD_IP',['../wifi__module_8c.html#a71ff45a6f220c3b16f815edfb21b9d70',1,'wifi_module.c']]],
+  ['cmd_5flist_5fap_8',['CMD_LIST_AP',['../wifi__module_8c.html#ad51f1a68d1b226b78a7d1a703ef073da',1,'wifi_module.c']]],
+  ['cmd_5fmode_9',['CMD_MODE',['../wifi__module_8c.html#a5143a707f11ad9c09203675081255f6f',1,'wifi_module.c']]],
+  ['cmd_5frst_10',['CMD_RST',['../wifi__module_8c.html#a1f3bff4b7aba7c018b667b8dc2b754ef',1,'wifi_module.c']]],
+  ['cmd_5fsend_11',['CMD_SEND',['../wifi__module_8c.html#abcee2b0af8d8dccca4398ed6cb0978dc',1,'wifi_module.c']]],
+  ['cmd_5fstart_5ftcp_12',['CMD_START_TCP',['../wifi__module_8c.html#a5d787dab9afed7007f302b8d82443c59',1,'wifi_module.c']]],
+  ['cmd_5fwifi_5fconn_13',['CMD_WIFI_CONN',['../wifi__module_8c.html#aff3173962307965de346f4d909e7e60b',1,'wifi_module.c']]],
+  ['color_14',['Color',['../structColor.html',1,'']]],
+  ['color_5fdistance_15',['color_distance',['../color__sensor_8c.html#a1e56582afed332aa1260fc2785c7777e',1,'color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_t g2, uint16_t b2):&#160;color_sensor.c'],['../color__sensor_8h.html#a1e56582afed332aa1260fc2785c7777e',1,'color_distance(uint16_t r1, uint16_t g1, uint16_t b1, uint16_t r2, uint16_t g2, uint16_t b2):&#160;color_sensor.c']]],
+  ['color_5fsensor_2ec_16',['color_sensor.c',['../color__sensor_8c.html',1,'']]],
+  ['color_5fsensor_2eh_17',['color_sensor.h',['../color__sensor_8h.html',1,'']]],
+  ['color_5fsides_18',['color_sides',['../wifi__module_8c.html#a322d24404cab564ab551644b6e557f52',1,'color_sides:&#160;wifi_module.c'],['../wifi__module_8h.html#a322d24404cab564ab551644b6e557f52',1,'color_sides:&#160;wifi_module.c']]],
+  ['colors_19',['colors',['../color__sensor_8c.html#a0e450f8f554764fb50c75197d16a7c9f',1,'color_sensor.c']]],
+  ['conf_20',['CONF',['../inc_8h.html#afb6b8c4d21f9183c9c65f548d976af2f',1,'inc.h']]],
+  ['counter_21',['counter',['../wifi__module_8c.html#ab36effbd4d2f9af6a0097acd75203a07',1,'counter:&#160;wifi_module.c'],['../wifi__module_8h.html#ab36effbd4d2f9af6a0097acd75203a07',1,'counter:&#160;wifi_module.c']]]
+];

@@ -1,0 +1,53 @@
+\doxysection{color\+\_\+sorter/main.c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{color\_sorter/main.c@{color\_sorter/main.c}}
+
+
+File that contains main function of project.  
+
+
+{\ttfamily \#include "{}../servo/servo.\+h"{}}\newline
+{\ttfamily \#include "{}../color\+\_\+sensor/color\+\_\+sensor.\+h"{}}\newline
+{\ttfamily \#include "{}../color\+\_\+sensor/i2c1\+\_\+driver.\+h"{}}\newline
+{\ttfamily \#include "{}../color\+\_\+sensor/i2c\+\_\+master.\+h"{}}\newline
+{\ttfamily \#include "{}../color\+\_\+sensor/i2c\+\_\+simple\+\_\+master.\+h"{}}\newline
+{\ttfamily \#include "{}../color\+\_\+sensor/i2c\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}../color\+\_\+sensor/spi1.\+h"{}}\newline
+{\ttfamily \#include "{}../led/led.\+h"{}}\newline
+{\ttfamily \#include "{}../inc/inc.\+h"{}}\newline
+{\ttfamily \#include "{}../wifi\+\_\+module/wifi\+\_\+module.\+h"{}}\newline
+{\ttfamily \#include "{}../button/button.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8c_a6f7f696a057e35c454b6b4c55ef5e5e6}{pins\+\_\+init}} ()
+\item 
+void \mbox{\hyperlink{main_8c_a5c526129ee879458dff6755f5768a6e3}{INTERRUPT\+\_\+\+Initialize}} (void)
+\item 
+int \mbox{\hyperlink{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File that contains main function of project. 
+
+This file contains main function that calls initialize functions of all modules needed for proper functioning of project 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a5c526129ee879458dff6755f5768a6e3}\index{main.c@{main.c}!INTERRUPT\_Initialize@{INTERRUPT\_Initialize}}
+\index{INTERRUPT\_Initialize@{INTERRUPT\_Initialize}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{INTERRUPT\_Initialize()}{INTERRUPT\_Initialize()}}
+{\footnotesize\ttfamily \label{main_8c_a5c526129ee879458dff6755f5768a6e3} 
+void INTERRUPT\+\_\+\+Initialize (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily \label{main_8c_ae66f6b31b5ad750f1fe042a706a4e3d4} 
+int main (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{main_8c_a6f7f696a057e35c454b6b4c55ef5e5e6}\index{main.c@{main.c}!pins\_init@{pins\_init}}
+\index{pins\_init@{pins\_init}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{pins\_init()}{pins\_init()}}
+{\footnotesize\ttfamily \label{main_8c_a6f7f696a057e35c454b6b4c55ef5e5e6} 
+void pins\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+

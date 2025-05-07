@@ -1,0 +1,149 @@
+\doxysection{color\+\_\+sensor/color\+\_\+sensor.h File Reference}
+\hypertarget{color__sensor_8h}{}\label{color__sensor_8h}\index{color\_sensor/color\_sensor.h@{color\_sensor/color\_sensor.h}}
+
+
+\doxylink{structColor}{Color} sensor module header file.  
+
+
+{\ttfamily \#include "{}../inc/inc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{color__sensor_8h_a9bafee1f49378aa30e64fec0a857a6b4}{read\+\_\+colors}} ()
+\begin{DoxyCompactList}\small\item\em Reads the color data from the VEML3328 sensor and detects the closest matching color. \end{DoxyCompactList}\item 
+char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{color__sensor_8h_a9fa725f2640f9efd473fc7a5f2de92dc}{detect\+\_\+color}} ()
+\begin{DoxyCompactList}\small\item\em Detects the color based on sensor readings. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{color__sensor_8h_a1e56582afed332aa1260fc2785c7777e}{color\+\_\+distance}} (uint16\+\_\+t r1, uint16\+\_\+t g1, uint16\+\_\+t b1, uint16\+\_\+t r2, uint16\+\_\+t g2, uint16\+\_\+t b2)
+\begin{DoxyCompactList}\small\item\em Calculates the Euclidean distance between two RGB colors. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{color__sensor_8h_a30da27c967c427811646a5a6f66f495f}{WS2812\+\_\+\+Send\+\_\+\+Byte}} (uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em Sends a single byte of data to the WS2812 RGB LED. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{color__sensor_8h_a938d9076304a30229d0cff9510c6b0de}{WS2812\+\_\+\+Set\+Color}} (uint8\+\_\+t red, uint8\+\_\+t green, uint8\+\_\+t blue)
+\begin{DoxyCompactList}\small\item\em Sets the color of the WS2812 RGB LED. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{color__sensor_8h_a053b418e905501066d9d10d143bde94a}{VEML3328\+\_\+read\+Config}} (uint16\+\_\+t r)
+\begin{DoxyCompactList}\small\item\em Reads the configuration register of the VEML3328 color sensor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{structColor}{Color} sensor module header file. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{color__sensor_8h_a1e56582afed332aa1260fc2785c7777e}\index{color\_sensor.h@{color\_sensor.h}!color\_distance@{color\_distance}}
+\index{color\_distance@{color\_distance}!color\_sensor.h@{color\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{color\_distance()}{color\_distance()}}
+{\footnotesize\ttfamily \label{color__sensor_8h_a1e56582afed332aa1260fc2785c7777e} 
+float color\+\_\+distance (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{r1}{, }\item[{uint16\+\_\+t}]{g1}{, }\item[{uint16\+\_\+t}]{b1}{, }\item[{uint16\+\_\+t}]{r2}{, }\item[{uint16\+\_\+t}]{g2}{, }\item[{uint16\+\_\+t}]{b2}{}\end{DoxyParamCaption})}
+
+
+
+Calculates the Euclidean distance between two RGB colors. 
+
+This function calculates the Euclidean distance between two colors in the RGB color space. The smaller the distance, the closer the two colors are.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r1} & The red component of the first color. \\
+\hline
+{\em g1} & The green component of the first color. \\
+\hline
+{\em b1} & The blue component of the first color. \\
+\hline
+{\em r2} & The red component of the second color. \\
+\hline
+{\em g2} & The green component of the second color. \\
+\hline
+{\em b2} & The blue component of the second color.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Euclidean distance between the two colors. 
+\end{DoxyReturn}
+\Hypertarget{color__sensor_8h_a9fa725f2640f9efd473fc7a5f2de92dc}\index{color\_sensor.h@{color\_sensor.h}!detect\_color@{detect\_color}}
+\index{detect\_color@{detect\_color}!color\_sensor.h@{color\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{detect\_color()}{detect\_color()}}
+{\footnotesize\ttfamily \label{color__sensor_8h_a9fa725f2640f9efd473fc7a5f2de92dc} 
+char \texorpdfstring{$\ast$}{*} detect\+\_\+color (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Detects the color based on sensor readings. 
+
+This function compares the RGB values of the detected color from the sensor to a list of predefined colors and calculates the Euclidean distance to find the closest match.
+
+\begin{DoxyReturn}{Returns}
+The name of the closest matching color as a string. 
+\end{DoxyReturn}
+\Hypertarget{color__sensor_8h_a9bafee1f49378aa30e64fec0a857a6b4}\index{color\_sensor.h@{color\_sensor.h}!read\_colors@{read\_colors}}
+\index{read\_colors@{read\_colors}!color\_sensor.h@{color\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{read\_colors()}{read\_colors()}}
+{\footnotesize\ttfamily \label{color__sensor_8h_a9bafee1f49378aa30e64fec0a857a6b4} 
+char \texorpdfstring{$\ast$}{*} read\+\_\+colors (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Reads the color data from the VEML3328 sensor and detects the closest matching color. 
+
+This function collects multiple color samples (red, green, blue) from the VEML3328 sensor, averages the readings, and uses the {\ttfamily detect\+\_\+color} function to identify the closest matching color.
+
+\begin{DoxyReturn}{Returns}
+The name of the closest matching color as a string. 
+\end{DoxyReturn}
+\Hypertarget{color__sensor_8h_a053b418e905501066d9d10d143bde94a}\index{color\_sensor.h@{color\_sensor.h}!VEML3328\_readConfig@{VEML3328\_readConfig}}
+\index{VEML3328\_readConfig@{VEML3328\_readConfig}!color\_sensor.h@{color\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{VEML3328\_readConfig()}{VEML3328\_readConfig()}}
+{\footnotesize\ttfamily \label{color__sensor_8h_a053b418e905501066d9d10d143bde94a} 
+uint16\+\_\+t VEML3328\+\_\+read\+Config (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{r}{}\end{DoxyParamCaption})}
+
+
+
+Reads the configuration register of the VEML3328 color sensor. 
+
+This function reads a 16-\/bit value from a specified register on the VEML3328 sensor over I2C.
+
+
+\begin{DoxyParams}{Parameters}
+{\em r} & The register address to be read.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The 16-\/bit value read from the specified register. 
+\end{DoxyReturn}
+\Hypertarget{color__sensor_8h_a30da27c967c427811646a5a6f66f495f}\index{color\_sensor.h@{color\_sensor.h}!WS2812\_Send\_Byte@{WS2812\_Send\_Byte}}
+\index{WS2812\_Send\_Byte@{WS2812\_Send\_Byte}!color\_sensor.h@{color\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{WS2812\_Send\_Byte()}{WS2812\_Send\_Byte()}}
+{\footnotesize\ttfamily \label{color__sensor_8h_a30da27c967c427811646a5a6f66f495f} 
+void WS2812\+\_\+\+Send\+\_\+\+Byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte}{}\end{DoxyParamCaption})}
+
+
+
+Sends a single byte of data to the WS2812 RGB LED. 
+
+This function sends a byte of data to the WS2812 LED over SPI, with each bit corresponding to a part of the LED data stream.
+
+
+\begin{DoxyParams}{Parameters}
+{\em byte} & The byte to be sent to the WS2812. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{color__sensor_8h_a938d9076304a30229d0cff9510c6b0de}\index{color\_sensor.h@{color\_sensor.h}!WS2812\_SetColor@{WS2812\_SetColor}}
+\index{WS2812\_SetColor@{WS2812\_SetColor}!color\_sensor.h@{color\_sensor.h}}
+\doxysubsubsection{\texorpdfstring{WS2812\_SetColor()}{WS2812\_SetColor()}}
+{\footnotesize\ttfamily \label{color__sensor_8h_a938d9076304a30229d0cff9510c6b0de} 
+void WS2812\+\_\+\+Set\+Color (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{red}{, }\item[{uint8\+\_\+t}]{green}{, }\item[{uint8\+\_\+t}]{blue}{}\end{DoxyParamCaption})}
+
+
+
+Sets the color of the WS2812 RGB LED. 
+
+This function sends the color values for red, green, and blue to the WS2812 LED using SPI.
+
+
+\begin{DoxyParams}{Parameters}
+{\em red} & The red component of the color (0-\/255). \\
+\hline
+{\em green} & The green component of the color (0-\/255). \\
+\hline
+{\em blue} & The blue component of the color (0-\/255). \\
+\hline
+\end{DoxyParams}

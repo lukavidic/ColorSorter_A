@@ -1,0 +1,40 @@
+\doxysection{i2c\+\_\+master.\+h}
+\hypertarget{i2c__master_8h_source}{}\label{i2c__master_8h_source}\index{color\_sensor/i2c\_master.h@{color\_sensor/i2c\_master.h}}
+\mbox{\hyperlink{i2c__master_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ I2C\_MASTER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ I2C\_MASTER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdbool.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{i2c__types_8h}{i2c\_types.h}}"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{//\ These\ functions\ are\ the\ I2C\ API}}
+\DoxyCodeLine{00026\ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\_error\_t}}\ \mbox{\hyperlink{i2c__master_8h_a536af21725163d55747a98cdc6c83e98}{i2c\_open}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address);}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ \ \ \ \ \ \ \ \mbox{\hyperlink{i2c__master_8h_a6270908e8b769610b4650a42f506426c}{i2c\_setAddress}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address);}
+\DoxyCodeLine{00045\ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\_error\_t}}\ \mbox{\hyperlink{i2c__master_8h_a7a40fe027bd43837e5e916b645261d61}{i2c\_close}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00056\ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\_error\_t}}\ \mbox{\hyperlink{i2c__master_8h_aa479176ebb7ea62621510cc9c442c319}{i2c\_masterOperation}}(\textcolor{keywordtype}{bool}\ read);}
+\DoxyCodeLine{00064\ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\_error\_t}}\ \mbox{\hyperlink{i2c__master_8h_aebaaee0e8323bbcbd241e369be0f8d11}{i2c\_masterWrite}}(\textcolor{keywordtype}{void});\ \textcolor{comment}{//\ to\ be\ depreciated}}
+\DoxyCodeLine{00072\ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\_error\_t}}\ \mbox{\hyperlink{i2c__master_8h_a66a3e093419357a30f1a2476a6a127ed}{i2c\_masterRead}}(\textcolor{keywordtype}{void});\ \ \textcolor{comment}{//\ to\ be\ depreciated}}
+\DoxyCodeLine{00081\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_af3d4e339efdb52f3374b888ead6a49a6}{i2c\_setTimeOut}}(uint8\_t\ to);}
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_ad35520df4141178be178811c0018ed48}{i2c\_setBuffer}}(\textcolor{keywordtype}{void}\ *\mbox{\hyperlink{wifi__module_8c_aaa870c48d7cd60032958b2036641c0bb}{buffer}},\ \textcolor{keywordtype}{size\_t}\ bufferSize);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{comment}{//\ Event\ Callback\ functions.}}
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_a3b2eac2de12d3099c2f9c2f51b98b643}{i2c\_setDataCompleteCallback}}(\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\_callback}}\ cb,\ \textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00107\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_ac7261a9e4685dd57a243b975049dcb56}{i2c\_setWriteCollisionCallback}}(\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\_callback}}\ cb,\ \textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00114\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_a784d3caacfe920c9e064224df5490d8f}{i2c\_setAddressNACKCallback}}(\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\_callback}}\ cb,\ \textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00121\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_a38929307b3085fee5f160224dd1b4166}{i2c\_setDataNACKCallback}}(\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\_callback}}\ cb,\ \textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00122\ }
+\DoxyCodeLine{00129\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_a395cf56845bb2784fe12d92d04bf4906}{i2c\_setTimeOutCallback}}(\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\_callback}}\ cb,\ \textcolor{keywordtype}{void}\ *p);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \textcolor{comment}{//\ Interrupt\ Stuff\ :\ only\ needed\ when\ building\ the\ Interrupt\ driven\ driver}}
+\DoxyCodeLine{00140\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_a86a50c15643f081fcffda86640d26db1}{i2c\_ISR}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__master_8h_aa6d2b06adde8dfd145dcddd79b72854f}{i2c\_busCollisionISR}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00147\ }
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ I2C\_MASTER\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00149\ }
+
+\end{DoxyCode}

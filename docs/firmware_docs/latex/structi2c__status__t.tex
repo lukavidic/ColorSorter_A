@@ -1,0 +1,141 @@
+\doxysection{i2c\+\_\+status\+\_\+t Struct Reference}
+\hypertarget{structi2c__status__t}{}\label{structi2c__status__t}\index{i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+unsigned \mbox{\hyperlink{structi2c__status__t_a0bb20a18d0691a5ff47be6b51c69c858}{busy}}\+:1
+\item 
+unsigned \mbox{\hyperlink{structi2c__status__t_a9b82a48bb1df5403ad9eee4699c12188}{in\+Use}}\+:1
+\item 
+unsigned \mbox{\hyperlink{structi2c__status__t_a955bdeb8946f81635f67e37a37b758ac}{buffer\+Free}}\+:1
+\item 
+unsigned \mbox{\hyperlink{structi2c__status__t_a2fd9f1ac50cf835bd3541b470a953ab3}{address\+NACKCheck}}\+:1
+\item 
+\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} \mbox{\hyperlink{structi2c__status__t_a9d4f5dcc44ca2579ab42d02e57ce2413}{address}}
+\item 
+uint8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structi2c__status__t_a67463edc3328336e6e69209df48b92fb}{data\+\_\+ptr}}
+\begin{DoxyCompactList}\small\item\em The I2C Address. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{structi2c__status__t_a38d68e1de7d6924c8358e0f405b26209}{data\+\_\+length}}
+\begin{DoxyCompactList}\small\item\em pointer to a data buffer \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structi2c__status__t_a130a44f8f810752edd4d98d8fd099dda}{time\+\_\+out}}
+\begin{DoxyCompactList}\small\item\em Bytes in the data buffer. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{structi2c__status__t_aaa7e5c8f054c843311277c22eebb1afe}{time\+\_\+out\+\_\+value}}
+\begin{DoxyCompactList}\small\item\em I2C Timeout Counter between I2C Events. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6}{i2c\+\_\+fsm\+\_\+states\+\_\+t}} \mbox{\hyperlink{structi2c__status__t_a199a50516c8fc13cbb064b060a6211f8}{state}}
+\begin{DoxyCompactList}\small\item\em Reload value for the timeouts. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{structi2c__status__t_afa26094ebda1bf6d5f0999c380bc6718}{error}}
+\begin{DoxyCompactList}\small\item\em Driver State. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} \mbox{\hyperlink{structi2c__status__t_ace7353871c9cfe2f44bd4e48d7415353}{callback\+Table}} \mbox{[}6\mbox{]}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structi2c__status__t_ac47642b6b170381ff8162a227c6324f3}{callback\+Payload}} \mbox{[}6\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{structi2c__status__t_a9d4f5dcc44ca2579ab42d02e57ce2413}\index{i2c\_status\_t@{i2c\_status\_t}!address@{address}}
+\index{address@{address}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{address}{address}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a9d4f5dcc44ca2579ab42d02e57ce2413} 
+\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} i2c\+\_\+status\+\_\+t\+::address}
+
+\Hypertarget{structi2c__status__t_a2fd9f1ac50cf835bd3541b470a953ab3}\index{i2c\_status\_t@{i2c\_status\_t}!addressNACKCheck@{addressNACKCheck}}
+\index{addressNACKCheck@{addressNACKCheck}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{addressNACKCheck}{addressNACKCheck}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a2fd9f1ac50cf835bd3541b470a953ab3} 
+unsigned i2c\+\_\+status\+\_\+t\+::address\+NACKCheck}
+
+\Hypertarget{structi2c__status__t_a955bdeb8946f81635f67e37a37b758ac}\index{i2c\_status\_t@{i2c\_status\_t}!bufferFree@{bufferFree}}
+\index{bufferFree@{bufferFree}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{bufferFree}{bufferFree}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a955bdeb8946f81635f67e37a37b758ac} 
+unsigned i2c\+\_\+status\+\_\+t\+::buffer\+Free}
+
+\Hypertarget{structi2c__status__t_a0bb20a18d0691a5ff47be6b51c69c858}\index{i2c\_status\_t@{i2c\_status\_t}!busy@{busy}}
+\index{busy@{busy}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{busy}{busy}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a0bb20a18d0691a5ff47be6b51c69c858} 
+unsigned i2c\+\_\+status\+\_\+t\+::busy}
+
+\Hypertarget{structi2c__status__t_ac47642b6b170381ff8162a227c6324f3}\index{i2c\_status\_t@{i2c\_status\_t}!callbackPayload@{callbackPayload}}
+\index{callbackPayload@{callbackPayload}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{callbackPayload}{callbackPayload}}
+{\footnotesize\ttfamily \label{structi2c__status__t_ac47642b6b170381ff8162a227c6324f3} 
+void\texorpdfstring{$\ast$}{*} i2c\+\_\+status\+\_\+t\+::callback\+Payload\mbox{[}6\mbox{]}}
+
+\Hypertarget{structi2c__status__t_ace7353871c9cfe2f44bd4e48d7415353}\index{i2c\_status\_t@{i2c\_status\_t}!callbackTable@{callbackTable}}
+\index{callbackTable@{callbackTable}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{callbackTable}{callbackTable}}
+{\footnotesize\ttfamily \label{structi2c__status__t_ace7353871c9cfe2f44bd4e48d7415353} 
+\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} i2c\+\_\+status\+\_\+t\+::callback\+Table\mbox{[}6\mbox{]}}
+
+\Hypertarget{structi2c__status__t_a38d68e1de7d6924c8358e0f405b26209}\index{i2c\_status\_t@{i2c\_status\_t}!data\_length@{data\_length}}
+\index{data\_length@{data\_length}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{data\_length}{data\_length}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a38d68e1de7d6924c8358e0f405b26209} 
+size\+\_\+t i2c\+\_\+status\+\_\+t\+::data\+\_\+length}
+
+
+
+pointer to a data buffer 
+
+\Hypertarget{structi2c__status__t_a67463edc3328336e6e69209df48b92fb}\index{i2c\_status\_t@{i2c\_status\_t}!data\_ptr@{data\_ptr}}
+\index{data\_ptr@{data\_ptr}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{data\_ptr}{data\_ptr}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a67463edc3328336e6e69209df48b92fb} 
+uint8\+\_\+t\texorpdfstring{$\ast$}{*} i2c\+\_\+status\+\_\+t\+::data\+\_\+ptr}
+
+
+
+The I2C Address. 
+
+\Hypertarget{structi2c__status__t_afa26094ebda1bf6d5f0999c380bc6718}\index{i2c\_status\_t@{i2c\_status\_t}!error@{error}}
+\index{error@{error}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily \label{structi2c__status__t_afa26094ebda1bf6d5f0999c380bc6718} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+status\+\_\+t\+::error}
+
+
+
+Driver State. 
+
+\Hypertarget{structi2c__status__t_a9b82a48bb1df5403ad9eee4699c12188}\index{i2c\_status\_t@{i2c\_status\_t}!inUse@{inUse}}
+\index{inUse@{inUse}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{inUse}{inUse}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a9b82a48bb1df5403ad9eee4699c12188} 
+unsigned i2c\+\_\+status\+\_\+t\+::in\+Use}
+
+\Hypertarget{structi2c__status__t_a199a50516c8fc13cbb064b060a6211f8}\index{i2c\_status\_t@{i2c\_status\_t}!state@{state}}
+\index{state@{state}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a199a50516c8fc13cbb064b060a6211f8} 
+\mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6}{i2c\+\_\+fsm\+\_\+states\+\_\+t}} i2c\+\_\+status\+\_\+t\+::state}
+
+
+
+Reload value for the timeouts. 
+
+\Hypertarget{structi2c__status__t_a130a44f8f810752edd4d98d8fd099dda}\index{i2c\_status\_t@{i2c\_status\_t}!time\_out@{time\_out}}
+\index{time\_out@{time\_out}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{time\_out}{time\_out}}
+{\footnotesize\ttfamily \label{structi2c__status__t_a130a44f8f810752edd4d98d8fd099dda} 
+uint16\+\_\+t i2c\+\_\+status\+\_\+t\+::time\+\_\+out}
+
+
+
+Bytes in the data buffer. 
+
+\Hypertarget{structi2c__status__t_aaa7e5c8f054c843311277c22eebb1afe}\index{i2c\_status\_t@{i2c\_status\_t}!time\_out\_value@{time\_out\_value}}
+\index{time\_out\_value@{time\_out\_value}!i2c\_status\_t@{i2c\_status\_t}}
+\doxysubsubsection{\texorpdfstring{time\_out\_value}{time\_out\_value}}
+{\footnotesize\ttfamily \label{structi2c__status__t_aaa7e5c8f054c843311277c22eebb1afe} 
+uint16\+\_\+t i2c\+\_\+status\+\_\+t\+::time\+\_\+out\+\_\+value}
+
+
+
+I2C Timeout Counter between I2C Events. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+color\+\_\+sensor/\mbox{\hyperlink{i2c__master_8c}{i2c\+\_\+master.\+c}}\end{DoxyCompactItemize}

@@ -1,0 +1,31 @@
+\doxysection{CSController/src/main/java/mks/\+Main.java File Reference}
+\hypertarget{Main_8java}{}\label{Main_8java}\index{CSController/src/main/java/mks/Main.java@{CSController/src/main/java/mks/Main.java}}
+
+
+Entry point of the Java\+FX desktop application for controlling microcontroller.  
+
+
+{\ttfamily import javafx.\+application.\texorpdfstring{$\ast$}{*};}\newline
+{\ttfamily import javafx.\+fxml.\texorpdfstring{$\ast$}{*};}\newline
+{\ttfamily import javafx.\+scene.\texorpdfstring{$\ast$}{*};}\newline
+{\ttfamily import javafx.\+stage.\texorpdfstring{$\ast$}{*};}\newline
+{\ttfamily import java.\+io.\texorpdfstring{$\ast$}{*};}\newline
+{\ttfamily import gui.\texorpdfstring{$\ast$}{*};}\newline
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classmks_1_1Main}{mks.\+Main}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Packages}
+\begin{DoxyCompactItemize}
+\item 
+package \mbox{\hyperlink{namespacemks}{mks}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Entry point of the Java\+FX desktop application for controlling microcontroller. 
+
+This class serves as the main entry point for the Java\+FX application. It loads the FXML layout file, initializes the primary window (stage) and sets up the graphical user interface. The {\ttfamily start} method uses the FXMLLoader to parse the {\ttfamily color\+\_\+gui.\+fxml} file and obtain an instance of the {\ttfamily \doxylink{classgui_1_1ColorGUI}{Color\+GUI}} controller, which handles all UI logic.
+
+The static reference to the controller ({\ttfamily Gui\+Instance}) allows other parts of the application to access the UI logic if needed. 

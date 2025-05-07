@@ -1,0 +1,81 @@
+\doxysection{servo/servo.c File Reference}
+\hypertarget{servo_8c}{}\label{servo_8c}\index{servo/servo.c@{servo/servo.c}}
+
+
+Servo module source file.  
+
+
+{\ttfamily \#include "{}servo.\+h"{}}\newline
+{\ttfamily \#include "{}xc.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{servo_8c_a9a6cca57e7cd20ae2ee6d92e289583ae}{servo\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em servo init function \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{servo_8c_a68cccc228da58de7746db167eaeea7b7}{servo\+\_\+set\+\_\+angle}} (int angle)
+\begin{DoxyCompactList}\small\item\em servo set angle function \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{servo_8c_aab217fea8b486ed60fd2adffeca6c181}{servo\+\_\+right}} ()
+\begin{DoxyCompactList}\small\item\em Sets position of servo to right. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{servo_8c_aec40ed6ceb331495179ee322c412e756}{servo\+\_\+left}} ()
+\begin{DoxyCompactList}\small\item\em Sets position of servo to left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{servo_8c_a624125950f9923e6db060873fa0cf4d6}{servo\+\_\+center}} ()
+\begin{DoxyCompactList}\small\item\em Sets position of servo to center. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Servo module source file. 
+
+Contains definitions of functions decleared in \doxylink{servo_8h}{servo.\+h} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{servo_8c_a624125950f9923e6db060873fa0cf4d6}\index{servo.c@{servo.c}!servo\_center@{servo\_center}}
+\index{servo\_center@{servo\_center}!servo.c@{servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_center()}{servo\_center()}}
+{\footnotesize\ttfamily \label{servo_8c_a624125950f9923e6db060873fa0cf4d6} 
+void servo\+\_\+center (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sets position of servo to center. 
+
+\Hypertarget{servo_8c_a9a6cca57e7cd20ae2ee6d92e289583ae}\index{servo.c@{servo.c}!servo\_init@{servo\_init}}
+\index{servo\_init@{servo\_init}!servo.c@{servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_init()}{servo\_init()}}
+{\footnotesize\ttfamily \label{servo_8c_a9a6cca57e7cd20ae2ee6d92e289583ae} 
+void servo\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+servo init function 
+
+Remaps pins for servo \Hypertarget{servo_8c_aec40ed6ceb331495179ee322c412e756}\index{servo.c@{servo.c}!servo\_left@{servo\_left}}
+\index{servo\_left@{servo\_left}!servo.c@{servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_left()}{servo\_left()}}
+{\footnotesize\ttfamily \label{servo_8c_aec40ed6ceb331495179ee322c412e756} 
+void servo\+\_\+left (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sets position of servo to left. 
+
+\Hypertarget{servo_8c_aab217fea8b486ed60fd2adffeca6c181}\index{servo.c@{servo.c}!servo\_right@{servo\_right}}
+\index{servo\_right@{servo\_right}!servo.c@{servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_right()}{servo\_right()}}
+{\footnotesize\ttfamily \label{servo_8c_aab217fea8b486ed60fd2adffeca6c181} 
+void servo\+\_\+right (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Sets position of servo to right. 
+
+\Hypertarget{servo_8c_a68cccc228da58de7746db167eaeea7b7}\index{servo.c@{servo.c}!servo\_set\_angle@{servo\_set\_angle}}
+\index{servo\_set\_angle@{servo\_set\_angle}!servo.c@{servo.c}}
+\doxysubsubsection{\texorpdfstring{servo\_set\_angle()}{servo\_set\_angle()}}
+{\footnotesize\ttfamily \label{servo_8c_a68cccc228da58de7746db167eaeea7b7} 
+void servo\+\_\+set\+\_\+angle (\begin{DoxyParamCaption}\item[{int}]{angle}{}\end{DoxyParamCaption})}
+
+
+
+servo set angle function 
+
+Sets angle of servo by changing OC1R register 

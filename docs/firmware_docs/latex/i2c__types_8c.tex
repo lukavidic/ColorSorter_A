@@ -1,0 +1,109 @@
+\doxysection{color\+\_\+sensor/i2c\+\_\+types.c File Reference}
+\hypertarget{i2c__types_8c}{}\label{i2c__types_8c}\index{color\_sensor/i2c\_types.c@{color\_sensor/i2c\_types.c}}
+
+
+I2C types source file.  
+
+
+{\ttfamily \#include "{}i2c\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}../inc/inc.\+h"{}}\newline
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \mbox{\hyperlink{i2c__types_8c_a738d603b92ce367b1e7f9ae415e064c0}{i2c\+\_\+return\+Stop}} (void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Callback function that returns the I2C stop operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \mbox{\hyperlink{i2c__types_8c_a11497912943cb61fd1992c7cb5878a80}{i2c\+\_\+return\+Reset}} (void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Callback function that returns the I2C reset operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \mbox{\hyperlink{i2c__types_8c_a2e53a965038198361d2c27b061cdd4a7}{i2c\+\_\+restart\+Write}} (void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Callback function that returns the I2C restart write operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \mbox{\hyperlink{i2c__types_8c_ac16a4b5bb030267d54b0a8c34299dc14}{i2c\+\_\+restart\+Read}} (void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Callback function that returns the I2C restart read operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I2C types source file. 
+
+This file contains definitions of functions decleared in \doxylink{i2c__types_8h}{i2c\+\_\+types.\+h} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{i2c__types_8c_ac16a4b5bb030267d54b0a8c34299dc14}\index{i2c\_types.c@{i2c\_types.c}!i2c\_restartRead@{i2c\_restartRead}}
+\index{i2c\_restartRead@{i2c\_restartRead}!i2c\_types.c@{i2c\_types.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_restartRead()}{i2c\_restartRead()}}
+{\footnotesize\ttfamily \label{i2c__types_8c_ac16a4b5bb030267d54b0a8c34299dc14} 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} i2c\+\_\+restart\+Read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Callback function that returns the I2C restart read operation. 
+
+This function is used to indicate that a repeated start condition should be issued, followed by a read operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to user-\/defined data (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t} Operation code indicating a repeated start with read. 
+\end{DoxyReturn}
+\Hypertarget{i2c__types_8c_a2e53a965038198361d2c27b061cdd4a7}\index{i2c\_types.c@{i2c\_types.c}!i2c\_restartWrite@{i2c\_restartWrite}}
+\index{i2c\_restartWrite@{i2c\_restartWrite}!i2c\_types.c@{i2c\_types.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_restartWrite()}{i2c\_restartWrite()}}
+{\footnotesize\ttfamily \label{i2c__types_8c_a2e53a965038198361d2c27b061cdd4a7} 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} i2c\+\_\+restart\+Write (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Callback function that returns the I2C restart write operation. 
+
+This function is used to indicate that a repeated start condition should be issued, followed by a write operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to user-\/defined data (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t} Operation code indicating a repeated start with write. 
+\end{DoxyReturn}
+\Hypertarget{i2c__types_8c_a11497912943cb61fd1992c7cb5878a80}\index{i2c\_types.c@{i2c\_types.c}!i2c\_returnReset@{i2c\_returnReset}}
+\index{i2c\_returnReset@{i2c\_returnReset}!i2c\_types.c@{i2c\_types.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_returnReset()}{i2c\_returnReset()}}
+{\footnotesize\ttfamily \label{i2c__types_8c_a11497912943cb61fd1992c7cb5878a80} 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} i2c\+\_\+return\+Reset (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Callback function that returns the I2C reset operation. 
+
+This function signals the I2C state machine to reset the I2C link, often used after an error or timeout condition.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to user-\/defined data (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t} Operation code indicating a link reset. 
+\end{DoxyReturn}
+\Hypertarget{i2c__types_8c_a738d603b92ce367b1e7f9ae415e064c0}\index{i2c\_types.c@{i2c\_types.c}!i2c\_returnStop@{i2c\_returnStop}}
+\index{i2c\_returnStop@{i2c\_returnStop}!i2c\_types.c@{i2c\_types.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_returnStop()}{i2c\_returnStop()}}
+{\footnotesize\ttfamily \label{i2c__types_8c_a738d603b92ce367b1e7f9ae415e064c0} 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} i2c\+\_\+return\+Stop (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Callback function that returns the I2C stop operation. 
+
+This function can be used as a default or user-\/defined callback that instructs the I2C state machine to issue a stop condition on the bus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to user-\/defined data (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t} Operation code indicating a stop condition. 
+\end{DoxyReturn}

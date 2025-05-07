@@ -1,0 +1,186 @@
+\doxysection{color\+\_\+sensor/i2c\+\_\+simple\+\_\+master.h File Reference}
+\hypertarget{i2c__simple__master_8h}{}\label{i2c__simple__master_8h}\index{color\_sensor/i2c\_simple\_master.h@{color\_sensor/i2c\_simple\_master.h}}
+
+
+I2C simple master header file.  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include "{}i2c\+\_\+types.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{i2c__simple__master_8h_a599a86715139c7117712c4f136c468ba}{i2c\+\_\+read1\+Byte\+Register}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address, uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Reads a single byte from a specific register of a slave I2C device. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{i2c__simple__master_8h_a75c9c99d07fdd47f8c2c738f1c3aa3e9}{i2c\+\_\+read2\+Byte\+Register}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address, uint8\+\_\+t reg)
+\begin{DoxyCompactList}\small\item\em Reads a 2-\/byte value from a specific register of a slave I2C device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__simple__master_8h_a3eaef4f5fb8e3c28b668f5fca60bd991}{i2c\+\_\+write1\+Byte\+Register}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address, uint8\+\_\+t reg, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Writes a single byte to a specific register of a slave I2C device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__simple__master_8h_ac5748fef47a6d89ace17bf3456ff400c}{i2c\+\_\+write2\+Byte\+Register}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address, uint8\+\_\+t reg, uint16\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Writes a 2-\/byte value to a specific register of a slave I2C device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__simple__master_8h_a9d7d2dad01584d544218909223ae271c}{i2c\+\_\+write\+NBytes}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address, void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Writes multiple bytes to a slave I2C device in one transaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__simple__master_8h_a2dd6c38e18af8e6b7a444bcc4596f2fd}{i2c\+\_\+read\+Data\+Block}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address, uint8\+\_\+t reg, void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Reads a block of data starting from a specific register of a slave I2C device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__simple__master_8h_a5315036e2e531c53e4fee6d95ab900a9}{i2c\+\_\+read\+NBytes}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address, void \texorpdfstring{$\ast$}{*}data, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Reads a specified number of bytes directly from a slave I2C device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I2C simple master header file. 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{i2c__simple__master_8h_a599a86715139c7117712c4f136c468ba}\index{i2c\_simple\_master.h@{i2c\_simple\_master.h}!i2c\_read1ByteRegister@{i2c\_read1ByteRegister}}
+\index{i2c\_read1ByteRegister@{i2c\_read1ByteRegister}!i2c\_simple\_master.h@{i2c\_simple\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_read1ByteRegister()}{i2c\_read1ByteRegister()}}
+{\footnotesize\ttfamily \label{i2c__simple__master_8h_a599a86715139c7117712c4f136c468ba} 
+uint8\+\_\+t i2c\+\_\+read1\+Byte\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{, }\item[{uint8\+\_\+t}]{reg}{}\end{DoxyParamCaption})}
+
+
+
+Reads a single byte from a specific register of a slave I2C device. 
+
+Sends the register address in a write transaction and then performs a repeated start to read one byte. Retries the operation up to 2 times if an error occurs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The I2C address of the slave device. \\
+\hline
+{\em reg} & The register within the slave device to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The byte value read from the specified register. 
+\end{DoxyReturn}
+\Hypertarget{i2c__simple__master_8h_a75c9c99d07fdd47f8c2c738f1c3aa3e9}\index{i2c\_simple\_master.h@{i2c\_simple\_master.h}!i2c\_read2ByteRegister@{i2c\_read2ByteRegister}}
+\index{i2c\_read2ByteRegister@{i2c\_read2ByteRegister}!i2c\_simple\_master.h@{i2c\_simple\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_read2ByteRegister()}{i2c\_read2ByteRegister()}}
+{\footnotesize\ttfamily \label{i2c__simple__master_8h_a75c9c99d07fdd47f8c2c738f1c3aa3e9} 
+uint16\+\_\+t i2c\+\_\+read2\+Byte\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{, }\item[{uint8\+\_\+t}]{reg}{}\end{DoxyParamCaption})}
+
+
+
+Reads a 2-\/byte value from a specific register of a slave I2C device. 
+
+Performs a write of the register address followed by a repeated start and read of 2 bytes. The result is interpreted as little endian and returned in swapped byte order.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The I2C address of the slave device. \\
+\hline
+{\em reg} & The register address to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The 2-\/byte value read from the register. 
+\end{DoxyReturn}
+\Hypertarget{i2c__simple__master_8h_a2dd6c38e18af8e6b7a444bcc4596f2fd}\index{i2c\_simple\_master.h@{i2c\_simple\_master.h}!i2c\_readDataBlock@{i2c\_readDataBlock}}
+\index{i2c\_readDataBlock@{i2c\_readDataBlock}!i2c\_simple\_master.h@{i2c\_simple\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_readDataBlock()}{i2c\_readDataBlock()}}
+{\footnotesize\ttfamily \label{i2c__simple__master_8h_a2dd6c38e18af8e6b7a444bcc4596f2fd} 
+void i2c\+\_\+read\+Data\+Block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{, }\item[{uint8\+\_\+t}]{reg}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Reads a block of data starting from a specific register of a slave I2C device. 
+
+Performs a write of the register address followed by a repeated start and read of {\ttfamily len} bytes. The data is stored in the provided buffer. This function is non-\/blocking internally but blocks until completion.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The I2C address of the slave device. \\
+\hline
+{\em reg} & The starting register address to read from. \\
+\hline
+{\em data} & Pointer to a buffer where the read data will be stored. \\
+\hline
+{\em len} & Number of bytes to read. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__simple__master_8h_a5315036e2e531c53e4fee6d95ab900a9}\index{i2c\_simple\_master.h@{i2c\_simple\_master.h}!i2c\_readNBytes@{i2c\_readNBytes}}
+\index{i2c\_readNBytes@{i2c\_readNBytes}!i2c\_simple\_master.h@{i2c\_simple\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_readNBytes()}{i2c\_readNBytes()}}
+{\footnotesize\ttfamily \label{i2c__simple__master_8h_a5315036e2e531c53e4fee6d95ab900a9} 
+void i2c\+\_\+read\+NBytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Reads a specified number of bytes directly from a slave I2C device. 
+
+This function performs a direct read of {\ttfamily len} bytes from the device without writing a register address. It is assumed that the device is already prepared to send the desired data.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The I2C address of the slave device. \\
+\hline
+{\em data} & Pointer to a buffer where the read data will be stored. \\
+\hline
+{\em len} & Number of bytes to read. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__simple__master_8h_a3eaef4f5fb8e3c28b668f5fca60bd991}\index{i2c\_simple\_master.h@{i2c\_simple\_master.h}!i2c\_write1ByteRegister@{i2c\_write1ByteRegister}}
+\index{i2c\_write1ByteRegister@{i2c\_write1ByteRegister}!i2c\_simple\_master.h@{i2c\_simple\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_write1ByteRegister()}{i2c\_write1ByteRegister()}}
+{\footnotesize\ttfamily \label{i2c__simple__master_8h_a3eaef4f5fb8e3c28b668f5fca60bd991} 
+void i2c\+\_\+write1\+Byte\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{, }\item[{uint8\+\_\+t}]{reg}{, }\item[{uint8\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Writes a single byte to a specific register of a slave I2C device. 
+
+Combines the register address and the value into a two-\/step write process using a data complete callback.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The I2C address of the slave device. \\
+\hline
+{\em reg} & The register within the slave device to write to. \\
+\hline
+{\em data} & The byte of data to write to the register. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__simple__master_8h_ac5748fef47a6d89ace17bf3456ff400c}\index{i2c\_simple\_master.h@{i2c\_simple\_master.h}!i2c\_write2ByteRegister@{i2c\_write2ByteRegister}}
+\index{i2c\_write2ByteRegister@{i2c\_write2ByteRegister}!i2c\_simple\_master.h@{i2c\_simple\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_write2ByteRegister()}{i2c\_write2ByteRegister()}}
+{\footnotesize\ttfamily \label{i2c__simple__master_8h_ac5748fef47a6d89ace17bf3456ff400c} 
+void i2c\+\_\+write2\+Byte\+Register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{, }\item[{uint8\+\_\+t}]{reg}{, }\item[{uint16\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Writes a 2-\/byte value to a specific register of a slave I2C device. 
+
+Sends the register address followed by 2 bytes of data using a callback-\/based write sequence.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The I2C address of the slave device. \\
+\hline
+{\em reg} & The register address to write to. \\
+\hline
+{\em data} & The 2-\/byte data to be written to the register. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__simple__master_8h_a9d7d2dad01584d544218909223ae271c}\index{i2c\_simple\_master.h@{i2c\_simple\_master.h}!i2c\_writeNBytes@{i2c\_writeNBytes}}
+\index{i2c\_writeNBytes@{i2c\_writeNBytes}!i2c\_simple\_master.h@{i2c\_simple\_master.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_writeNBytes()}{i2c\_writeNBytes()}}
+{\footnotesize\ttfamily \label{i2c__simple__master_8h_a9d7d2dad01584d544218909223ae271c} 
+void i2c\+\_\+write\+NBytes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{data}{, }\item[{size\+\_\+t}]{len}{}\end{DoxyParamCaption})}
+
+
+
+Writes multiple bytes to a slave I2C device in one transaction. 
+
+This function sends the given data array directly using the I2C master write operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The I2C address of the slave device. \\
+\hline
+{\em data} & Pointer to the data buffer to write. \\
+\hline
+{\em len} & The number of bytes to write. \\
+\hline
+\end{DoxyParams}

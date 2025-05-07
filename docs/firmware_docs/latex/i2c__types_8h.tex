@@ -1,0 +1,198 @@
+\doxysection{color\+\_\+sensor/i2c\+\_\+types.h File Reference}
+\hypertarget{i2c__types_8h}{}\label{i2c__types_8h}\index{color\_sensor/i2c\_types.h@{color\_sensor/i2c\_types.h}}
+
+
+i2c types header file  
+
+
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}}(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}) (void \texorpdfstring{$\ast$}{*}p)
+\item 
+typedef uint8\+\_\+t \mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \{ \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2ace87b5d78440f46dff71b0de56adc79a}{I2\+C\+\_\+\+NOERR}}
+, \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2a49e65f3960437d80b8328e7898cc90de}{I2\+C\+\_\+\+BUSY}}
+, \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2a2fa4d728abcc354ab37d4ff073289900}{I2\+C\+\_\+\+FAIL}}
+ \}
+\item 
+enum \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \{ \newline
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5aa5420d45eedce96cc6004b8649ae7b93}{i2c\+\_\+stop}} =1
+, \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a64481ebd63ac835c9df286cf694b9b5f}{i2c\+\_\+restart\+\_\+read}}
+, \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a4aef4a7544b87eafbe7a581b542b1bba}{i2c\+\_\+restart\+\_\+write}}
+, \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a50c4d830ffd758a9a2413279b7feac88}{i2c\+\_\+continue}}
+, \newline
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5af20dc5c7473618a21faec8f2a88cddac}{i2c\+\_\+reset\+\_\+link}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \mbox{\hyperlink{i2c__types_8h_a738d603b92ce367b1e7f9ae415e064c0}{i2c\+\_\+return\+Stop}} (void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Callback function that returns the I2C stop operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \mbox{\hyperlink{i2c__types_8h_a11497912943cb61fd1992c7cb5878a80}{i2c\+\_\+return\+Reset}} (void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Callback function that returns the I2C reset operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \mbox{\hyperlink{i2c__types_8h_a2e53a965038198361d2c27b061cdd4a7}{i2c\+\_\+restart\+Write}} (void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Callback function that returns the I2C restart write operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} \mbox{\hyperlink{i2c__types_8h_ac16a4b5bb030267d54b0a8c34299dc14}{i2c\+\_\+restart\+Read}} (void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Callback function that returns the I2C restart read operation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+i2c types header file 
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}\index{i2c\_types.h@{i2c\_types.h}!i2c\_address\_t@{i2c\_address\_t}}
+\index{i2c\_address\_t@{i2c\_address\_t}!i2c\_types.h@{i2c\_types.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_address\_t}{i2c\_address\_t}}
+{\footnotesize\ttfamily \label{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a} 
+typedef uint8\+\_\+t \mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}
+
+\Hypertarget{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}\index{i2c\_types.h@{i2c\_types.h}!i2c\_callback@{i2c\_callback}}
+\index{i2c\_callback@{i2c\_callback}!i2c\_types.h@{i2c\_types.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_callback}{i2c\_callback}}
+{\footnotesize\ttfamily \label{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12} 
+typedef \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}}(\texorpdfstring{$\ast$}{*} i2c\+\_\+callback) (void \texorpdfstring{$\ast$}{*}p)}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}\index{i2c\_types.h@{i2c\_types.h}!i2c\_error\_t@{i2c\_error\_t}}
+\index{i2c\_error\_t@{i2c\_error\_t}!i2c\_types.h@{i2c\_types.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_error\_t}{i2c\_error\_t}}
+{\footnotesize\ttfamily \label{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2} 
+enum \mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_NOERR@{I2C\_NOERR}!i2c\_types.h@{i2c\_types.h}}\index{i2c\_types.h@{i2c\_types.h}!I2C\_NOERR@{I2C\_NOERR}}}\Hypertarget{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2ace87b5d78440f46dff71b0de56adc79a}\label{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2ace87b5d78440f46dff71b0de56adc79a} 
+I2\+C\+\_\+\+NOERR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_BUSY@{I2C\_BUSY}!i2c\_types.h@{i2c\_types.h}}\index{i2c\_types.h@{i2c\_types.h}!I2C\_BUSY@{I2C\_BUSY}}}\Hypertarget{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2a49e65f3960437d80b8328e7898cc90de}\label{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2a49e65f3960437d80b8328e7898cc90de} 
+I2\+C\+\_\+\+BUSY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_FAIL@{I2C\_FAIL}!i2c\_types.h@{i2c\_types.h}}\index{i2c\_types.h@{i2c\_types.h}!I2C\_FAIL@{I2C\_FAIL}}}\Hypertarget{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2a2fa4d728abcc354ab37d4ff073289900}\label{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2a2fa4d728abcc354ab37d4ff073289900} 
+I2\+C\+\_\+\+FAIL&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}\index{i2c\_types.h@{i2c\_types.h}!i2c\_operations\_t@{i2c\_operations\_t}}
+\index{i2c\_operations\_t@{i2c\_operations\_t}!i2c\_types.h@{i2c\_types.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_operations\_t}{i2c\_operations\_t}}
+{\footnotesize\ttfamily \label{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5} 
+enum \mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_stop@{i2c\_stop}!i2c\_types.h@{i2c\_types.h}}\index{i2c\_types.h@{i2c\_types.h}!i2c\_stop@{i2c\_stop}}}\Hypertarget{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5aa5420d45eedce96cc6004b8649ae7b93}\label{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5aa5420d45eedce96cc6004b8649ae7b93} 
+i2c\+\_\+stop&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_restart\_read@{i2c\_restart\_read}!i2c\_types.h@{i2c\_types.h}}\index{i2c\_types.h@{i2c\_types.h}!i2c\_restart\_read@{i2c\_restart\_read}}}\Hypertarget{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a64481ebd63ac835c9df286cf694b9b5f}\label{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a64481ebd63ac835c9df286cf694b9b5f} 
+i2c\+\_\+restart\+\_\+read&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_restart\_write@{i2c\_restart\_write}!i2c\_types.h@{i2c\_types.h}}\index{i2c\_types.h@{i2c\_types.h}!i2c\_restart\_write@{i2c\_restart\_write}}}\Hypertarget{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a4aef4a7544b87eafbe7a581b542b1bba}\label{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a4aef4a7544b87eafbe7a581b542b1bba} 
+i2c\+\_\+restart\+\_\+write&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_continue@{i2c\_continue}!i2c\_types.h@{i2c\_types.h}}\index{i2c\_types.h@{i2c\_types.h}!i2c\_continue@{i2c\_continue}}}\Hypertarget{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a50c4d830ffd758a9a2413279b7feac88}\label{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5a50c4d830ffd758a9a2413279b7feac88} 
+i2c\+\_\+continue&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_reset\_link@{i2c\_reset\_link}!i2c\_types.h@{i2c\_types.h}}\index{i2c\_types.h@{i2c\_types.h}!i2c\_reset\_link@{i2c\_reset\_link}}}\Hypertarget{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5af20dc5c7473618a21faec8f2a88cddac}\label{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5af20dc5c7473618a21faec8f2a88cddac} 
+i2c\+\_\+reset\+\_\+link&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{i2c__types_8h_ac16a4b5bb030267d54b0a8c34299dc14}\index{i2c\_types.h@{i2c\_types.h}!i2c\_restartRead@{i2c\_restartRead}}
+\index{i2c\_restartRead@{i2c\_restartRead}!i2c\_types.h@{i2c\_types.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_restartRead()}{i2c\_restartRead()}}
+{\footnotesize\ttfamily \label{i2c__types_8h_ac16a4b5bb030267d54b0a8c34299dc14} 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} i2c\+\_\+restart\+Read (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Callback function that returns the I2C restart read operation. 
+
+This function is used to indicate that a repeated start condition should be issued, followed by a read operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to user-\/defined data (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t} Operation code indicating a repeated start with read. 
+\end{DoxyReturn}
+\Hypertarget{i2c__types_8h_a2e53a965038198361d2c27b061cdd4a7}\index{i2c\_types.h@{i2c\_types.h}!i2c\_restartWrite@{i2c\_restartWrite}}
+\index{i2c\_restartWrite@{i2c\_restartWrite}!i2c\_types.h@{i2c\_types.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_restartWrite()}{i2c\_restartWrite()}}
+{\footnotesize\ttfamily \label{i2c__types_8h_a2e53a965038198361d2c27b061cdd4a7} 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} i2c\+\_\+restart\+Write (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Callback function that returns the I2C restart write operation. 
+
+This function is used to indicate that a repeated start condition should be issued, followed by a write operation.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to user-\/defined data (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t} Operation code indicating a repeated start with write. 
+\end{DoxyReturn}
+\Hypertarget{i2c__types_8h_a11497912943cb61fd1992c7cb5878a80}\index{i2c\_types.h@{i2c\_types.h}!i2c\_returnReset@{i2c\_returnReset}}
+\index{i2c\_returnReset@{i2c\_returnReset}!i2c\_types.h@{i2c\_types.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_returnReset()}{i2c\_returnReset()}}
+{\footnotesize\ttfamily \label{i2c__types_8h_a11497912943cb61fd1992c7cb5878a80} 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} i2c\+\_\+return\+Reset (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Callback function that returns the I2C reset operation. 
+
+This function signals the I2C state machine to reset the I2C link, often used after an error or timeout condition.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to user-\/defined data (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t} Operation code indicating a link reset. 
+\end{DoxyReturn}
+\Hypertarget{i2c__types_8h_a738d603b92ce367b1e7f9ae415e064c0}\index{i2c\_types.h@{i2c\_types.h}!i2c\_returnStop@{i2c\_returnStop}}
+\index{i2c\_returnStop@{i2c\_returnStop}!i2c\_types.h@{i2c\_types.h}}
+\doxysubsubsection{\texorpdfstring{i2c\_returnStop()}{i2c\_returnStop()}}
+{\footnotesize\ttfamily \label{i2c__types_8h_a738d603b92ce367b1e7f9ae415e064c0} 
+\mbox{\hyperlink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t}} i2c\+\_\+return\+Stop (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Callback function that returns the I2C stop operation. 
+
+This function can be used as a default or user-\/defined callback that instructs the I2C state machine to issue a stop condition on the bus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & Pointer to user-\/defined data (unused in this implementation). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a87c29adcf1a2e1d7ded2d4524883f1c5}{i2c\+\_\+operations\+\_\+t} Operation code indicating a stop condition. 
+\end{DoxyReturn}

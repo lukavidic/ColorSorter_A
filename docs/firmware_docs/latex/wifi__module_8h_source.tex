@@ -1,0 +1,46 @@
+\doxysection{wifi\+\_\+module.\+h}
+\hypertarget{wifi__module_8h_source}{}\label{wifi__module_8h_source}\index{wifi\_module/wifi\_module.h@{wifi\_module/wifi\_module.h}}
+\mbox{\hyperlink{wifi__module_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#ifndef\ WIFI\_H}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ WIFI\_H}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{inc_8h}{../inc/inc.h}}"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ BUFF\_SIZE\ 80}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{wifi__module_8c_aaa870c48d7cd60032958b2036641c0bb}{buffer}}[\mbox{\hyperlink{wifi__module_8h_a6c7cd32e1bac137f05e4a752b4ad10af}{BUFF\_SIZE}}];}
+\DoxyCodeLine{00019\ \textcolor{keyword}{extern}\ \textcolor{keyword}{volatile}\ \textcolor{keywordtype}{unsigned}\ \mbox{\hyperlink{wifi__module_8c_a65f8b91c0d19c0ae6cd36c8edadd48aa}{head}},\ \mbox{\hyperlink{wifi__module_8c_aab357daad99da131c2c9b87e603abfeb}{tail}};}
+\DoxyCodeLine{00020\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{wifi__module_8c_ab36effbd4d2f9af6a0097acd75203a07}{counter}};}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{/*\ colors\ current\ direction\ -\/\ (1\ -\/\ right,\ 0\ -\/\ left)}}
+\DoxyCodeLine{00023\ \textcolor{comment}{\ *\ Order\ of\ colors:\ red,\ green,\ blue,\ yellow,\ orange,\ pink,\ white,\ black}}
+\DoxyCodeLine{00024\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{00025\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{wifi__module_8c_a322d24404cab564ab551644b6e557f52}{color\_sides}}[8];}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00034\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_af67410a15ecc24ecef0e5abce0c5b30c}{wifi\_init}}();}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00042\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_af50eb364830e8bc88ab8d9ccfb12e673}{wifi\_setup\_connection}}();}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00047\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_abc0b1ba1f366b4271d084e2a9ece74f3}{clean\_buffer}}();}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00055\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_a471115368e39e6e8a4349dc5323d6e20}{wifi\_send\_app}}(\textcolor{keywordtype}{char}*\ data);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_afe10d83f6a4accd1826757c075af173a}{wifi\_send\_character}}(uint8\_t\ character);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00069\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_a9074ac51b4db8708db261047321eaa41}{wifi\_send\_string}}(uint8\_t*\ \textcolor{keywordtype}{string});}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00074\ uint8\_t\ \mbox{\hyperlink{wifi__module_8h_a5c74d865f10ce0e270c0a21e2a0cd152}{wifi\_read\_character}}();}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_a18690840050b9175335d5d92ec810786}{\_\_attribute\_\_}}((interrupt(auto\_psv)))\ \_U1ErrInterrupt(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_a18690840050b9175335d5d92ec810786}{\_\_attribute\_\_}}((interrupt(auto\_psv)))\ \_U1RXInterrupt(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{wifi__module_8h_a18690840050b9175335d5d92ec810786}{\_\_attribute\_\_}}((interrupt(auto\_psv)))\ \_U1TXInterrupt(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

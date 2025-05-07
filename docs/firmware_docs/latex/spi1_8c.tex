@@ -1,0 +1,138 @@
+\doxysection{color\+\_\+sensor/spi1.c File Reference}
+\hypertarget{spi1_8c}{}\label{spi1_8c}\index{color\_sensor/spi1.c@{color\_sensor/spi1.c}}
+
+
+SPI protocol source file.  
+
+
+{\ttfamily \#include "{}spi1.\+h"{}}\newline
+{\ttfamily \#include "{}xc.\+h"{}}\newline
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51}{SPI1\+\_\+\+TRANSFER\+\_\+\+MODE}} \{ \mbox{\hyperlink{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51a7f6235cb2af719a0dca2707740837a88}{SPI1\+\_\+\+TRANSFER\+\_\+\+MODE\+\_\+32\+BIT}} = 2
+, \mbox{\hyperlink{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51ac9c8a31671b02b5fe4178d11b51dc6b2}{SPI1\+\_\+\+TRANSFER\+\_\+\+MODE\+\_\+16\+BIT}} = 1
+, \mbox{\hyperlink{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51a8e244f595ead59f818c17dfef3335efb}{SPI1\+\_\+\+TRANSFER\+\_\+\+MODE\+\_\+8\+BIT}} = 0
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{spi1_8c_a4d1cdb4320aad66e1397f2cd7a0c0eac}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((\+\_\+\+\_\+always\+\_\+inline\+\_\+\+\_\+))
+\item 
+void \mbox{\hyperlink{spi1_8c_ae318f05ebb6973a6620b67e61833c12b}{SPI1\+\_\+\+Exchange}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Transmit\+Data, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Receive\+Data)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{spi1_8c_a25723d28d814934bf890e1e984a4c8d0}{SPI1\+\_\+\+Exchange\+Buffer}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Transmit\+Data, uint16\+\_\+t byte\+Count, uint8\+\_\+t \texorpdfstring{$\ast$}{*}p\+Receive\+Data)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{spi1_8c_a6553e18263c48505676958ce4c937167}{SPI1\+\_\+\+Exchange8bit}} (uint8\+\_\+t data)
+\item 
+uint16\+\_\+t \mbox{\hyperlink{spi1_8c_a466cff635af902560dbb6dacb5ace1bf}{SPI1\+\_\+\+Exchange8bit\+Buffer}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}data\+Transmitted, uint16\+\_\+t byte\+Count, uint8\+\_\+t \texorpdfstring{$\ast$}{*}data\+Received)
+\item 
+\mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012}{SPI1\+\_\+\+STATUS}} \mbox{\hyperlink{spi1_8c_a1d36b64e4ff144bd5abb792fea3353bc}{SPI1\+\_\+\+Status\+Get}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+SPI protocol source file. 
+
+This file contains definitions of functions decleared in \doxylink{spi1_8h}{spi1.\+h} 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51}\index{spi1.c@{spi1.c}!SPI1\_TRANSFER\_MODE@{SPI1\_TRANSFER\_MODE}}
+\index{SPI1\_TRANSFER\_MODE@{SPI1\_TRANSFER\_MODE}!spi1.c@{spi1.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_TRANSFER\_MODE}{SPI1\_TRANSFER\_MODE}}
+{\footnotesize\ttfamily \label{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51} 
+enum \mbox{\hyperlink{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51}{SPI1\+\_\+\+TRANSFER\+\_\+\+MODE}}}
+
+SPI1 Transfer Mode Enumeration
+
+@\+Summary Defines the Transfer Mode enumeration for SPI1.
+
+@\+Description This defines the Transfer Mode enumeration for SPI1. \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI1\_TRANSFER\_MODE\_32BIT@{SPI1\_TRANSFER\_MODE\_32BIT}!spi1.c@{spi1.c}}\index{spi1.c@{spi1.c}!SPI1\_TRANSFER\_MODE\_32BIT@{SPI1\_TRANSFER\_MODE\_32BIT}}}\Hypertarget{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51a7f6235cb2af719a0dca2707740837a88}\label{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51a7f6235cb2af719a0dca2707740837a88} 
+SPI1\+\_\+\+TRANSFER\+\_\+\+MODE\+\_\+32\+BIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI1\_TRANSFER\_MODE\_16BIT@{SPI1\_TRANSFER\_MODE\_16BIT}!spi1.c@{spi1.c}}\index{spi1.c@{spi1.c}!SPI1\_TRANSFER\_MODE\_16BIT@{SPI1\_TRANSFER\_MODE\_16BIT}}}\Hypertarget{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51ac9c8a31671b02b5fe4178d11b51dc6b2}\label{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51ac9c8a31671b02b5fe4178d11b51dc6b2} 
+SPI1\+\_\+\+TRANSFER\+\_\+\+MODE\+\_\+16\+BIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SPI1\_TRANSFER\_MODE\_8BIT@{SPI1\_TRANSFER\_MODE\_8BIT}!spi1.c@{spi1.c}}\index{spi1.c@{spi1.c}!SPI1\_TRANSFER\_MODE\_8BIT@{SPI1\_TRANSFER\_MODE\_8BIT}}}\Hypertarget{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51a8e244f595ead59f818c17dfef3335efb}\label{spi1_8c_a46876d5bc7fb1c46f19f110b9f9b6c51a8e244f595ead59f818c17dfef3335efb} 
+SPI1\+\_\+\+TRANSFER\+\_\+\+MODE\+\_\+8\+BIT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{spi1_8c_a4d1cdb4320aad66e1397f2cd7a0c0eac}\index{spi1.c@{spi1.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!spi1.c@{spi1.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{spi1_8c_a4d1cdb4320aad66e1397f2cd7a0c0eac} 
+\+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(\+\_\+\+\_\+always\+\_\+inline\+\_\+\+\_\+)}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{spi1_8c_ae318f05ebb6973a6620b67e61833c12b}\index{spi1.c@{spi1.c}!SPI1\_Exchange@{SPI1\_Exchange}}
+\index{SPI1\_Exchange@{SPI1\_Exchange}!spi1.c@{spi1.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_Exchange()}{SPI1\_Exchange()}}
+{\footnotesize\ttfamily \label{spi1_8c_ae318f05ebb6973a6620b67e61833c12b} 
+void SPI1\+\_\+\+Exchange (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Transmit\+Data}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Receive\+Data}{}\end{DoxyParamCaption})}
+
+\Hypertarget{spi1_8c_a6553e18263c48505676958ce4c937167}\index{spi1.c@{spi1.c}!SPI1\_Exchange8bit@{SPI1\_Exchange8bit}}
+\index{SPI1\_Exchange8bit@{SPI1\_Exchange8bit}!spi1.c@{spi1.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_Exchange8bit()}{SPI1\_Exchange8bit()}}
+{\footnotesize\ttfamily \label{spi1_8c_a6553e18263c48505676958ce4c937167} 
+uint8\+\_\+t SPI1\+\_\+\+Exchange8bit (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{data}{}\end{DoxyParamCaption})}
+
+@\+Summary Exchanges one byte of data from SPI1
+
+@\+Description This routine exchanges one byte of data from the SPI1. This is a blocking routine.
+
+@\+Preconditions The SPI1\+\_\+\+Initialize routine must have been called for the specified SPI1 driver instance.
+
+@\+Returns Data read from SPI1
+
+@\+Param data -\/ Data to be written onto SPI1.
+
+@\+Example Refer to \doxylink{spi1_8h_a0607cad7a6b302950091fea719146a54}{SPI1\+\_\+\+Initialize()} for an example \Hypertarget{spi1_8c_a466cff635af902560dbb6dacb5ace1bf}\index{spi1.c@{spi1.c}!SPI1\_Exchange8bitBuffer@{SPI1\_Exchange8bitBuffer}}
+\index{SPI1\_Exchange8bitBuffer@{SPI1\_Exchange8bitBuffer}!spi1.c@{spi1.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_Exchange8bitBuffer()}{SPI1\_Exchange8bitBuffer()}}
+{\footnotesize\ttfamily \label{spi1_8c_a466cff635af902560dbb6dacb5ace1bf} 
+uint16\+\_\+t SPI1\+\_\+\+Exchange8bit\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data\+Transmitted}{, }\item[{uint16\+\_\+t}]{byte\+Count}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{data\+Received}{}\end{DoxyParamCaption})}
+
+@\+Summary Exchanges data from a buffer of size one byte from SPI1
+
+@\+Description This routine exchanges data from a buffer of size one byte from the SPI1. This is a blocking routine.
+
+@\+Preconditions The SPI1\+\_\+\+Initialize routine must have been called for the specified SPI1 driver instance.
+
+@\+Returns Number of 8bit data written/read.
+
+@\+Param data\+Transmitted -\/ Buffer of data to be written onto SPI1.
+
+@\+Param byte\+Count -\/ Number of bytes to be exchanged.
+
+@\+Param data\+Received -\/ Buffer of data to be read from SPI1.
+
+@\+Example Refer to \doxylink{spi1_8h_a0607cad7a6b302950091fea719146a54}{SPI1\+\_\+\+Initialize()} for an example \Hypertarget{spi1_8c_a25723d28d814934bf890e1e984a4c8d0}\index{spi1.c@{spi1.c}!SPI1\_ExchangeBuffer@{SPI1\_ExchangeBuffer}}
+\index{SPI1\_ExchangeBuffer@{SPI1\_ExchangeBuffer}!spi1.c@{spi1.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_ExchangeBuffer()}{SPI1\_ExchangeBuffer()}}
+{\footnotesize\ttfamily \label{spi1_8c_a25723d28d814934bf890e1e984a4c8d0} 
+uint16\+\_\+t SPI1\+\_\+\+Exchange\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Transmit\+Data}{, }\item[{uint16\+\_\+t}]{byte\+Count}{, }\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{p\+Receive\+Data}{}\end{DoxyParamCaption})}
+
+\Hypertarget{spi1_8c_a1d36b64e4ff144bd5abb792fea3353bc}\index{spi1.c@{spi1.c}!SPI1\_StatusGet@{SPI1\_StatusGet}}
+\index{SPI1\_StatusGet@{SPI1\_StatusGet}!spi1.c@{spi1.c}}
+\doxysubsubsection{\texorpdfstring{SPI1\_StatusGet()}{SPI1\_StatusGet()}}
+{\footnotesize\ttfamily \label{spi1_8c_a1d36b64e4ff144bd5abb792fea3353bc} 
+\mbox{\hyperlink{spi1_8h_a023db59f6551e56ce57ee219df328012}{SPI1\+\_\+\+STATUS}} SPI1\+\_\+\+Status\+Get (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+@\+Summary Returns the value of the status register of SPI instance \+: 1
+
+@\+Description This routine returns the value of the status register of SPI1 driver instance \+: 1
+
+@\+Preconditions None.
+
+@\+Returns Returns the value of the status register.
+
+@\+Param None.
+
+@\+Example Refer to \doxylink{spi1_8h_a0607cad7a6b302950091fea719146a54}{SPI1\+\_\+\+Initialize()} for an example 

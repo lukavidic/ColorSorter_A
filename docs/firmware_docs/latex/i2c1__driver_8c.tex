@@ -1,0 +1,569 @@
+\doxysection{color\+\_\+sensor/i2c1\+\_\+driver.c File Reference}
+\hypertarget{i2c1__driver_8c}{}\label{i2c1__driver_8c}\index{color\_sensor/i2c1\_driver.c@{color\_sensor/i2c1\_driver.c}}
+
+
+I2C driver source file.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include "{}i2c1\+\_\+driver.\+h"{}}\newline
+{\ttfamily \#include "{}../inc/inc.\+h"{}}\newline
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$libpic30.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{i2c1__driver_8c_aff5fb84305b4e5655721c950a3488196}{i2c1\+\_\+driver\+\_\+close}} (void)
+\begin{DoxyCompactList}\small\item\em Disables the I2\+C1 peripheral by clearing the enable bit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a8ef15a19099711e8ee10fd31a7d7b847}{i2c1\+\_\+enable\+IRQ}} (void)
+\begin{DoxyCompactList}\small\item\em Enables the I2\+C1 master and slave interrupt sources. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_a3a562d793c89fe5f86c8954605041f1f}{i2c1\+\_\+\+IRQis\+Enabled}} (void)
+\begin{DoxyCompactList}\small\item\em Checks whether I2\+C1 interrupts are currently enabled. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_ad88ed6deb0c925a79b507f0eced17c38}{i2c1\+\_\+disable\+IRQ}} (void)
+\begin{DoxyCompactList}\small\item\em Disables the I2\+C1 master and slave interrupt sources. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a33f284f52c97edb7125db041f382b98e}{i2c1\+\_\+clear\+IRQ}} (void)
+\begin{DoxyCompactList}\small\item\em Clears the I2\+C1 interrupt flags. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a733a1bea54d71551298a6780208796c9}{i2c1\+\_\+set\+IRQ}} (void)
+\begin{DoxyCompactList}\small\item\em Sets the I2\+C1 interrupt flags. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_abac55eee70c770587d584181a98e1f96}{i2c1\+\_\+wait\+For\+Event}} (uint16\+\_\+t \texorpdfstring{$\ast$}{*}timeout)
+\begin{DoxyCompactList}\small\item\em Waits for an I2\+C1 interrupt event with an optional timeout. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_a73e12d1ac2f9ed036a413a4ec4973512}{i2c1\+\_\+driver\+\_\+driver\+\_\+open}} (void)
+\begin{DoxyCompactList}\small\item\em Opens the I2\+C1 driver and initializes the hardware. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_a0f9e55c5736c1b1fc31d3055093bf997}{i2c1\+\_\+driver\+\_\+init\+Slave\+Hardware}} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the I2\+C1 hardware in slave mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a3291584a36361a8b886a5565a0897474}{i2c1\+\_\+driver\+\_\+reset\+Bus}} (void)
+\begin{DoxyCompactList}\small\item\em Resets the I2\+C1 bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a826f86a40e425c0280cac832497d48f1}{i2c1\+\_\+driver\+\_\+start}} (void)
+\begin{DoxyCompactList}\small\item\em Starts a new I2\+C1 communication. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a9417c263829b30c425f14cd5576b4f44}{i2c1\+\_\+driver\+\_\+restart}} (void)
+\begin{DoxyCompactList}\small\item\em Sends a restart condition on I2\+C1 bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a822b30de8bc66d6a5dd767066497ad87}{i2c1\+\_\+driver\+\_\+stop}} (void)
+\begin{DoxyCompactList}\small\item\em Sends a stop condition on I2\+C1 bus. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_a35f6f9da194842280debb04be644c373}{i2c1\+\_\+driver\+\_\+is\+NACK}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the last I2\+C1 operation was a NACK (Not Acknowledge). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a0c0e213e454c56ad73d3eb1daa66dbec}{i2c1\+\_\+driver\+\_\+start\+RX}} (void)
+\begin{DoxyCompactList}\small\item\em Starts receiving data on I2\+C1. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{i2c1__driver_8c_ac99db9ea0d028200180c594b863fb6b0}{i2c1\+\_\+driver\+\_\+get\+RXData}} (void)
+\begin{DoxyCompactList}\small\item\em Reads a received byte of data from I2\+C1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a2a7b6f5a1bb9e19e05a244fc0fbbfac3}{i2c1\+\_\+driver\+\_\+\+TXData}} (uint8\+\_\+t d)
+\begin{DoxyCompactList}\small\item\em Transmits a byte of data over I2\+C1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a7b61d469696ce43586ad65b00fe497c8}{i2c1\+\_\+driver\+\_\+send\+ACK}} (void)
+\begin{DoxyCompactList}\small\item\em Sends an ACK (Acknowledge) signal on the I2\+C1 bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_aee61ef34c048aa4149d15fc7bfba83d0}{i2c1\+\_\+driver\+\_\+send\+NACK}} (void)
+\begin{DoxyCompactList}\small\item\em Sends a NACK (Not Acknowledge) signal on the I2\+C1 bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_af08a3c0de397654999ff28878635b84b}{i2c1\+\_\+driver\+\_\+release\+Clock}} (void)
+\begin{DoxyCompactList}\small\item\em Releases the I2\+C1 clock. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_af0a6e32e38bd9467f0ece088996bae76}{i2c1\+\_\+driver\+\_\+is\+Bufer\+Full}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the I2\+C1 buffer is full. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_a5e4122ae176771eaca282cce372486bd}{i2c1\+\_\+driver\+\_\+is\+Start}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the I2\+C1 bus is in the start condition. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_ae7ec5ac5ff5ad12465ca489d1fcf1bee}{i2c1\+\_\+driver\+\_\+is\+Address}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the current I2\+C1 operation is addressing. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_a5b2c47d3881ea90cf7f8654b826176f6}{i2c1\+\_\+driver\+\_\+is\+Stop}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the I2\+C1 bus is in the stop condition. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_a3f7cf8eea1e9a6c4fe27584994f1169e}{i2c1\+\_\+driver\+\_\+is\+Data}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the current I2\+C1 operation is data transfer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{i2c1__driver_8c_a678cb4a782b2af3024b46c99302b4f02}{i2c1\+\_\+driver\+\_\+is\+Read}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if the current I2\+C1 operation is a read. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a3639e5e0f758d398635ebe19d3e3bfc3}{i2c1\+\_\+driver\+\_\+clear\+Bus\+Collision}} (void)
+\begin{DoxyCompactList}\small\item\em Clears the I2\+C1 bus collision flag. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a77c2d72c9fca24dd43990df49d51ca53}{i2c1\+\_\+driver\+\_\+enable\+Start\+IRQ}} (void)
+\begin{DoxyCompactList}\small\item\em Enables the I2\+C1 start condition interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_acbc71e0e45d8c7464e36ce128cfd1e9c}{i2c1\+\_\+driver\+\_\+disable\+Start\+IRQ}} (void)
+\begin{DoxyCompactList}\small\item\em Disables the I2\+C1 start condition interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a4a74f266c1ad5e78e30c92ba898f021c}{i2c1\+\_\+driver\+\_\+enable\+Stop\+IRQ}} (void)
+\begin{DoxyCompactList}\small\item\em Enables the I2\+C1 stop condition interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_af2ac828c29858571eeb12a8a768b6eaf}{i2c1\+\_\+driver\+\_\+disable\+Stop\+IRQ}} (void)
+\begin{DoxyCompactList}\small\item\em Disables the I2\+C1 stop condition interrupt. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_aa907711128fc436c2e7542b32148187c}{i2c1\+\_\+driver\+\_\+set\+Bus\+Collision\+ISR}} (\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interrupt\+Handler}} handler)
+\begin{DoxyCompactList}\small\item\em Sets the interrupt service routine (ISR) for I2\+C1 bus collision. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a406d4d1be058f2358fc613e45db46513}{i2c1\+\_\+driver\+\_\+set\+Master\+I2c\+ISR}} (\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interrupt\+Handler}} handler)
+\begin{DoxyCompactList}\small\item\em Sets the interrupt service routine (ISR) for I2\+C1 master mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_aab163b34535ddda4fea4ea0a7cdf5a94}{i2c1\+\_\+driver\+\_\+set\+Slave\+I2c\+ISR}} (\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interrupt\+Handler}} handler)
+\begin{DoxyCompactList}\small\item\em Sets the interrupt service routine (ISR) for I2\+C1 slave mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c1__driver_8c_a226557d5e42f7e29ddaff30606138459}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((interrupt, no\+\_\+auto\+\_\+psv))
+\begin{DoxyCompactList}\small\item\em Interrupt service routine for I2\+C1 master interrupt. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{i2c1__driver_8c_ac09931bb2e20ac40b32725e2b92f05d0}{i2c1\+\_\+driver\+\_\+bus\+Collision\+ISR}} )(void)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{i2c1__driver_8c_ad8e259907c430d961adee6b26ad06033}{i2c1\+\_\+driver\+\_\+\+Masteri2c\+ISR}} )(void)
+\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{i2c1__driver_8c_a9f9b3eb668f0806c719c4d5e8f78089f}{i2c1\+\_\+driver\+\_\+\+Slavei2c\+ISR}} )(void)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I2C driver source file. 
+
+This file contains definitions of functions decleared in \doxylink{i2c1__driver_8h}{i2c1\+\_\+driver.\+h} 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{i2c1__driver_8c_a226557d5e42f7e29ddaff30606138459}\index{i2c1\_driver.c@{i2c1\_driver.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a226557d5e42f7e29ddaff30606138459} 
+void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(interrupt, no\+\_\+auto\+\_\+psv)}]{}{}\end{DoxyParamCaption})}
+
+
+
+Interrupt service routine for I2\+C1 master interrupt. 
+
+INT1 interrupt handler (button press).
+
+Interrupt service routine for I2\+C1 slave interrupt.
+
+This interrupt handler is called when an I2\+C1 master mode interrupt occurs. It invokes the user-\/defined ISR set by the {\ttfamily i2c1\+\_\+driver\+\_\+set\+Master\+I2c\+ISR} function.
+
+This interrupt handler is called when an I2\+C1 slave mode interrupt occurs. It invokes the user-\/defined ISR set by the {\ttfamily i2c1\+\_\+driver\+\_\+set\+Slave\+I2c\+ISR} function. \Hypertarget{i2c1__driver_8c_a33f284f52c97edb7125db041f382b98e}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_clearIRQ@{i2c1\_clearIRQ}}
+\index{i2c1\_clearIRQ@{i2c1\_clearIRQ}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_clearIRQ()}{i2c1\_clearIRQ()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a33f284f52c97edb7125db041f382b98e} 
+void i2c1\+\_\+clear\+IRQ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the I2\+C1 interrupt flags. 
+
+Resets the master and slave interrupt flags to 0. \Hypertarget{i2c1__driver_8c_ad88ed6deb0c925a79b507f0eced17c38}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_disableIRQ@{i2c1\_disableIRQ}}
+\index{i2c1\_disableIRQ@{i2c1\_disableIRQ}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_disableIRQ()}{i2c1\_disableIRQ()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_ad88ed6deb0c925a79b507f0eced17c38} 
+void i2c1\+\_\+disable\+IRQ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disables the I2\+C1 master and slave interrupt sources. 
+
+Clears the interrupt enable bits for both master and slave I2\+C1 events. \Hypertarget{i2c1__driver_8c_a3639e5e0f758d398635ebe19d3e3bfc3}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_clearBusCollision@{i2c1\_driver\_clearBusCollision}}
+\index{i2c1\_driver\_clearBusCollision@{i2c1\_driver\_clearBusCollision}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_clearBusCollision()}{i2c1\_driver\_clearBusCollision()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a3639e5e0f758d398635ebe19d3e3bfc3} 
+void i2c1\+\_\+driver\+\_\+clear\+Bus\+Collision (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Clears the I2\+C1 bus collision flag. 
+
+This function clears the Bus Collision (BCL) flag in the I2\+C1\+STAT register. This is necessary after handling a bus collision event to reset the flag. \Hypertarget{i2c1__driver_8c_aff5fb84305b4e5655721c950a3488196}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_close@{i2c1\_driver\_close}}
+\index{i2c1\_driver\_close@{i2c1\_driver\_close}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_close()}{i2c1\_driver\_close()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_aff5fb84305b4e5655721c950a3488196} 
+void i2c1\+\_\+driver\+\_\+close (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disables the I2\+C1 peripheral by clearing the enable bit. 
+
+This function turns off the I2\+C1 hardware module. \Hypertarget{i2c1__driver_8c_acbc71e0e45d8c7464e36ce128cfd1e9c}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_disableStartIRQ@{i2c1\_driver\_disableStartIRQ}}
+\index{i2c1\_driver\_disableStartIRQ@{i2c1\_driver\_disableStartIRQ}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_disableStartIRQ()}{i2c1\_driver\_disableStartIRQ()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_acbc71e0e45d8c7464e36ce128cfd1e9c} 
+void i2c1\+\_\+driver\+\_\+disable\+Start\+IRQ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disables the I2\+C1 start condition interrupt. 
+
+This function disables the interrupt for the start condition detected on the I2\+C1 bus by clearing the SCIE bit in the I2\+C1\+CONH register. This prevents the I2C controller from generating interrupts on the start condition. \Hypertarget{i2c1__driver_8c_af2ac828c29858571eeb12a8a768b6eaf}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_disableStopIRQ@{i2c1\_driver\_disableStopIRQ}}
+\index{i2c1\_driver\_disableStopIRQ@{i2c1\_driver\_disableStopIRQ}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_disableStopIRQ()}{i2c1\_driver\_disableStopIRQ()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_af2ac828c29858571eeb12a8a768b6eaf} 
+void i2c1\+\_\+driver\+\_\+disable\+Stop\+IRQ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Disables the I2\+C1 stop condition interrupt. 
+
+This function disables the interrupt for the stop condition detected on the I2\+C1 bus by clearing the PCIE bit in the I2\+C1\+CONH register. This prevents the I2C controller from generating interrupts on the stop condition. \Hypertarget{i2c1__driver_8c_a73e12d1ac2f9ed036a413a4ec4973512}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_driver\_open@{i2c1\_driver\_driver\_open}}
+\index{i2c1\_driver\_driver\_open@{i2c1\_driver\_driver\_open}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_driver\_open()}{i2c1\_driver\_driver\_open()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a73e12d1ac2f9ed036a413a4ec4973512} 
+bool i2c1\+\_\+driver\+\_\+driver\+\_\+open (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Opens the I2\+C1 driver and initializes the hardware. 
+
+This function checks if the I2\+C1 module is disabled and, if so, initializes the hardware by configuring control and status registers, setting the baud rate, and enabling the module.
+
+\begin{DoxyReturn}{Returns}
+true if the I2\+C1 module was successfully initialized, false if it is already enabled. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_a77c2d72c9fca24dd43990df49d51ca53}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_enableStartIRQ@{i2c1\_driver\_enableStartIRQ}}
+\index{i2c1\_driver\_enableStartIRQ@{i2c1\_driver\_enableStartIRQ}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_enableStartIRQ()}{i2c1\_driver\_enableStartIRQ()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a77c2d72c9fca24dd43990df49d51ca53} 
+void i2c1\+\_\+driver\+\_\+enable\+Start\+IRQ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables the I2\+C1 start condition interrupt. 
+
+This function enables the interrupt for the start condition detected on the I2\+C1 bus by setting the SCIE bit in the I2\+C1\+CONH register. When this interrupt is enabled, the I2C controller will generate an interrupt on the start condition. \Hypertarget{i2c1__driver_8c_a4a74f266c1ad5e78e30c92ba898f021c}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_enableStopIRQ@{i2c1\_driver\_enableStopIRQ}}
+\index{i2c1\_driver\_enableStopIRQ@{i2c1\_driver\_enableStopIRQ}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_enableStopIRQ()}{i2c1\_driver\_enableStopIRQ()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a4a74f266c1ad5e78e30c92ba898f021c} 
+void i2c1\+\_\+driver\+\_\+enable\+Stop\+IRQ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables the I2\+C1 stop condition interrupt. 
+
+This function enables the interrupt for the stop condition detected on the I2\+C1 bus by setting the PCIE bit in the I2\+C1\+CONH register. When this interrupt is enabled, the I2C controller will generate an interrupt on the stop condition. \Hypertarget{i2c1__driver_8c_ac99db9ea0d028200180c594b863fb6b0}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_getRXData@{i2c1\_driver\_getRXData}}
+\index{i2c1\_driver\_getRXData@{i2c1\_driver\_getRXData}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_getRXData()}{i2c1\_driver\_getRXData()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_ac99db9ea0d028200180c594b863fb6b0} 
+char i2c1\+\_\+driver\+\_\+get\+RXData (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Reads a received byte of data from I2\+C1. 
+
+This function retrieves the received data from the I2\+C1\+RCV register after enabling the RX mode.
+
+\begin{DoxyReturn}{Returns}
+The byte of data received on the I2\+C1 bus. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_a0f9e55c5736c1b1fc31d3055093bf997}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_initSlaveHardware@{i2c1\_driver\_initSlaveHardware}}
+\index{i2c1\_driver\_initSlaveHardware@{i2c1\_driver\_initSlaveHardware}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_initSlaveHardware()}{i2c1\_driver\_initSlaveHardware()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a0f9e55c5736c1b1fc31d3055093bf997} 
+bool i2c1\+\_\+driver\+\_\+init\+Slave\+Hardware (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the I2\+C1 hardware in slave mode. 
+
+This function configures the I2\+C1 module for slave operation by enabling the address and data hold features and setting the strength of the slave pull-\/ups. The module is then enabled.
+
+\begin{DoxyReturn}{Returns}
+true if the I2\+C1 module was successfully initialized in slave mode, false if the module is already enabled. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_ae7ec5ac5ff5ad12465ca489d1fcf1bee}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_isAddress@{i2c1\_driver\_isAddress}}
+\index{i2c1\_driver\_isAddress@{i2c1\_driver\_isAddress}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_isAddress()}{i2c1\_driver\_isAddress()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_ae7ec5ac5ff5ad12465ca489d1fcf1bee} 
+bool i2c1\+\_\+driver\+\_\+is\+Address (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the current I2\+C1 operation is addressing. 
+
+This function checks the value of the D\+\_\+A bit in the I2\+C1\+STAT register. If D\+\_\+A is 0, it indicates that the current I2C operation is addressing, meaning that the master is addressing the slave device.
+
+\begin{DoxyReturn}{Returns}
+true if the current operation is addressing, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_af0a6e32e38bd9467f0ece088996bae76}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_isBuferFull@{i2c1\_driver\_isBuferFull}}
+\index{i2c1\_driver\_isBuferFull@{i2c1\_driver\_isBuferFull}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_isBuferFull()}{i2c1\_driver\_isBuferFull()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_af0a6e32e38bd9467f0ece088996bae76} 
+bool i2c1\+\_\+driver\+\_\+is\+Bufer\+Full (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the I2\+C1 buffer is full. 
+
+This function checks if either the receive buffer (RBF) or transmit buffer (TBF) in the I2\+C1\+STAT register is full, indicating that data is ready to be read or written.
+
+\begin{DoxyReturn}{Returns}
+true if the buffer is full, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_a3f7cf8eea1e9a6c4fe27584994f1169e}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_isData@{i2c1\_driver\_isData}}
+\index{i2c1\_driver\_isData@{i2c1\_driver\_isData}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_isData()}{i2c1\_driver\_isData()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a3f7cf8eea1e9a6c4fe27584994f1169e} 
+bool i2c1\+\_\+driver\+\_\+is\+Data (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the current I2\+C1 operation is data transfer. 
+
+This function checks the value of the D\+\_\+A bit in the I2\+C1\+STAT register. If D\+\_\+A is 1, it indicates that the current operation is data transfer, meaning that the I2C bus is currently transferring data (not addressing).
+
+\begin{DoxyReturn}{Returns}
+true if the current operation is data transfer, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_a35f6f9da194842280debb04be644c373}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_isNACK@{i2c1\_driver\_isNACK}}
+\index{i2c1\_driver\_isNACK@{i2c1\_driver\_isNACK}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_isNACK()}{i2c1\_driver\_isNACK()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a35f6f9da194842280debb04be644c373} 
+bool i2c1\+\_\+driver\+\_\+is\+NACK (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the last I2\+C1 operation was a NACK (Not Acknowledge). 
+
+This function checks the ACKSTAT bit in the I2\+C1\+STAT register to determine whether the last transmission was acknowledged by the slave.
+
+\begin{DoxyReturn}{Returns}
+true if a NACK was received, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_a678cb4a782b2af3024b46c99302b4f02}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_isRead@{i2c1\_driver\_isRead}}
+\index{i2c1\_driver\_isRead@{i2c1\_driver\_isRead}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_isRead()}{i2c1\_driver\_isRead()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a678cb4a782b2af3024b46c99302b4f02} 
+bool i2c1\+\_\+driver\+\_\+is\+Read (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the current I2\+C1 operation is a read. 
+
+This function checks the value of the R\+\_\+W bit in the I2\+C1\+STAT register. If R\+\_\+W is 1, it indicates that the current operation is a read operation, meaning that the master is reading data from the slave device.
+
+\begin{DoxyReturn}{Returns}
+true if the current operation is a read, false if it is a write. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_a5e4122ae176771eaca282cce372486bd}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_isStart@{i2c1\_driver\_isStart}}
+\index{i2c1\_driver\_isStart@{i2c1\_driver\_isStart}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_isStart()}{i2c1\_driver\_isStart()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a5e4122ae176771eaca282cce372486bd} 
+bool i2c1\+\_\+driver\+\_\+is\+Start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the I2\+C1 bus is in the start condition. 
+
+This function checks the value of the S bit in the I2\+C1\+STAT register to determine if the I2C bus is currently in the start condition (S). This bit is set when a start condition is detected on the bus.
+
+\begin{DoxyReturn}{Returns}
+true if the bus is in the start condition, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_a5b2c47d3881ea90cf7f8654b826176f6}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_isStop@{i2c1\_driver\_isStop}}
+\index{i2c1\_driver\_isStop@{i2c1\_driver\_isStop}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_isStop()}{i2c1\_driver\_isStop()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a5b2c47d3881ea90cf7f8654b826176f6} 
+bool i2c1\+\_\+driver\+\_\+is\+Stop (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks if the I2\+C1 bus is in the stop condition. 
+
+This function checks the value of the P bit in the I2\+C1\+STAT register to determine if the bus is currently in the stop condition (P), which indicates the end of a communication.
+
+\begin{DoxyReturn}{Returns}
+true if the bus is in the stop condition, false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_af08a3c0de397654999ff28878635b84b}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_releaseClock@{i2c1\_driver\_releaseClock}}
+\index{i2c1\_driver\_releaseClock@{i2c1\_driver\_releaseClock}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_releaseClock()}{i2c1\_driver\_releaseClock()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_af08a3c0de397654999ff28878635b84b} 
+void i2c1\+\_\+driver\+\_\+release\+Clock (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Releases the I2\+C1 clock. 
+
+This function sets the SCLREL bit in the I2\+C1\+CONL register to release the I2\+C1 clock. It is used to free the clock if it has been held by the I2C controller. \Hypertarget{i2c1__driver_8c_a3291584a36361a8b886a5565a0897474}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_resetBus@{i2c1\_driver\_resetBus}}
+\index{i2c1\_driver\_resetBus@{i2c1\_driver\_resetBus}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_resetBus()}{i2c1\_driver\_resetBus()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a3291584a36361a8b886a5565a0897474} 
+void i2c1\+\_\+driver\+\_\+reset\+Bus (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Resets the I2\+C1 bus. 
+
+This function is intended to reset the I2C bus, but it is currently not implemented. \Hypertarget{i2c1__driver_8c_a9417c263829b30c425f14cd5576b4f44}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_restart@{i2c1\_driver\_restart}}
+\index{i2c1\_driver\_restart@{i2c1\_driver\_restart}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_restart()}{i2c1\_driver\_restart()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a9417c263829b30c425f14cd5576b4f44} 
+void i2c1\+\_\+driver\+\_\+restart (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Sends a restart condition on I2\+C1 bus. 
+
+This function generates a restart condition (RSEN) to resume communication with the slave device without releasing the bus. \Hypertarget{i2c1__driver_8c_a7b61d469696ce43586ad65b00fe497c8}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_sendACK@{i2c1\_driver\_sendACK}}
+\index{i2c1\_driver\_sendACK@{i2c1\_driver\_sendACK}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_sendACK()}{i2c1\_driver\_sendACK()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a7b61d469696ce43586ad65b00fe497c8} 
+void i2c1\+\_\+driver\+\_\+send\+ACK (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Sends an ACK (Acknowledge) signal on the I2\+C1 bus. 
+
+This function sets the ACKDT bit to 0 and enables the ACKEN bit to initiate the transmission of an ACK signal to the slave device. \Hypertarget{i2c1__driver_8c_aee61ef34c048aa4149d15fc7bfba83d0}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_sendNACK@{i2c1\_driver\_sendNACK}}
+\index{i2c1\_driver\_sendNACK@{i2c1\_driver\_sendNACK}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_sendNACK()}{i2c1\_driver\_sendNACK()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_aee61ef34c048aa4149d15fc7bfba83d0} 
+void i2c1\+\_\+driver\+\_\+send\+NACK (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Sends a NACK (Not Acknowledge) signal on the I2\+C1 bus. 
+
+This function sets the ACKDT bit to 1 and enables the ACKEN bit to initiate the transmission of a NACK signal to the slave device. \Hypertarget{i2c1__driver_8c_aa907711128fc436c2e7542b32148187c}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_setBusCollisionISR@{i2c1\_driver\_setBusCollisionISR}}
+\index{i2c1\_driver\_setBusCollisionISR@{i2c1\_driver\_setBusCollisionISR}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_setBusCollisionISR()}{i2c1\_driver\_setBusCollisionISR()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_aa907711128fc436c2e7542b32148187c} 
+void i2c1\+\_\+driver\+\_\+set\+Bus\+Collision\+ISR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interrupt\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+
+
+Sets the interrupt service routine (ISR) for I2\+C1 bus collision. 
+
+This function allows the user to set a custom interrupt handler for bus collision events on the I2\+C1 bus. The handler is called when a bus collision occurs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em handler} & The interrupt handler function to be set for the bus collision ISR. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c1__driver_8c_a406d4d1be058f2358fc613e45db46513}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_setMasterI2cISR@{i2c1\_driver\_setMasterI2cISR}}
+\index{i2c1\_driver\_setMasterI2cISR@{i2c1\_driver\_setMasterI2cISR}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_setMasterI2cISR()}{i2c1\_driver\_setMasterI2cISR()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a406d4d1be058f2358fc613e45db46513} 
+void i2c1\+\_\+driver\+\_\+set\+Master\+I2c\+ISR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interrupt\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+
+
+Sets the interrupt service routine (ISR) for I2\+C1 master mode. 
+
+This function allows the user to set a custom interrupt handler for master mode events on the I2\+C1 bus. The handler is called when the I2\+C1 controller is in master mode and the interrupt is triggered.
+
+
+\begin{DoxyParams}{Parameters}
+{\em handler} & The interrupt handler function to be set for the master mode ISR. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c1__driver_8c_aab163b34535ddda4fea4ea0a7cdf5a94}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_setSlaveI2cISR@{i2c1\_driver\_setSlaveI2cISR}}
+\index{i2c1\_driver\_setSlaveI2cISR@{i2c1\_driver\_setSlaveI2cISR}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_setSlaveI2cISR()}{i2c1\_driver\_setSlaveI2cISR()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_aab163b34535ddda4fea4ea0a7cdf5a94} 
+void i2c1\+\_\+driver\+\_\+set\+Slave\+I2c\+ISR (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c1__driver_8h_a397ac9a93480802dfb9e14e4af73e767}{interrupt\+Handler}}}]{handler}{}\end{DoxyParamCaption})}
+
+
+
+Sets the interrupt service routine (ISR) for I2\+C1 slave mode. 
+
+This function allows the user to set a custom interrupt handler for slave mode events on the I2\+C1 bus. The handler is called when the I2\+C1 controller is in slave mode and the interrupt is triggered.
+
+
+\begin{DoxyParams}{Parameters}
+{\em handler} & The interrupt handler function to be set for the slave mode ISR. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c1__driver_8c_a826f86a40e425c0280cac832497d48f1}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_start@{i2c1\_driver\_start}}
+\index{i2c1\_driver\_start@{i2c1\_driver\_start}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_start()}{i2c1\_driver\_start()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a826f86a40e425c0280cac832497d48f1} 
+void i2c1\+\_\+driver\+\_\+start (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Starts a new I2\+C1 communication. 
+
+This function generates a start condition (SEN) to initiate communication with the slave device. \Hypertarget{i2c1__driver_8c_a0c0e213e454c56ad73d3eb1daa66dbec}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_startRX@{i2c1\_driver\_startRX}}
+\index{i2c1\_driver\_startRX@{i2c1\_driver\_startRX}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_startRX()}{i2c1\_driver\_startRX()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a0c0e213e454c56ad73d3eb1daa66dbec} 
+void i2c1\+\_\+driver\+\_\+start\+RX (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Starts receiving data on I2\+C1. 
+
+This function enables the receive mode (RCEN) to allow the I2\+C1 module to receive data from the master device. \Hypertarget{i2c1__driver_8c_a822b30de8bc66d6a5dd767066497ad87}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_stop@{i2c1\_driver\_stop}}
+\index{i2c1\_driver\_stop@{i2c1\_driver\_stop}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_stop()}{i2c1\_driver\_stop()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a822b30de8bc66d6a5dd767066497ad87} 
+void i2c1\+\_\+driver\+\_\+stop (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Sends a stop condition on I2\+C1 bus. 
+
+This function generates a stop condition (PEN) to end communication with the slave device and release the bus. \Hypertarget{i2c1__driver_8c_a2a7b6f5a1bb9e19e05a244fc0fbbfac3}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_TXData@{i2c1\_driver\_TXData}}
+\index{i2c1\_driver\_TXData@{i2c1\_driver\_TXData}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_TXData()}{i2c1\_driver\_TXData()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a2a7b6f5a1bb9e19e05a244fc0fbbfac3} 
+void i2c1\+\_\+driver\+\_\+\+TXData (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{d}{}\end{DoxyParamCaption})}
+
+
+
+Transmits a byte of data over I2\+C1. 
+
+This function sends the specified byte of data over the I2\+C1 bus by writing it to the I2\+C1\+TRN register.
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & The byte of data to be transmitted. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c1__driver_8c_a8ef15a19099711e8ee10fd31a7d7b847}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_enableIRQ@{i2c1\_enableIRQ}}
+\index{i2c1\_enableIRQ@{i2c1\_enableIRQ}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_enableIRQ()}{i2c1\_enableIRQ()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a8ef15a19099711e8ee10fd31a7d7b847} 
+void i2c1\+\_\+enable\+IRQ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Enables the I2\+C1 master and slave interrupt sources. 
+
+Sets the interrupt enable bits for both master and slave I2\+C1 events. \Hypertarget{i2c1__driver_8c_a3a562d793c89fe5f86c8954605041f1f}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_IRQisEnabled@{i2c1\_IRQisEnabled}}
+\index{i2c1\_IRQisEnabled@{i2c1\_IRQisEnabled}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_IRQisEnabled()}{i2c1\_IRQisEnabled()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a3a562d793c89fe5f86c8954605041f1f} 
+bool i2c1\+\_\+\+IRQis\+Enabled (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Checks whether I2\+C1 interrupts are currently enabled. 
+
+\begin{DoxyReturn}{Returns}
+true if either master or slave interrupt is enabled; false otherwise. 
+\end{DoxyReturn}
+\Hypertarget{i2c1__driver_8c_a733a1bea54d71551298a6780208796c9}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_setIRQ@{i2c1\_setIRQ}}
+\index{i2c1\_setIRQ@{i2c1\_setIRQ}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_setIRQ()}{i2c1\_setIRQ()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a733a1bea54d71551298a6780208796c9} 
+void i2c1\+\_\+set\+IRQ (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Sets the I2\+C1 interrupt flags. 
+
+Forces both the master and slave interrupt flags to 1. \Hypertarget{i2c1__driver_8c_abac55eee70c770587d584181a98e1f96}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_waitForEvent@{i2c1\_waitForEvent}}
+\index{i2c1\_waitForEvent@{i2c1\_waitForEvent}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_waitForEvent()}{i2c1\_waitForEvent()}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_abac55eee70c770587d584181a98e1f96} 
+void i2c1\+\_\+wait\+For\+Event (\begin{DoxyParamCaption}\item[{uint16\+\_\+t \texorpdfstring{$\ast$}{*}}]{timeout}{}\end{DoxyParamCaption})}
+
+
+
+Waits for an I2\+C1 interrupt event with an optional timeout. 
+
+This function waits in a loop until either the master or slave interrupt flag is set. If both are clear initially, it continuously polls for a change.
+
+
+\begin{DoxyParams}{Parameters}
+{\em timeout} & Pointer to a user-\/defined timeout value (currently unused). \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{i2c1__driver_8c_ac09931bb2e20ac40b32725e2b92f05d0}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_busCollisionISR@{i2c1\_driver\_busCollisionISR}}
+\index{i2c1\_driver\_busCollisionISR@{i2c1\_driver\_busCollisionISR}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_busCollisionISR}{i2c1\_driver\_busCollisionISR}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_ac09931bb2e20ac40b32725e2b92f05d0} 
+void(\texorpdfstring{$\ast$}{*} i2c1\+\_\+driver\+\_\+bus\+Collision\+ISR) (void) (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{i2c1__driver_8c_ad8e259907c430d961adee6b26ad06033}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_Masteri2cISR@{i2c1\_driver\_Masteri2cISR}}
+\index{i2c1\_driver\_Masteri2cISR@{i2c1\_driver\_Masteri2cISR}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_Masteri2cISR}{i2c1\_driver\_Masteri2cISR}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_ad8e259907c430d961adee6b26ad06033} 
+void(\texorpdfstring{$\ast$}{*} i2c1\+\_\+driver\+\_\+\+Masteri2c\+ISR) (void) (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{i2c1__driver_8c_a9f9b3eb668f0806c719c4d5e8f78089f}\index{i2c1\_driver.c@{i2c1\_driver.c}!i2c1\_driver\_Slavei2cISR@{i2c1\_driver\_Slavei2cISR}}
+\index{i2c1\_driver\_Slavei2cISR@{i2c1\_driver\_Slavei2cISR}!i2c1\_driver.c@{i2c1\_driver.c}}
+\doxysubsubsection{\texorpdfstring{i2c1\_driver\_Slavei2cISR}{i2c1\_driver\_Slavei2cISR}}
+{\footnotesize\ttfamily \label{i2c1__driver_8c_a9f9b3eb668f0806c719c4d5e8f78089f} 
+void(\texorpdfstring{$\ast$}{*} i2c1\+\_\+driver\+\_\+\+Slavei2c\+ISR) (void) (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+

@@ -1,0 +1,238 @@
+\doxysection{wifi\+\_\+module/wifi\+\_\+module.c File Reference}
+\hypertarget{wifi__module_8c}{}\label{wifi__module_8c}\index{wifi\_module/wifi\_module.c@{wifi\_module/wifi\_module.c}}
+
+
+File for wifi communication.  
+
+
+{\ttfamily \#include "{}wifi\+\_\+module.\+h"{}}\newline
+{\ttfamily \#include "{}../button/button.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{wifi__module_8c_af67410a15ecc24ecef0e5abce0c5b30c}{wifi\+\_\+init}} ()
+\begin{DoxyCompactList}\small\item\em initialise wifi module \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{wifi__module_8c_af50eb364830e8bc88ab8d9ccfb12e673}{wifi\+\_\+setup\+\_\+connection}} ()
+\item 
+void \mbox{\hyperlink{wifi__module_8c_a471115368e39e6e8a4349dc5323d6e20}{wifi\+\_\+send\+\_\+app}} (char \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em Send data to software application. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{wifi__module_8c_abc0b1ba1f366b4271d084e2a9ece74f3}{clean\+\_\+buffer}} ()
+\begin{DoxyCompactList}\small\item\em Function that cleares buffer\mbox{[}BUFF\+\_\+\+SIZE\mbox{]}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{wifi__module_8c_afe10d83f6a4accd1826757c075af173a}{wifi\+\_\+send\+\_\+character}} (uint8\+\_\+t character)
+\begin{DoxyCompactList}\small\item\em send character to wifi module \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{wifi__module_8c_a9074ac51b4db8708db261047321eaa41}{wifi\+\_\+send\+\_\+string}} (uint8\+\_\+t \texorpdfstring{$\ast$}{*}string)
+\begin{DoxyCompactList}\small\item\em senc string to wifi module calls wifi\+\_\+secn\+\_\+character function for each character \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{wifi__module_8c_a5a561a8a61f77cf37a76e18a75f2d2eb}{\+\_\+\+\_\+attribute\+\_\+\+\_\+}} ((interrupt(auto\+\_\+psv)))
+\begin{DoxyCompactList}\small\item\em interrupt routine for UART1 Reciever \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile char \mbox{\hyperlink{wifi__module_8c_aaa870c48d7cd60032958b2036641c0bb}{buffer}} \mbox{[}\mbox{\hyperlink{wifi__module_8h_a6c7cd32e1bac137f05e4a752b4ad10af}{BUFF\+\_\+\+SIZE}}\mbox{]}
+\item 
+volatile unsigned \mbox{\hyperlink{wifi__module_8c_a65f8b91c0d19c0ae6cd36c8edadd48aa}{head}} = 0
+\item 
+volatile unsigned \mbox{\hyperlink{wifi__module_8c_aab357daad99da131c2c9b87e603abfeb}{tail}} = 0
+\item 
+unsigned char \mbox{\hyperlink{wifi__module_8c_ab36effbd4d2f9af6a0097acd75203a07}{counter}} = 0
+\item 
+int \mbox{\hyperlink{wifi__module_8c_a322d24404cab564ab551644b6e557f52}{color\+\_\+sides}} \mbox{[}8\mbox{]} = \{ 0, 0, 0, 0, 1, 1, 1, 1\}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_a2f02c951091b93013b8b9781970eb454}{CMD\+\_\+\+AT}} = "{}AT\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_aea06436728ed19e9ca975a54c6867532}{CMD\+\_\+\+BAUDR}} = "{}AT+UART\+\_\+\+DEF=115200,8,1,0,0\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_a1f3bff4b7aba7c018b667b8dc2b754ef}{CMD\+\_\+\+RST}} = "{}AT+RST\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_a5143a707f11ad9c09203675081255f6f}{CMD\+\_\+\+MODE}} = "{}AT+CWMODE=1\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_ad51f1a68d1b226b78a7d1a703ef073da}{CMD\+\_\+\+LIST\+\_\+\+AP}} = "{}AT+CWLAP\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_aff3173962307965de346f4d909e7e60b}{CMD\+\_\+\+WIFI\+\_\+\+CONN}} = "{}AT+CWJAP=\textbackslash{}"{}etfbl.\+net\textbackslash{}"{},\textbackslash{}"{}\textbackslash{}"{}\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_abb0a03ee6dcc397253ca31f83a30cfb5}{CMD\+\_\+\+CONN\+\_\+\+TYPE}} = "{}AT+CIPMUX=0\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_a5d787dab9afed7007f302b8d82443c59}{CMD\+\_\+\+START\+\_\+\+TCP}} = "{}AT+CIPSTART=\textbackslash{}"{}TCP\textbackslash{}"{},\textbackslash{}"{}10.\+99.\+171.\+98\textbackslash{}"{},8084\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_abcee2b0af8d8dccca4398ed6cb0978dc}{CMD\+\_\+\+SEND}} = "{}AT+CIPSEND=3\textbackslash{}r\textbackslash{}n"{}
+\item 
+const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{wifi__module_8c_a71ff45a6f220c3b16f815edfb21b9d70}{CMD\+\_\+\+IP}} = "{}AT+CIFSR\textbackslash{}r\textbackslash{}n"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+File for wifi communication. 
+
+This file contains definitions of functions decleared in wifi\+\_\+moudle.\+h file 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{wifi__module_8c_a5a561a8a61f77cf37a76e18a75f2d2eb}\index{wifi\_module.c@{wifi\_module.c}!\_\_attribute\_\_@{\_\_attribute\_\_}}
+\index{\_\_attribute\_\_@{\_\_attribute\_\_}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{\_\_attribute\_\_()}{\_\_attribute\_\_()}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a5a561a8a61f77cf37a76e18a75f2d2eb} 
+void \+\_\+\+\_\+attribute\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{(interrupt(auto\+\_\+psv))}]{}{}\end{DoxyParamCaption})}
+
+
+
+interrupt routine for UART1 Reciever 
+
+interrupt routine for UART1 ERROR
+
+interrupt routine for UART1 Transmitter \Hypertarget{wifi__module_8c_abc0b1ba1f366b4271d084e2a9ece74f3}\index{wifi\_module.c@{wifi\_module.c}!clean\_buffer@{clean\_buffer}}
+\index{clean\_buffer@{clean\_buffer}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{clean\_buffer()}{clean\_buffer()}}
+{\footnotesize\ttfamily \label{wifi__module_8c_abc0b1ba1f366b4271d084e2a9ece74f3} 
+void clean\+\_\+buffer (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function that cleares buffer\mbox{[}BUFF\+\_\+\+SIZE\mbox{]}. 
+
+\Hypertarget{wifi__module_8c_af67410a15ecc24ecef0e5abce0c5b30c}\index{wifi\_module.c@{wifi\_module.c}!wifi\_init@{wifi\_init}}
+\index{wifi\_init@{wifi\_init}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{wifi\_init()}{wifi\_init()}}
+{\footnotesize\ttfamily \label{wifi__module_8c_af67410a15ecc24ecef0e5abce0c5b30c} 
+void wifi\+\_\+init (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+initialise wifi module 
+
+Function called only one time at the start of the program. Enables UART communication with wifi module, configures other UART bits and enables needed interrupts \Hypertarget{wifi__module_8c_a471115368e39e6e8a4349dc5323d6e20}\index{wifi\_module.c@{wifi\_module.c}!wifi\_send\_app@{wifi\_send\_app}}
+\index{wifi\_send\_app@{wifi\_send\_app}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{wifi\_send\_app()}{wifi\_send\_app()}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a471115368e39e6e8a4349dc5323d6e20} 
+void wifi\+\_\+send\+\_\+app (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}}]{data}{}\end{DoxyParamCaption})}
+
+
+
+Send data to software application. 
+
+Function used for sending data to software application 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em array} & of characters we want to send \\
+\hline
+\end{DoxyParams}
+\Hypertarget{wifi__module_8c_afe10d83f6a4accd1826757c075af173a}\index{wifi\_module.c@{wifi\_module.c}!wifi\_send\_character@{wifi\_send\_character}}
+\index{wifi\_send\_character@{wifi\_send\_character}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{wifi\_send\_character()}{wifi\_send\_character()}}
+{\footnotesize\ttfamily \label{wifi__module_8c_afe10d83f6a4accd1826757c075af173a} 
+void wifi\+\_\+send\+\_\+character (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{character}{}\end{DoxyParamCaption})}
+
+
+
+send character to wifi module 
+
+Uses UART protocol to send a signle character to wifi module 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em character} & we want to send \\
+\hline
+\end{DoxyParams}
+\Hypertarget{wifi__module_8c_a9074ac51b4db8708db261047321eaa41}\index{wifi\_module.c@{wifi\_module.c}!wifi\_send\_string@{wifi\_send\_string}}
+\index{wifi\_send\_string@{wifi\_send\_string}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{wifi\_send\_string()}{wifi\_send\_string()}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a9074ac51b4db8708db261047321eaa41} 
+void wifi\+\_\+send\+\_\+string (\begin{DoxyParamCaption}\item[{uint8\+\_\+t \texorpdfstring{$\ast$}{*}}]{string}{}\end{DoxyParamCaption})}
+
+
+
+senc string to wifi module calls wifi\+\_\+secn\+\_\+character function for each character 
+
+\Hypertarget{wifi__module_8c_af50eb364830e8bc88ab8d9ccfb12e673}\index{wifi\_module.c@{wifi\_module.c}!wifi\_setup\_connection@{wifi\_setup\_connection}}
+\index{wifi\_setup\_connection@{wifi\_setup\_connection}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{wifi\_setup\_connection()}{wifi\_setup\_connection()}}
+{\footnotesize\ttfamily \label{wifi__module_8c_af50eb364830e8bc88ab8d9ccfb12e673} 
+void wifi\+\_\+setup\+\_\+connection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Function called only one time at the start of the program. Sends AT commands to WIFI needed to connect WIFI module to local network and establish connection with running software application 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{wifi__module_8c_aaa870c48d7cd60032958b2036641c0bb}\index{wifi\_module.c@{wifi\_module.c}!buffer@{buffer}}
+\index{buffer@{buffer}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily \label{wifi__module_8c_aaa870c48d7cd60032958b2036641c0bb} 
+volatile char buffer\mbox{[}\mbox{\hyperlink{wifi__module_8h_a6c7cd32e1bac137f05e4a752b4ad10af}{BUFF\+\_\+\+SIZE}}\mbox{]}}
+
+\Hypertarget{wifi__module_8c_a2f02c951091b93013b8b9781970eb454}\index{wifi\_module.c@{wifi\_module.c}!CMD\_AT@{CMD\_AT}}
+\index{CMD\_AT@{CMD\_AT}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_AT}{CMD\_AT}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a2f02c951091b93013b8b9781970eb454} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+AT = "{}AT\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_aea06436728ed19e9ca975a54c6867532}\index{wifi\_module.c@{wifi\_module.c}!CMD\_BAUDR@{CMD\_BAUDR}}
+\index{CMD\_BAUDR@{CMD\_BAUDR}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_BAUDR}{CMD\_BAUDR}}
+{\footnotesize\ttfamily \label{wifi__module_8c_aea06436728ed19e9ca975a54c6867532} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+BAUDR = "{}AT+UART\+\_\+\+DEF=115200,8,1,0,0\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_abb0a03ee6dcc397253ca31f83a30cfb5}\index{wifi\_module.c@{wifi\_module.c}!CMD\_CONN\_TYPE@{CMD\_CONN\_TYPE}}
+\index{CMD\_CONN\_TYPE@{CMD\_CONN\_TYPE}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_CONN\_TYPE}{CMD\_CONN\_TYPE}}
+{\footnotesize\ttfamily \label{wifi__module_8c_abb0a03ee6dcc397253ca31f83a30cfb5} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+CONN\+\_\+\+TYPE = "{}AT+CIPMUX=0\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_a71ff45a6f220c3b16f815edfb21b9d70}\index{wifi\_module.c@{wifi\_module.c}!CMD\_IP@{CMD\_IP}}
+\index{CMD\_IP@{CMD\_IP}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_IP}{CMD\_IP}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a71ff45a6f220c3b16f815edfb21b9d70} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+IP = "{}AT+CIFSR\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_ad51f1a68d1b226b78a7d1a703ef073da}\index{wifi\_module.c@{wifi\_module.c}!CMD\_LIST\_AP@{CMD\_LIST\_AP}}
+\index{CMD\_LIST\_AP@{CMD\_LIST\_AP}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_LIST\_AP}{CMD\_LIST\_AP}}
+{\footnotesize\ttfamily \label{wifi__module_8c_ad51f1a68d1b226b78a7d1a703ef073da} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+LIST\+\_\+\+AP = "{}AT+CWLAP\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_a5143a707f11ad9c09203675081255f6f}\index{wifi\_module.c@{wifi\_module.c}!CMD\_MODE@{CMD\_MODE}}
+\index{CMD\_MODE@{CMD\_MODE}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_MODE}{CMD\_MODE}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a5143a707f11ad9c09203675081255f6f} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+MODE = "{}AT+CWMODE=1\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_a1f3bff4b7aba7c018b667b8dc2b754ef}\index{wifi\_module.c@{wifi\_module.c}!CMD\_RST@{CMD\_RST}}
+\index{CMD\_RST@{CMD\_RST}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_RST}{CMD\_RST}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a1f3bff4b7aba7c018b667b8dc2b754ef} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+RST = "{}AT+RST\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_abcee2b0af8d8dccca4398ed6cb0978dc}\index{wifi\_module.c@{wifi\_module.c}!CMD\_SEND@{CMD\_SEND}}
+\index{CMD\_SEND@{CMD\_SEND}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_SEND}{CMD\_SEND}}
+{\footnotesize\ttfamily \label{wifi__module_8c_abcee2b0af8d8dccca4398ed6cb0978dc} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+SEND = "{}AT+CIPSEND=3\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_a5d787dab9afed7007f302b8d82443c59}\index{wifi\_module.c@{wifi\_module.c}!CMD\_START\_TCP@{CMD\_START\_TCP}}
+\index{CMD\_START\_TCP@{CMD\_START\_TCP}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_START\_TCP}{CMD\_START\_TCP}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a5d787dab9afed7007f302b8d82443c59} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+START\+\_\+\+TCP = "{}AT+CIPSTART=\textbackslash{}"{}TCP\textbackslash{}"{},\textbackslash{}"{}10.\+99.\+171.\+98\textbackslash{}"{},8084\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_aff3173962307965de346f4d909e7e60b}\index{wifi\_module.c@{wifi\_module.c}!CMD\_WIFI\_CONN@{CMD\_WIFI\_CONN}}
+\index{CMD\_WIFI\_CONN@{CMD\_WIFI\_CONN}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{CMD\_WIFI\_CONN}{CMD\_WIFI\_CONN}}
+{\footnotesize\ttfamily \label{wifi__module_8c_aff3173962307965de346f4d909e7e60b} 
+const char\texorpdfstring{$\ast$}{*} CMD\+\_\+\+WIFI\+\_\+\+CONN = "{}AT+CWJAP=\textbackslash{}"{}etfbl.\+net\textbackslash{}"{},\textbackslash{}"{}\textbackslash{}"{}\textbackslash{}r\textbackslash{}n"{}}
+
+\Hypertarget{wifi__module_8c_a322d24404cab564ab551644b6e557f52}\index{wifi\_module.c@{wifi\_module.c}!color\_sides@{color\_sides}}
+\index{color\_sides@{color\_sides}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{color\_sides}{color\_sides}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a322d24404cab564ab551644b6e557f52} 
+int color\+\_\+sides\mbox{[}8\mbox{]} = \{ 0, 0, 0, 0, 1, 1, 1, 1\}}
+
+\Hypertarget{wifi__module_8c_ab36effbd4d2f9af6a0097acd75203a07}\index{wifi\_module.c@{wifi\_module.c}!counter@{counter}}
+\index{counter@{counter}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily \label{wifi__module_8c_ab36effbd4d2f9af6a0097acd75203a07} 
+unsigned char counter = 0}
+
+\Hypertarget{wifi__module_8c_a65f8b91c0d19c0ae6cd36c8edadd48aa}\index{wifi\_module.c@{wifi\_module.c}!head@{head}}
+\index{head@{head}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{head}{head}}
+{\footnotesize\ttfamily \label{wifi__module_8c_a65f8b91c0d19c0ae6cd36c8edadd48aa} 
+volatile unsigned head = 0}
+
+\Hypertarget{wifi__module_8c_aab357daad99da131c2c9b87e603abfeb}\index{wifi\_module.c@{wifi\_module.c}!tail@{tail}}
+\index{tail@{tail}!wifi\_module.c@{wifi\_module.c}}
+\doxysubsubsection{\texorpdfstring{tail}{tail}}
+{\footnotesize\ttfamily \label{wifi__module_8c_aab357daad99da131c2c9b87e603abfeb} 
+volatile unsigned tail = 0}
+

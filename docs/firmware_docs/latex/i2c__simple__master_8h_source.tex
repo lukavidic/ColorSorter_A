@@ -1,0 +1,25 @@
+\doxysection{i2c\+\_\+simple\+\_\+master.\+h}
+\hypertarget{i2c__simple__master_8h_source}{}\label{i2c__simple__master_8h_source}\index{color\_sensor/i2c\_simple\_master.h@{color\_sensor/i2c\_simple\_master.h}}
+\mbox{\hyperlink{i2c__simple__master_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ I2C\_SIMPLE\_MASTER\_H}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ I2C\_SIMPLE\_MASTER\_H}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdio.h>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{i2c__types_8h}{i2c\_types.h}}"{}}}
+\DoxyCodeLine{00022\ uint8\_t\ \mbox{\hyperlink{i2c__simple__master_8h_a599a86715139c7117712c4f136c468ba}{i2c\_read1ByteRegister}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address,\ uint8\_t\ reg);}
+\DoxyCodeLine{00033\ uint16\_t\ \mbox{\hyperlink{i2c__simple__master_8h_a75c9c99d07fdd47f8c2c738f1c3aa3e9}{i2c\_read2ByteRegister}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address,\ uint8\_t\ reg);}
+\DoxyCodeLine{00043\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__simple__master_8h_a3eaef4f5fb8e3c28b668f5fca60bd991}{i2c\_write1ByteRegister}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address,\ uint8\_t\ reg,\ uint8\_t\ data);}
+\DoxyCodeLine{00053\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__simple__master_8h_ac5748fef47a6d89ace17bf3456ff400c}{i2c\_write2ByteRegister}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address,\ uint8\_t\ reg,\ uint16\_t\ data);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00064\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__simple__master_8h_a9d7d2dad01584d544218909223ae271c}{i2c\_writeNBytes}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address,\ \textcolor{keywordtype}{void}*\ data,\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__simple__master_8h_a2dd6c38e18af8e6b7a444bcc4596f2fd}{i2c\_readDataBlock}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address,\ uint8\_t\ reg,\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{00091\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{i2c__simple__master_8h_a5315036e2e531c53e4fee6d95ab900a9}{i2c\_readNBytes}}(\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\_address\_t}}\ address,\ \textcolor{keywordtype}{void}\ *data,\ \textcolor{keywordtype}{size\_t}\ len);}
+\DoxyCodeLine{00092\ }
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif\ \ }\textcolor{comment}{/*\ I2C\_SIMPLE\_MASTER\_H\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{00094\ }
+
+\end{DoxyCode}

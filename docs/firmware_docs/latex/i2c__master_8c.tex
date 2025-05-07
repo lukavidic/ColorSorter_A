@@ -1,0 +1,528 @@
+\doxysection{color\+\_\+sensor/i2c\+\_\+master.c File Reference}
+\hypertarget{i2c__master_8c}{}\label{i2c__master_8c}\index{color\_sensor/i2c\_master.c@{color\_sensor/i2c\_master.c}}
+
+
+I2C master source file.  
+
+
+{\ttfamily \#include $<$xc.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include "{}i2c\+\_\+master.\+h"{}}\newline
+{\ttfamily \#include "{}i2c\+\_\+types.\+h"{}}\newline
+{\ttfamily \#include "{}i2c1\+\_\+driver.\+h"{}}\newline
+{\ttfamily \#include "{}../inc/inc.\+h"{}}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structi2c__status__t}{i2c\+\_\+status\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6}{i2c\+\_\+fsm\+\_\+states\+\_\+t}} \mbox{\hyperlink{i2c__master_8c_aaccd3c090e042bb04f2fac4d367876da}{state\+Handler\+Function}}(void)
+\begin{DoxyCompactList}\small\item\em Function pointer typedef for I2C state handler functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6}{i2c\+\_\+fsm\+\_\+states\+\_\+t}} \{ \newline
+\mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a7810297ccb052132c025d8038759159e}{I2\+C\+\_\+\+IDLE}} = 0
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6abc88066e6e8eba49bc0978ce314badae}{I2\+C\+\_\+\+SEND\+\_\+\+ADR\+\_\+\+READ}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a9abbe33ea32b778b3235b1a9958be248}{I2\+C\+\_\+\+SEND\+\_\+\+ADR\+\_\+\+WRITE}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a75ba6a351a320e433b46c80926f5d815}{I2\+C\+\_\+\+TX}}
+, \newline
+\mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a95eb61b4e9a9d4468e1e8e1a2e51b5ce}{I2\+C\+\_\+\+RX}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a6780f1282c9376bfc6cd0b59260de323}{I2\+C\+\_\+\+RCEN}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a9aa0f2d71305e7bc38c72a6f5a58465e}{I2\+C\+\_\+\+TX\+\_\+\+EMPTY}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a5d5c7668bc1da29b0a1ca065a1fa8963}{I2\+C\+\_\+\+SEND\+\_\+\+RESTART\+\_\+\+READ}}
+, \newline
+\mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a03116d6fe285a2cf9ef588f9998f3b24}{I2\+C\+\_\+\+SEND\+\_\+\+RESTART\+\_\+\+WRITE}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6ad1ea262aa7c2cffea50fc1bc5dde53a4}{I2\+C\+\_\+\+SEND\+\_\+\+RESTART}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a4fb23d8216e0366860f2a33094a09f6f}{I2\+C\+\_\+\+SEND\+\_\+\+STOP}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a3afe4723839dc0853483da9a9b603d64}{I2\+C\+\_\+\+RX\+\_\+\+DO\+\_\+\+ACK}}
+, \newline
+\mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6afecd1a3ac1783cc0eb76a7455b3b0599}{I2\+C\+\_\+\+RX\+\_\+\+DO\+\_\+\+NACK\+\_\+\+STOP}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a7cff5fcc26b738070f773e521ff43271}{I2\+C\+\_\+\+RX\+\_\+\+DO\+\_\+\+NACK\+\_\+\+RESTART}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6aa5b090d241d318f41eb0b6513ae8e280}{I2\+C\+\_\+\+RESET}}
+, \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a0f27b58c3722137ebb00a6bcc94931a6}{I2\+C\+\_\+\+ADDRESS\+\_\+\+NACK}}
+ \}
+\item 
+enum \mbox{\hyperlink{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfa}{i2c\+\_\+callback\+Index}} \{ \newline
+\mbox{\hyperlink{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa772e1ad33fe37cc2eca8f754ead26eb2}{i2c\+\_\+data\+Complete}} = 0
+, \mbox{\hyperlink{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa60872a2c81fc497dcaa65e3b6a970be9}{i2c\+\_\+write\+Collision}}
+, \mbox{\hyperlink{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa1acf4af638233568f2b83382baaa0f11}{i2c\+\_\+address\+NACK}}
+, \mbox{\hyperlink{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa250900733ba6bc23bbb5f89966c0319d}{i2c\+\_\+data\+NACK}}
+, \newline
+\mbox{\hyperlink{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa0840ed765de75f0c4fdde1a4951697fd}{i2c\+\_\+time\+Out}}
+, \mbox{\hyperlink{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa142e7e3786411e7c76e302f3bdaf9d61}{i2c\+\_\+\+NULL}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{i2c__master_8c_ab916bc8c54364dba8c7fee94e6e805be}{i2c\+\_\+poller}} (void)
+\begin{DoxyCompactList}\small\item\em Polling loop for I2C operations. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_a3b2eac2de12d3099c2f9c2f51b98b643}{i2c\+\_\+set\+Data\+Complete\+Callback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when I2C data transfer is complete. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_ac7261a9e4685dd57a243b975049dcb56}{i2c\+\_\+set\+Write\+Collision\+Callback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when a write collision occurs on the I2C bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_a784d3caacfe920c9e064224df5490d8f}{i2c\+\_\+set\+Address\+NACKCallback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when the I2C address is not acknowledged (NACK). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_a38929307b3085fee5f160224dd1b4166}{i2c\+\_\+set\+Data\+NACKCallback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when data is not acknowledged (NACK) on the I2C bus. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_a395cf56845bb2784fe12d92d04bf4906}{i2c\+\_\+set\+Time\+Out\+Callback}} (\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}} cb, void \texorpdfstring{$\ast$}{*}p)
+\begin{DoxyCompactList}\small\item\em Sets the callback function to be called when an I2C timeout occurs. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8c_a536af21725163d55747a98cdc6c83e98}{i2c\+\_\+open}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address)
+\begin{DoxyCompactList}\small\item\em Opens the I2C bus for communication with a specific device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_a6270908e8b769610b4650a42f506426c}{i2c\+\_\+set\+Address}} (\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}} address)
+\begin{DoxyCompactList}\small\item\em Sets the target device I2C address. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8c_a7a40fe027bd43837e5e916b645261d61}{i2c\+\_\+close}} (void)
+\begin{DoxyCompactList}\small\item\em Closes the I2C bus if it is not currently busy. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_af3d4e339efdb52f3374b888ead6a49a6}{i2c\+\_\+set\+Time\+Out}} (uint8\+\_\+t to)
+\begin{DoxyCompactList}\small\item\em Sets the I2C timeout value. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_ad35520df4141178be178811c0018ed48}{i2c\+\_\+set\+Buffer}} (void \texorpdfstring{$\ast$}{*}\mbox{\hyperlink{wifi__module_8c_aaa870c48d7cd60032958b2036641c0bb}{buffer}}, size\+\_\+t buffer\+Size)
+\begin{DoxyCompactList}\small\item\em Sets the data buffer for an I2C transaction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8c_aa479176ebb7ea62621510cc9c442c319}{i2c\+\_\+master\+Operation}} (bool read)
+\begin{DoxyCompactList}\small\item\em Initiates an I2C master operation (read or write). \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8c_a66a3e093419357a30f1a2476a6a127ed}{i2c\+\_\+master\+Read}} (void)
+\begin{DoxyCompactList}\small\item\em Initiates an I2C master read operation. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} \mbox{\hyperlink{i2c__master_8c_aebaaee0e8323bbcbd241e369be0f8d11}{i2c\+\_\+master\+Write}} (void)
+\begin{DoxyCompactList}\small\item\em Initiates an I2C master write operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_a86a50c15643f081fcffda86640d26db1}{i2c\+\_\+\+ISR}} (void)
+\begin{DoxyCompactList}\small\item\em Main I2C interrupt service routine. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{i2c__master_8c_aa6d2b06adde8dfd145dcddd79b72854f}{i2c\+\_\+bus\+Collision\+ISR}} (void)
+\begin{DoxyCompactList}\small\item\em I2C bus collision interrupt service routine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structi2c__status__t}{i2c\+\_\+status\+\_\+t}} \mbox{\hyperlink{i2c__master_8c_a39635b98dba85134fa0a696d37742c87}{i2c\+\_\+status}} = \{0\}
+\item 
+const \mbox{\hyperlink{i2c__master_8c_aaccd3c090e042bb04f2fac4d367876da}{state\+Handler\+Function}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{i2c__master_8c_a2928d9012bd56746f898cb40174c23cb}{fsm\+State\+Table}} \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em Table of I2C FSM state handler functions. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+I2C master source file. 
+
+This file contains definitions of functions decleared in \doxylink{i2c__master_8h}{i2c\+\_\+master.\+h} 
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{i2c__master_8c_aaccd3c090e042bb04f2fac4d367876da}\index{i2c\_master.c@{i2c\_master.c}!stateHandlerFunction@{stateHandlerFunction}}
+\index{stateHandlerFunction@{stateHandlerFunction}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{stateHandlerFunction}{stateHandlerFunction}}
+{\footnotesize\ttfamily \label{i2c__master_8c_aaccd3c090e042bb04f2fac4d367876da} 
+typedef \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6}{i2c\+\_\+fsm\+\_\+states\+\_\+t}} state\+Handler\+Function(void)}
+
+
+
+Function pointer typedef for I2C state handler functions. 
+
+Each state handler returns the next state in the I2C FSM. 
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfa}\index{i2c\_master.c@{i2c\_master.c}!i2c\_callbackIndex@{i2c\_callbackIndex}}
+\index{i2c\_callbackIndex@{i2c\_callbackIndex}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_callbackIndex}{i2c\_callbackIndex}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfa} 
+enum \mbox{\hyperlink{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfa}{i2c\+\_\+callback\+Index}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_dataComplete@{i2c\_dataComplete}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!i2c\_dataComplete@{i2c\_dataComplete}}}\Hypertarget{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa772e1ad33fe37cc2eca8f754ead26eb2}\label{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa772e1ad33fe37cc2eca8f754ead26eb2} 
+i2c\+\_\+data\+Complete&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_writeCollision@{i2c\_writeCollision}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!i2c\_writeCollision@{i2c\_writeCollision}}}\Hypertarget{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa60872a2c81fc497dcaa65e3b6a970be9}\label{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa60872a2c81fc497dcaa65e3b6a970be9} 
+i2c\+\_\+write\+Collision&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_addressNACK@{i2c\_addressNACK}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!i2c\_addressNACK@{i2c\_addressNACK}}}\Hypertarget{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa1acf4af638233568f2b83382baaa0f11}\label{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa1acf4af638233568f2b83382baaa0f11} 
+i2c\+\_\+address\+NACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_dataNACK@{i2c\_dataNACK}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!i2c\_dataNACK@{i2c\_dataNACK}}}\Hypertarget{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa250900733ba6bc23bbb5f89966c0319d}\label{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa250900733ba6bc23bbb5f89966c0319d} 
+i2c\+\_\+data\+NACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_timeOut@{i2c\_timeOut}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!i2c\_timeOut@{i2c\_timeOut}}}\Hypertarget{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa0840ed765de75f0c4fdde1a4951697fd}\label{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa0840ed765de75f0c4fdde1a4951697fd} 
+i2c\+\_\+time\+Out&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{i2c\_NULL@{i2c\_NULL}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!i2c\_NULL@{i2c\_NULL}}}\Hypertarget{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa142e7e3786411e7c76e302f3bdaf9d61}\label{i2c__master_8c_a2cca0e18a4dadd31d37a9082cf687bfaa142e7e3786411e7c76e302f3bdaf9d61} 
+i2c\+\_\+\+NULL&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6}\index{i2c\_master.c@{i2c\_master.c}!i2c\_fsm\_states\_t@{i2c\_fsm\_states\_t}}
+\index{i2c\_fsm\_states\_t@{i2c\_fsm\_states\_t}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_fsm\_states\_t}{i2c\_fsm\_states\_t}}
+{\footnotesize\ttfamily \label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6} 
+enum \mbox{\hyperlink{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6}{i2c\+\_\+fsm\+\_\+states\+\_\+t}}}
+
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_IDLE@{I2C\_IDLE}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_IDLE@{I2C\_IDLE}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a7810297ccb052132c025d8038759159e}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a7810297ccb052132c025d8038759159e} 
+I2\+C\+\_\+\+IDLE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_SEND\_ADR\_READ@{I2C\_SEND\_ADR\_READ}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_SEND\_ADR\_READ@{I2C\_SEND\_ADR\_READ}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6abc88066e6e8eba49bc0978ce314badae}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6abc88066e6e8eba49bc0978ce314badae} 
+I2\+C\+\_\+\+SEND\+\_\+\+ADR\+\_\+\+READ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_SEND\_ADR\_WRITE@{I2C\_SEND\_ADR\_WRITE}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_SEND\_ADR\_WRITE@{I2C\_SEND\_ADR\_WRITE}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a9abbe33ea32b778b3235b1a9958be248}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a9abbe33ea32b778b3235b1a9958be248} 
+I2\+C\+\_\+\+SEND\+\_\+\+ADR\+\_\+\+WRITE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_TX@{I2C\_TX}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_TX@{I2C\_TX}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a75ba6a351a320e433b46c80926f5d815}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a75ba6a351a320e433b46c80926f5d815} 
+I2\+C\+\_\+\+TX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_RX@{I2C\_RX}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_RX@{I2C\_RX}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a95eb61b4e9a9d4468e1e8e1a2e51b5ce}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a95eb61b4e9a9d4468e1e8e1a2e51b5ce} 
+I2\+C\+\_\+\+RX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_RCEN@{I2C\_RCEN}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_RCEN@{I2C\_RCEN}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a6780f1282c9376bfc6cd0b59260de323}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a6780f1282c9376bfc6cd0b59260de323} 
+I2\+C\+\_\+\+RCEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_TX\_EMPTY@{I2C\_TX\_EMPTY}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_TX\_EMPTY@{I2C\_TX\_EMPTY}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a9aa0f2d71305e7bc38c72a6f5a58465e}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a9aa0f2d71305e7bc38c72a6f5a58465e} 
+I2\+C\+\_\+\+TX\+\_\+\+EMPTY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_SEND\_RESTART\_READ@{I2C\_SEND\_RESTART\_READ}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_SEND\_RESTART\_READ@{I2C\_SEND\_RESTART\_READ}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a5d5c7668bc1da29b0a1ca065a1fa8963}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a5d5c7668bc1da29b0a1ca065a1fa8963} 
+I2\+C\+\_\+\+SEND\+\_\+\+RESTART\+\_\+\+READ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_SEND\_RESTART\_WRITE@{I2C\_SEND\_RESTART\_WRITE}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_SEND\_RESTART\_WRITE@{I2C\_SEND\_RESTART\_WRITE}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a03116d6fe285a2cf9ef588f9998f3b24}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a03116d6fe285a2cf9ef588f9998f3b24} 
+I2\+C\+\_\+\+SEND\+\_\+\+RESTART\+\_\+\+WRITE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_SEND\_RESTART@{I2C\_SEND\_RESTART}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_SEND\_RESTART@{I2C\_SEND\_RESTART}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6ad1ea262aa7c2cffea50fc1bc5dde53a4}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6ad1ea262aa7c2cffea50fc1bc5dde53a4} 
+I2\+C\+\_\+\+SEND\+\_\+\+RESTART&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_SEND\_STOP@{I2C\_SEND\_STOP}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_SEND\_STOP@{I2C\_SEND\_STOP}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a4fb23d8216e0366860f2a33094a09f6f}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a4fb23d8216e0366860f2a33094a09f6f} 
+I2\+C\+\_\+\+SEND\+\_\+\+STOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_RX\_DO\_ACK@{I2C\_RX\_DO\_ACK}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_RX\_DO\_ACK@{I2C\_RX\_DO\_ACK}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a3afe4723839dc0853483da9a9b603d64}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a3afe4723839dc0853483da9a9b603d64} 
+I2\+C\+\_\+\+RX\+\_\+\+DO\+\_\+\+ACK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_RX\_DO\_NACK\_STOP@{I2C\_RX\_DO\_NACK\_STOP}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_RX\_DO\_NACK\_STOP@{I2C\_RX\_DO\_NACK\_STOP}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6afecd1a3ac1783cc0eb76a7455b3b0599}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6afecd1a3ac1783cc0eb76a7455b3b0599} 
+I2\+C\+\_\+\+RX\+\_\+\+DO\+\_\+\+NACK\+\_\+\+STOP&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_RX\_DO\_NACK\_RESTART@{I2C\_RX\_DO\_NACK\_RESTART}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_RX\_DO\_NACK\_RESTART@{I2C\_RX\_DO\_NACK\_RESTART}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a7cff5fcc26b738070f773e521ff43271}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a7cff5fcc26b738070f773e521ff43271} 
+I2\+C\+\_\+\+RX\+\_\+\+DO\+\_\+\+NACK\+\_\+\+RESTART&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_RESET@{I2C\_RESET}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_RESET@{I2C\_RESET}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6aa5b090d241d318f41eb0b6513ae8e280}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6aa5b090d241d318f41eb0b6513ae8e280} 
+I2\+C\+\_\+\+RESET&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I2C\_ADDRESS\_NACK@{I2C\_ADDRESS\_NACK}!i2c\_master.c@{i2c\_master.c}}\index{i2c\_master.c@{i2c\_master.c}!I2C\_ADDRESS\_NACK@{I2C\_ADDRESS\_NACK}}}\Hypertarget{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a0f27b58c3722137ebb00a6bcc94931a6}\label{i2c__master_8c_aaf772703a4969c15197fbe395773dcb6a0f27b58c3722137ebb00a6bcc94931a6} 
+I2\+C\+\_\+\+ADDRESS\+\_\+\+NACK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{i2c__master_8c_aa6d2b06adde8dfd145dcddd79b72854f}\index{i2c\_master.c@{i2c\_master.c}!i2c\_busCollisionISR@{i2c\_busCollisionISR}}
+\index{i2c\_busCollisionISR@{i2c\_busCollisionISR}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_busCollisionISR()}{i2c\_busCollisionISR()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_aa6d2b06adde8dfd145dcddd79b72854f} 
+void i2c\+\_\+bus\+Collision\+ISR (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+I2C bus collision interrupt service routine. 
+
+Clears the bus collision condition flag to resume normal I2C operation. \Hypertarget{i2c__master_8c_a7a40fe027bd43837e5e916b645261d61}\index{i2c\_master.c@{i2c\_master.c}!i2c\_close@{i2c\_close}}
+\index{i2c\_close@{i2c\_close}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_close()}{i2c\_close()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a7a40fe027bd43837e5e916b645261d61} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+close (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Closes the I2C bus if it is not currently busy. 
+
+If the bus is not actively in use and the current address matches, this function resets the {\ttfamily in\+Use} flag, disables interrupts, and marks the address as free.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} Returns the last error status ({\ttfamily i2c\+\_\+status.\+error}) if successfully closed, otherwise returns {\ttfamily I2\+C\+\_\+\+BUSY} if the bus is still active. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8c_a86a50c15643f081fcffda86640d26db1}\index{i2c\_master.c@{i2c\_master.c}!i2c\_ISR@{i2c\_ISR}}
+\index{i2c\_ISR@{i2c\_ISR}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_ISR()}{i2c\_ISR()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a86a50c15643f081fcffda86640d26db1} 
+void i2c\+\_\+\+ISR (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Main I2C interrupt service routine. 
+
+Clears the I2C interrupt flag, checks for address NACK conditions, and invokes the appropriate state handler from the FSM table based on the current state.
+
+Note\+: Write collision flags are ignored; premature SSPBUF writes are not handled here. \Hypertarget{i2c__master_8c_aa479176ebb7ea62621510cc9c442c319}\index{i2c\_master.c@{i2c\_master.c}!i2c\_masterOperation@{i2c\_masterOperation}}
+\index{i2c\_masterOperation@{i2c\_masterOperation}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_masterOperation()}{i2c\_masterOperation()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_aa479176ebb7ea62621510cc9c442c319} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+master\+Operation (\begin{DoxyParamCaption}\item[{bool}]{read}{}\end{DoxyParamCaption})}
+
+
+
+Initiates an I2C master operation (read or write). 
+
+This function begins either a master read or write transaction, depending on the {\ttfamily read} parameter. It sets the appropriate internal state, starts the I2C transfer, and chooses between interrupt-\/based or polled operation depending on IRQ availability.
+
+
+\begin{DoxyParams}{Parameters}
+{\em read} & If {\ttfamily true}, initiates a read operation; if {\ttfamily false}, initiates a write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} {\ttfamily I2\+C\+\_\+\+NOERR} if operation started successfully, otherwise {\ttfamily I2\+C\+\_\+\+BUSY}. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8c_a66a3e093419357a30f1a2476a6a127ed}\index{i2c\_master.c@{i2c\_master.c}!i2c\_masterRead@{i2c\_masterRead}}
+\index{i2c\_masterRead@{i2c\_masterRead}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_masterRead()}{i2c\_masterRead()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a66a3e093419357a30f1a2476a6a127ed} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+master\+Read (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initiates an I2C master read operation. 
+
+This is a convenience wrapper around {\ttfamily i2c\+\_\+master\+Operation(true)}.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} {\ttfamily I2\+C\+\_\+\+NOERR} if operation started successfully, otherwise {\ttfamily I2\+C\+\_\+\+BUSY}. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8c_aebaaee0e8323bbcbd241e369be0f8d11}\index{i2c\_master.c@{i2c\_master.c}!i2c\_masterWrite@{i2c\_masterWrite}}
+\index{i2c\_masterWrite@{i2c\_masterWrite}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_masterWrite()}{i2c\_masterWrite()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_aebaaee0e8323bbcbd241e369be0f8d11} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+master\+Write (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Initiates an I2C master write operation. 
+
+This is a convenience wrapper around {\ttfamily i2c\+\_\+master\+Operation(false)}.
+
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} {\ttfamily I2\+C\+\_\+\+NOERR} if operation started successfully, otherwise {\ttfamily I2\+C\+\_\+\+BUSY}. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8c_a536af21725163d55747a98cdc6c83e98}\index{i2c\_master.c@{i2c\_master.c}!i2c\_open@{i2c\_open}}
+\index{i2c\_open@{i2c\_open}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_open()}{i2c\_open()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a536af21725163d55747a98cdc6c83e98} 
+\mbox{\hyperlink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t}} i2c\+\_\+open (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Opens the I2C bus for communication with a specific device. 
+
+This function attempts to take control of the I2C bus and set the device address for communication. It initializes internal state and callback handlers for common I2C events.
+
+\begin{DoxyNote}{Note}
+If the bus is already in use ({\ttfamily in\+Use} flag is set), the function will return {\ttfamily I2\+C\+\_\+\+BUSY}.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The 7-\/bit I2C address of the target device. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{i2c__types_8h_a4e07871ca4ae83f158fa20d135b309b2}{i2c\+\_\+error\+\_\+t} {\ttfamily I2\+C\+\_\+\+NOERR} if the bus was successfully opened, otherwise {\ttfamily I2\+C\+\_\+\+BUSY}. 
+\end{DoxyReturn}
+\Hypertarget{i2c__master_8c_ab916bc8c54364dba8c7fee94e6e805be}\index{i2c\_master.c@{i2c\_master.c}!i2c\_poller@{i2c\_poller}}
+\index{i2c\_poller@{i2c\_poller}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_poller()}{i2c\_poller()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_ab916bc8c54364dba8c7fee94e6e805be} 
+void i2c\+\_\+poller (\begin{DoxyParamCaption}\item[{void}]{}{}\end{DoxyParamCaption})}
+
+
+
+Polling loop for I2C operations. 
+
+This function enters a loop while the I2C bus is marked as busy. It waits for I2C events and invokes the I2C interrupt service routine manually. Used when IRQs are disabled or unavailable. \Hypertarget{i2c__master_8c_a6270908e8b769610b4650a42f506426c}\index{i2c\_master.c@{i2c\_master.c}!i2c\_setAddress@{i2c\_setAddress}}
+\index{i2c\_setAddress@{i2c\_setAddress}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_setAddress()}{i2c\_setAddress()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a6270908e8b769610b4650a42f506426c} 
+void i2c\+\_\+set\+Address (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_a99b21cfd76b7b052c89b96b68d1b1d3a}{i2c\+\_\+address\+\_\+t}}}]{address}{}\end{DoxyParamCaption})}
+
+
+
+Sets the target device I2C address. 
+
+This function updates the internal {\ttfamily i2c\+\_\+status} structure with a new I2C address. Useful when changing the device target without reopening the bus.
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & The new I2C address to be set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8c_a784d3caacfe920c9e064224df5490d8f}\index{i2c\_master.c@{i2c\_master.c}!i2c\_setAddressNACKCallback@{i2c\_setAddressNACKCallback}}
+\index{i2c\_setAddressNACKCallback@{i2c\_setAddressNACKCallback}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_setAddressNACKCallback()}{i2c\_setAddressNACKCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a784d3caacfe920c9e064224df5490d8f} 
+void i2c\+\_\+set\+Address\+NACKCallback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when the I2C address is not acknowledged (NACK). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked when the address is NACKed. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8c_ad35520df4141178be178811c0018ed48}\index{i2c\_master.c@{i2c\_master.c}!i2c\_setBuffer@{i2c\_setBuffer}}
+\index{i2c\_setBuffer@{i2c\_setBuffer}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_setBuffer()}{i2c\_setBuffer()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_ad35520df4141178be178811c0018ed48} 
+void i2c\+\_\+set\+Buffer (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{buffer}{, }\item[{size\+\_\+t}]{buffer\+Size}{}\end{DoxyParamCaption})}
+
+
+
+Sets the data buffer for an I2C transaction. 
+
+This function configures the data buffer and its size for the upcoming I2C operation, if the buffer is currently available. Once set, the buffer is marked as used.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Pointer to the data buffer. \\
+\hline
+{\em buffer\+Size} & Size of the data buffer in bytes. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8c_a3b2eac2de12d3099c2f9c2f51b98b643}\index{i2c\_master.c@{i2c\_master.c}!i2c\_setDataCompleteCallback@{i2c\_setDataCompleteCallback}}
+\index{i2c\_setDataCompleteCallback@{i2c\_setDataCompleteCallback}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_setDataCompleteCallback()}{i2c\_setDataCompleteCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a3b2eac2de12d3099c2f9c2f51b98b643} 
+void i2c\+\_\+set\+Data\+Complete\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when I2C data transfer is complete. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked upon data completion. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8c_a38929307b3085fee5f160224dd1b4166}\index{i2c\_master.c@{i2c\_master.c}!i2c\_setDataNACKCallback@{i2c\_setDataNACKCallback}}
+\index{i2c\_setDataNACKCallback@{i2c\_setDataNACKCallback}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_setDataNACKCallback()}{i2c\_setDataNACKCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a38929307b3085fee5f160224dd1b4166} 
+void i2c\+\_\+set\+Data\+NACKCallback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when data is not acknowledged (NACK) on the I2C bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked when data is NACKed. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8c_af3d4e339efdb52f3374b888ead6a49a6}\index{i2c\_master.c@{i2c\_master.c}!i2c\_setTimeOut@{i2c\_setTimeOut}}
+\index{i2c\_setTimeOut@{i2c\_setTimeOut}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_setTimeOut()}{i2c\_setTimeOut()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_af3d4e339efdb52f3374b888ead6a49a6} 
+void i2c\+\_\+set\+Time\+Out (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{to}{}\end{DoxyParamCaption})}
+
+
+
+Sets the I2C timeout value. 
+
+This function safely sets the timeout threshold for I2C operations. Interrupts are disabled during the update to avoid race conditions.
+
+
+\begin{DoxyParams}{Parameters}
+{\em to} & The new timeout value to set. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8c_a395cf56845bb2784fe12d92d04bf4906}\index{i2c\_master.c@{i2c\_master.c}!i2c\_setTimeOutCallback@{i2c\_setTimeOutCallback}}
+\index{i2c\_setTimeOutCallback@{i2c\_setTimeOutCallback}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_setTimeOutCallback()}{i2c\_setTimeOutCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a395cf56845bb2784fe12d92d04bf4906} 
+void i2c\+\_\+set\+Time\+Out\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when an I2C timeout occurs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked on timeout. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{i2c__master_8c_ac7261a9e4685dd57a243b975049dcb56}\index{i2c\_master.c@{i2c\_master.c}!i2c\_setWriteCollisionCallback@{i2c\_setWriteCollisionCallback}}
+\index{i2c\_setWriteCollisionCallback@{i2c\_setWriteCollisionCallback}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_setWriteCollisionCallback()}{i2c\_setWriteCollisionCallback()}}
+{\footnotesize\ttfamily \label{i2c__master_8c_ac7261a9e4685dd57a243b975049dcb56} 
+void i2c\+\_\+set\+Write\+Collision\+Callback (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{i2c__types_8h_ab340df7dd64d98115950841e3b86eb12}{i2c\+\_\+callback}}}]{cb}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{p}{}\end{DoxyParamCaption})}
+
+
+
+Sets the callback function to be called when a write collision occurs on the I2C bus. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cb} & Pointer to the callback function that will be invoked on write collision. \\
+\hline
+{\em p} & Pointer to user-\/defined data that will be passed to the callback function. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{i2c__master_8c_a2928d9012bd56746f898cb40174c23cb}\index{i2c\_master.c@{i2c\_master.c}!fsmStateTable@{fsmStateTable}}
+\index{fsmStateTable@{fsmStateTable}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{fsmStateTable}{fsmStateTable}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a2928d9012bd56746f898cb40174c23cb} 
+const \mbox{\hyperlink{i2c__master_8c_aaccd3c090e042bb04f2fac4d367876da}{state\+Handler\+Function}}\texorpdfstring{$\ast$}{*} fsm\+State\+Table\mbox{[}$\,$\mbox{]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ do\_I2C\_IDLE,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_SEND\_ADR\_READ,\ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_SEND\_ADR\_WRITE,\ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_TX,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_RX,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_RCEN,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_TX\_EMPTY,\ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_SEND\_RESTART\_READ,\ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_SEND\_RESTART\_WRITE,\ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_SEND\_RESTART,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_SEND\_STOP,\ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_DO\_ACK,\ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_DO\_NACK\_STOP,\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_DO\_NACK\_RESTART,\ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_RESET,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ do\_I2C\_DO\_ADDRESS\_NACK\ \ \ \ \ \ }
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Table of I2C FSM state handler functions. 
+
+Maps each state enum value to its corresponding handler function, allowing dynamic state execution. \Hypertarget{i2c__master_8c_a39635b98dba85134fa0a696d37742c87}\index{i2c\_master.c@{i2c\_master.c}!i2c\_status@{i2c\_status}}
+\index{i2c\_status@{i2c\_status}!i2c\_master.c@{i2c\_master.c}}
+\doxysubsubsection{\texorpdfstring{i2c\_status}{i2c\_status}}
+{\footnotesize\ttfamily \label{i2c__master_8c_a39635b98dba85134fa0a696d37742c87} 
+\mbox{\hyperlink{structi2c__status__t}{i2c\+\_\+status\+\_\+t}} i2c\+\_\+status = \{0\}}
+

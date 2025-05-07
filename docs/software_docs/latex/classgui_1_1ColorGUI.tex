@@ -1,0 +1,110 @@
+\doxysection{gui.\+Color\+GUI Class Reference}
+\hypertarget{classgui_1_1ColorGUI}{}\label{classgui_1_1ColorGUI}\index{gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgui_1_1ColorGUI_ac7cb999f8c4b35ae0375b79c1711bfd9}{start\+Server}} ()
+\item 
+void \mbox{\hyperlink{classgui_1_1ColorGUI_af40f4dbd7d4ec61e5fcd11479cf7c841}{initialize}} ()
+\begin{DoxyCompactList}\small\item\em Function called first time program is started. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classgui_1_1ColorGUI_a2ae7549148b5b7f621ccdd7ef6dafb47}{send\+Data}} (String data)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Socket \mbox{\hyperlink{classgui_1_1ColorGUI_a5c2bac2cfe596c83d5da65db6cf26042}{client\+Socket}}
+\item 
+Print\+Writer \mbox{\hyperlink{classgui_1_1ColorGUI_a47a29052935fc8f851bf72091e57115b}{out}}
+\item 
+Buffered\+Reader \mbox{\hyperlink{classgui_1_1ColorGUI_a59ab132354daf06721f7ce36ac848c47}{in}}
+\item 
+Executor\+Service \mbox{\hyperlink{classgui_1_1ColorGUI_a204bfa55dac3fe0b4b8d46368944eea3}{executor\+Service}}
+\item 
+Array\+List$<$ Label $>$ \mbox{\hyperlink{classgui_1_1ColorGUI_a4859a24039174a04cfc158cd4009d5e1}{list\+Left}}
+\item 
+Array\+List$<$ Label $>$ \mbox{\hyperlink{classgui_1_1ColorGUI_a5f21b38b2f5d83aabb32523bfba037f2}{list\+Right}}
+\item 
+boolean \mbox{\hyperlink{classgui_1_1ColorGUI_a768ff045ae43a56f483b69fb322c7b33}{positions}} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classgui_1_1ColorGUI_af40f4dbd7d4ec61e5fcd11479cf7c841}\index{gui.ColorGUI@{gui.ColorGUI}!initialize@{initialize}}
+\index{initialize@{initialize}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_af40f4dbd7d4ec61e5fcd11479cf7c841} 
+void gui.\+Color\+GUI.\+initialize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Function called first time program is started. 
+
+Styles gui, sets up events for clicking on each color Also starts server using \doxylink{classgui_1_1ColorGUI_ac7cb999f8c4b35ae0375b79c1711bfd9}{start\+Server()} function \Hypertarget{classgui_1_1ColorGUI_a2ae7549148b5b7f621ccdd7ef6dafb47}\index{gui.ColorGUI@{gui.ColorGUI}!sendData@{sendData}}
+\index{sendData@{sendData}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{sendData()}{sendData()}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_a2ae7549148b5b7f621ccdd7ef6dafb47} 
+void gui.\+Color\+GUI.\+send\+Data (\begin{DoxyParamCaption}\item[{String}]{data}{}\end{DoxyParamCaption})}
+
+Function used to send data to microcontroller
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em data} & we want to send \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classgui_1_1ColorGUI_ac7cb999f8c4b35ae0375b79c1711bfd9}\index{gui.ColorGUI@{gui.ColorGUI}!startServer@{startServer}}
+\index{startServer@{startServer}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{startServer()}{startServer()}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_ac7cb999f8c4b35ae0375b79c1711bfd9} 
+void gui.\+Color\+GUI.\+start\+Server (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Starts server that will communicate with microcontroller 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classgui_1_1ColorGUI_a5c2bac2cfe596c83d5da65db6cf26042}\index{gui.ColorGUI@{gui.ColorGUI}!clientSocket@{clientSocket}}
+\index{clientSocket@{clientSocket}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{clientSocket}{clientSocket}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_a5c2bac2cfe596c83d5da65db6cf26042} 
+Socket gui.\+Color\+GUI.\+client\+Socket}
+
+\Hypertarget{classgui_1_1ColorGUI_a204bfa55dac3fe0b4b8d46368944eea3}\index{gui.ColorGUI@{gui.ColorGUI}!executorService@{executorService}}
+\index{executorService@{executorService}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{executorService}{executorService}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_a204bfa55dac3fe0b4b8d46368944eea3} 
+Executor\+Service gui.\+Color\+GUI.\+executor\+Service}
+
+\Hypertarget{classgui_1_1ColorGUI_a59ab132354daf06721f7ce36ac848c47}\index{gui.ColorGUI@{gui.ColorGUI}!in@{in}}
+\index{in@{in}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{in}{in}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_a59ab132354daf06721f7ce36ac848c47} 
+Buffered\+Reader gui.\+Color\+GUI.\+in}
+
+\Hypertarget{classgui_1_1ColorGUI_a4859a24039174a04cfc158cd4009d5e1}\index{gui.ColorGUI@{gui.ColorGUI}!listLeft@{listLeft}}
+\index{listLeft@{listLeft}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{listLeft}{listLeft}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_a4859a24039174a04cfc158cd4009d5e1} 
+Array\+List$<$Label$>$ gui.\+Color\+GUI.\+list\+Left}
+
+\Hypertarget{classgui_1_1ColorGUI_a5f21b38b2f5d83aabb32523bfba037f2}\index{gui.ColorGUI@{gui.ColorGUI}!listRight@{listRight}}
+\index{listRight@{listRight}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{listRight}{listRight}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_a5f21b38b2f5d83aabb32523bfba037f2} 
+Array\+List$<$Label$>$ gui.\+Color\+GUI.\+list\+Right}
+
+\Hypertarget{classgui_1_1ColorGUI_a47a29052935fc8f851bf72091e57115b}\index{gui.ColorGUI@{gui.ColorGUI}!out@{out}}
+\index{out@{out}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{out}{out}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_a47a29052935fc8f851bf72091e57115b} 
+Print\+Writer gui.\+Color\+GUI.\+out}
+
+\Hypertarget{classgui_1_1ColorGUI_a768ff045ae43a56f483b69fb322c7b33}\index{gui.ColorGUI@{gui.ColorGUI}!positions@{positions}}
+\index{positions@{positions}!gui.ColorGUI@{gui.ColorGUI}}
+\doxysubsubsection{\texorpdfstring{positions}{positions}}
+{\footnotesize\ttfamily \label{classgui_1_1ColorGUI_a768ff045ae43a56f483b69fb322c7b33} 
+boolean gui.\+Color\+GUI.\+positions\mbox{[}$\,$\mbox{]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+CSController/src/main/java/gui/\mbox{\hyperlink{ColorGUI_8java}{Color\+GUI.\+java}}\end{DoxyCompactItemize}
