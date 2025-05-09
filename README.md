@@ -43,7 +43,7 @@ Razvoj sistema je tekao kroz sledeće faze:
 
 4. **Izrada aplikacije**
 
-Nakon uspješnog programiranja mikrokontrolerske pločice, pristupili smo razvoju desktop aplikacije koja omogućava nadzor i upravljanje procesom razvrstavanja boja. Aplikacija komunicira sa uređajem putem WiFi veze i omogućava korisniku da prati status sistema u realnom vremenu, šalje komande za pokretanje i resetovanje, te definiše pravila sortiranja po bojama. O zahtjevima aplikacije možete pogledati na **Wiki** stranici - [Firmware i aplikacija](https://github.com/lukavidic/ColorSorter_A/wiki/7.-Firmware-i-aplikacija).
+   Nakon uspješnog programiranja mikrokontrolerske pločice, pristupili smo razvoju desktop aplikacije koja omogućava nadzor i upravljanje procesom razvrstavanja boja. Aplikacija komunicira sa uređajem putem WiFi veze i omogućava korisniku da prati status sistema u realnom vremenu, šalje komande za pokretanje i resetovanje, te definiše pravila sortiranja po bojama. O zahtjevima aplikacije možete pogledati na **Wiki** stranici - [Firmware i aplikacija](https://github.com/lukavidic/ColorSorter_A/wiki/7.-Firmware-i-aplikacija).
 
 5.  **Testiranje i kalibracija**
    
