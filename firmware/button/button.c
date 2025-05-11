@@ -26,8 +26,9 @@ void initPrekidi() {
     INTCON2bits.INT1EP = 1;                         // 1 = Falling edge (interrupt on button press)
     
     IFS1bits.INT1IF = 0;                            
-
-    INTCON2bits.GIE = 1;                            
+    IEC1bits.INT1IE = 1;                            //Enable INT1 interrupt
+    IPC5bits.INT1IP = 7;                            //Set INT1 interrupt priority (highest)
+    INTCON2bits.GIE = 1;                            //Enable global interrupts
 }
 
 void __attribute__((interrupt, no_auto_psv)) _INT1Interrupt(void) {
