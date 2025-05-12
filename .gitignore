@@ -1,6 +1,5 @@
 *.log
 *.o
-*.txt
 !CMakeLists.txt
 !**/adminR.txt
 !**/adminT.txt
